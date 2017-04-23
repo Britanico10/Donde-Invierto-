@@ -12,9 +12,13 @@ public class Program {
 	public static void main(String argv[]) throws FileNotFoundException{
 		// lista de empresas del programa
 		List<Empresa> empresas = new ArrayList<Empresa>();
-		File archivo = new File("C:\\archivo.txt");
+		File archivo = new File("src/Empresas.txt");
+		Empresa empresa1 = new Empresa("empresa1");
+		Empresa empresa2 = new Empresa("empresa2");
+		empresas.add(empresa1);
+		empresas.add(empresa2);
 		cargarCuentas(archivo, empresas);
-		archivo.delete();
+		//archivo.delete();
 		empresas.forEach(empresa -> empresa.mostrarBalances());
 	}
 	
@@ -24,13 +28,13 @@ public class Program {
 		// Si encuentra lo devuelve 
 		// Si no lo encuentra devuelve null
 		Optional<Empresa> a = empresas.stream()
- 				.filter(empresa -> empresa.nombre().equals(nombre))
+ 				.filter(empresa -> empresa.getNombre().equals(nombre))
 				.findFirst();
 		return a.isPresent() ? a.get() : null;
 	}	
 
 
-	private static void cargarCuentas(File archivo, List<Empresa> empresas) throws FileNotFoundException {
+	public static void cargarCuentas(File archivo, List<Empresa> empresas) throws FileNotFoundException {
 		// El sacenner lee linea por linea hasta el delimitador
 		// Le puse la coma pero puede ser cualquier cosa
 		Scanner scanner = new Scanner(archivo);
@@ -44,7 +48,7 @@ public class Program {
 			String nombreCuenta;
 			int valor;
 			// El StringTokenizer separa las palabras de la linea leida.
-			// La primer palabra es la empresa, se la busca con la funcion. Si no exites la crea.
+			// La primer palabra es la empresa, se la busca con la funcion. Si no existe la crea.
 			StringTokenizer separador = new StringTokenizer(linea);
 			palabra = separador.nextToken();
 		

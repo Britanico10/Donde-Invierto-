@@ -3,9 +3,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Empresa {
+	
 	List<Balance> balances = new ArrayList<Balance>();
 	String nombre;
-	// Me da paja hacerlo pero un nombre solo podria pertenecer a una empresa
+	
+	// un nombre solo podria pertenecer a una empresa. hacer
 	public Empresa(String _nombre) {
 		this.nombre = _nombre;
 	}
@@ -24,11 +26,13 @@ public class Empresa {
 		}
 		System.out.println(" ");
 	}
+	
+	//getters
 
-	public String nombre() {
-		return this.nombre;
+	public String getNombre() {
+		return nombre;
 	}
-	List<Balance> balances(){
+	public List<Balance> getBalances(){
 		return balances;
 	}
 }

@@ -7,10 +7,13 @@ public class Cuenta {
 		valor = _valor;
 		nombre = _nombre;
 	}
-	public int valor() {
+	
+	//getters
+	
+	public int getValor() {
 		return valor;
 	}
-	public String nombre(){
+	public String getNombre(){
 		return nombre;
 	}
 }
