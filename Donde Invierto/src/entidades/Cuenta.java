@@ -1,7 +1,8 @@
+package entidades;
 
 public class Cuenta {
-	int valor;
-	String nombre;
+	private int valor;
+	private String nombre;
 	
 	public Cuenta(String _nombre, int _valor) {
 		valor = _valor;
