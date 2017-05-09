@@ -9,17 +9,14 @@ public class Indicador {
 		formula = _formula;
 	}
 	
-	//getters
 	public String getIdIndicador(){
 		return idIndicador;
 	}
 	
 	public String getformula(){
 		return formula;
-	}
-	//fin getters
+	}	
 	
-	//setters
 	public void setIdIndicador(String valor){
 		idIndicador = valor;
 	}
@@ -27,6 +24,5 @@ public class Indicador {
 	public void setformula(String valor){
 		formula = valor;
 	}
-	//fin setters
 
 }

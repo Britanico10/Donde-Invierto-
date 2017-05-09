@@ -32,4 +32,12 @@ public class Empresa {
 		return balances;
 	}
 	
+	public void mostrarBalances(int periodo){
+		
+	}
+	
+	public void mostrarIndicadores(int periodo){
+		
+	}
+	
 }
