@@ -1,4 +1,3 @@
-
 grammar Formulas;
 
 //Reglas
@@ -27,5 +26,4 @@ PC: ')';
 
 
 //Salteo espacios
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
-
+WS : [ \t\r\n]+ -> skip ;
