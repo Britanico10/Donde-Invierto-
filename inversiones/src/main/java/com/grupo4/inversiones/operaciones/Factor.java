@@ -1,10 +1,10 @@
 package com.grupo4.inversiones.operaciones;
 
-public class Termino implements IExpresion {
+public class Factor implements IExpresion {
 
     private double valor;
 
-    public Termino(double valor) {
+    public Factor(double valor) {
         this.valor = valor;
     }
 

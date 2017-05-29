@@ -1,11 +1,9 @@
 grammar Formulas;
 
 //Reglas
-expresion: expresion masmenos termino | termino;
-termino: termino multodiv factor | factor;
+expresion: expresion MAS termino | expresion MENOS termino | termino;
+termino: termino POR factor | termino DIV factor | factor;
 factor: CUENTA | INDICADOR | NUMERO | PA expresion PC;
-masmenos: MAS | MENOS;
-multodiv: POR | DIV;
 
 
 //Lexemas
