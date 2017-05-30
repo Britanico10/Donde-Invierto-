@@ -9,6 +9,10 @@ public class Cuenta {
 		nombre = _nombre;
 	}
 	
+	public Cuenta(String _nombre){
+		nombre = _nombre;
+	}
+	
 	//getters
 	
 	public int getValor() {

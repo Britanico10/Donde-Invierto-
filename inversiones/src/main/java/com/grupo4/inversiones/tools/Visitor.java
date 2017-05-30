@@ -1,14 +1,28 @@
 package com.grupo4.inversiones.tools;
 
+import java.util.List;
+
 import com.grupo4.FormulasBaseVisitor;
 import com.grupo4.FormulasParser.ExpresionContext;
 import com.grupo4.FormulasParser.FactorComunContext;
+import com.grupo4.FormulasParser.FactorCuentaContext;
 import com.grupo4.FormulasParser.FactorExpresionContext;
+import com.grupo4.FormulasParser.IndicadorContext;
 import com.grupo4.FormulasParser.TerminoContext;
+import com.grupo4.inversiones.App;
+import com.grupo4.inversiones.entidades.Balance;
+import com.grupo4.inversiones.entidades.Cuenta;
+import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.operaciones.Expresion;
 import com.grupo4.inversiones.operaciones.Factor;
 
 public class Visitor extends FormulasBaseVisitor {
+	
+	@Override
+	public Double visitIndicador(IndicadorContext ctx){
+		System.out.print(ctx.value);
+		return ctx.value;
+	}
 	
 	@Override
 	public Factor visitFactorExpresion(FactorExpresionContext ctx){
@@ -18,18 +32,26 @@ public class Visitor extends FormulasBaseVisitor {
 	
 	@Override
 	public Factor visitFactorComun(FactorComunContext ctx){
-		Factor fac = new Factor(ctx.value);
+		Factor fac = new Factor((Double) ctx.value);
 		return fac;
 	}
 	
 	@Override
+	public Cuenta visitFactorCuenta(FactorCuentaContext ctx){
+		List<Balance> balances = App.empresaActual.getBalances();
+		return cuenta;
+	}
+	
+	@Override
 	public Expresion visitTermino(TerminoContext ctx){
-		Expresion term = new Expresion(ctx.f1.value,ctx.f2.value,ctx.);
+		Expresion term = new Expresion(ctx.value);
+		return term;
 	}
 	
 	@Override
 	public Expresion visitExpresion(ExpresionContext ctx){
-		Expresion e1 = new Expresion();
+		Expresion e1 = new Expresion(ctx.value);
+		System.out.print(ctx.value);
 		return e1;
 	}
 	

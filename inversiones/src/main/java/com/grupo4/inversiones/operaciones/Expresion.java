@@ -15,7 +15,11 @@ public class Expresion implements IExpresion {
         this.expresion2 = expresion2;
     }
 
-    public Expresion() {
+    public Expresion(double resultado) {
+    	this.resultado = resultado;
+    }
+    
+    public Expresion(){
     }
     
     public void setResultado(double resultado){
