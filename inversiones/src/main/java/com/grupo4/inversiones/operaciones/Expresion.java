@@ -1,20 +1,27 @@
 package com.grupo4.inversiones.operaciones;
 
-public class ExpresionCompuesta implements IExpresion {
+//para expresiones y terminos
+
+public class Expresion implements IExpresion {
 
     private IExpresion expresion1;
     private IOperador operador;
     private IExpresion expresion2;
+    private double resultado;
 
-    public ExpresionCompuesta(IExpresion expresion1, IExpresion expresion2, IOperador operador) {
+    public Expresion(IExpresion expresion1, IExpresion expresion2, IOperador operador) {
         this.expresion1 = expresion1;
         this.operador = operador;
         this.expresion2 = expresion2;
     }
 
-    public ExpresionCompuesta() {
+    public Expresion() {
     }
-
+    
+    public void setResultado(double resultado){
+    	this.resultado = resultado;
+    }
+    
     public double getResultado() {
         if(operador == null) {
             throw new RuntimeException("No hay operador definido");

@@ -1,9 +1,24 @@
 grammar Formulas;
 
 //Reglas
-expresion: expresion MAS termino | expresion MENOS termino | termino;
-termino: termino POR factor | termino DIV factor | factor;
-factor: CUENTA | INDICADOR | NUMERO | PA expresion PC;
+expresion returns [double value]: 
+t1 = termino {$value = (double)$t1.value;}	
+(MAS t2 = termino {$value = (double)$value + (double)$t2.value;} 
+| MENOS t3 = termino {$value = (double)$value - (double)$t3.value;}
+)*;
+
+termino returns [double value]: 
+f1 = factor {$value = (double)$f1.value;} 
+(POR f2 = factor {$value = (double)$value * (double)$f2.value;}
+| DIV f3 = factor {$value = (double)$value / (double)$f3.value;})*;
+
+
+factor returns [double value]: 
+CUENTA {$value = Double.parseDouble($CUENTA.text);} #FactorComun
+| INDICADOR {$value = Double.parseDouble($INDICADOR.text);} #FactorComun
+| NUMERO {$value = Double.parseDouble($NUMERO.text);} #FactorComun
+| PA e1 = expresion PC {$value = $e1.value;} #FactorExpresion
+; 
 
 
 //Lexemas

@@ -1,11 +1,19 @@
 package com.grupo4.inversiones.operaciones;
 
-public class Factor implements IExpresion {
+public class Factor{
 
-    private double valor;
+    private double valor; 
+    //factor puede tener una expresion entre parentesis, por eso no pongo valor
 
-    public Factor(double valor) {
+    public Factor(Double valor) {
         this.valor = valor;
+    }
+    
+    public Factor(){
+    }
+
+	public void setResultado(double valor){
+    	this.valor = valor;
     }
 
     public double getResultado() {
