@@ -18,6 +18,7 @@ import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.tools.Analizador;
 import com.grupo4.inversiones.tools.ParDeValores;
+import com.grupo4.inversiones.tools.PrintEmpresas;
 import com.grupo4.inversiones.tools.Visitor;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
 
@@ -34,11 +35,25 @@ public static List<Empresa> empresas;
     	empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
     	indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
     	
-    	Scanner sc = new Scanner(System.in);
+    	PrintEmpresas.mostrarEmpresas(empresas);
+    	
+    	/*Scanner sc = new Scanner(System.in);
     	sc.useDelimiter("[:\\s]");
     	String cadena = sc.nextLine();
     	
-    	System.out.println(Analizador.evaluar(cadena));
+    	Analizador.evaluar(cadena);
+    	*/
     	
     }
 }
+
+/*
+Recuperación de indicadores definidos por el usuario
+Listado de indicadores junto con las cuentas de una empresa en cierto
+periodo (aplicar indicadores).
+Test de la gramática definida
+Test de Indicadores generados a partir de la gramática (objetos)
+Test de manejo de errores (Exceptions)
+A partir del output del parser, generar los objetos (instancias)
+correspondientes según el modelo definido en el paso 3.
+*/

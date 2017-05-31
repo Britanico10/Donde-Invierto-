@@ -5,34 +5,29 @@ import com.grupo4.FormulasBaseVisitor;
 import com.grupo4.FormulasParser;
 import com.grupo4.FormulasParser.CuentaContext;
 import com.grupo4.FormulasParser.DoubleContext;
-import com.grupo4.FormulasParser.ExpresionContext;
 import com.grupo4.FormulasParser.IndiContext;
-import com.grupo4.FormulasParser.IndicadorContext;
 import com.grupo4.FormulasParser.MuldivContext;
 import com.grupo4.FormulasParser.ParenContext;
 import com.grupo4.FormulasParser.PrintExprContext;
 import com.grupo4.FormulasParser.SumresContext;
 import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Balance;
-import com.grupo4.inversiones.entidades.Cuenta;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
-import com.grupo4.inversiones.operaciones.Expresion;
-import com.grupo4.inversiones.operaciones.Factor;
 
-public class Visitor extends FormulasBaseVisitor {
+public class Visitor extends FormulasBaseVisitor<Double> {
 	
 	@Override
 	public Double visitPrintExpr(PrintExprContext ctx){
-		double value = (Double) visit(ctx.expresion());
+		Double value = visit(ctx.expresion());
 		System.out.println(value);
 		return value;
 	}
 	
 	@Override
 	public Double visitMuldiv(MuldivContext ctx){
-		double left = (Double) visit(ctx.expresion(0));
-		double right = (Double) visit(ctx.expresion(1));
+		Double left = visit(ctx.expresion(0));
+		Double right = visit(ctx.expresion(1));
 
 		switch (ctx.op.getType()){
 		case FormulasParser.MUL: return left * right;
@@ -43,8 +38,8 @@ public class Visitor extends FormulasBaseVisitor {
 	
 	@Override
 	public Double visitSumres(SumresContext ctx){
-		double left = (Double) visit(ctx.expresion(0));
-		double right = (Double) visit(ctx.expresion(1));
+		Double left = visit(ctx.expresion(0));
+		Double right = visit(ctx.expresion(1));
 		switch (ctx.op.getType()){
 		case FormulasParser.MAS: return left + right;
 		case FormulasParser.MENOS: return left - right;
@@ -83,131 +78,7 @@ public class Visitor extends FormulasBaseVisitor {
 	
 	@Override
 	public Double visitParen(ParenContext ctx){		
-		return (Double)visit(ctx.expresion());
+		return visit(ctx.expresion());
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*@Override
-	public Double visitIndicador(IndicadorContext ctx){
-		System.out.print(ctx.value);
-		return ctx.value;
-	}
-	
-	@Override
-	public Factor visitFactorExpresion(FactorExpresionContext ctx){
-		Factor fac = new Factor((Double) visit(ctx.expresion()));
-		return fac;
-	}
-	
-	@Override
-	public Factor visitFactorComun(FactorComunContext ctx){
-		Factor fac = new Factor((Double) ctx.value);
-		return fac;
-	}
-	
-	@Override
-	public Cuenta visitFactorCuenta(FactorCuentaContext ctx){
-		List<Balance> balances = App.empresaActual.getBalances();
-		return cuenta;
-	}
-	
-	@Override
-	public Expresion visitTermino(TerminoContext ctx){
-		Expresion term = new Expresion(ctx.value);
-		return term;
-	}
-	
-	@Override
-	public Expresion visitExpresion(ExpresionContext ctx){
-		Expresion e1 = new Expresion(ctx.value);
-		System.out.print(ctx.value);
-		return e1;
-	}*/
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*@Override
-	public void enterFactor(FactorContext ctx){
-		Factor = new Factor();
-	}
-	
-	@Override
-	public void exitFactor(FactorContext ctx){
-		if (ctx.getChild(1).getText() == "(") {
-			Factor.setResultado(Double.parseDouble(ctx.getChild(2).getText()));
-		}
-		else{
-			Factor.setResultado(Double.parseDouble(ctx.getText()));
-			}
-		
-	}
-	
-	public void enterExpresion(ExpresionContext ctx){
-		Expresion = new Expresion();
-	}
-	
-	public void exitExpresion(ExpresionContext ctx){
-		if (ctx.getChildCount() == 3){
-			Expresion.setExpresion1(ctx.expresion().);
-			
-		}
-	}
-	
-	*/
 	
 }
