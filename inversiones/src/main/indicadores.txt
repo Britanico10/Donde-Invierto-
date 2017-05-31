@@ -1,11 +1,1 @@
-[
-
-		{"idIndicador":"indicador1",
-		"formula":"4+5*(8/7)"
-		},
-		
-		{"idIndicador":"indicador2",
-		"formula":"4*9+ebitda"
-		}
-
-]
+[{"formula":"4*8+(5-6)","idIndicador":"indicador1"},{"formula":"ebitda+4","idIndicador":"indicador2"},{"formula":"4\/5*fds","idIndicador":"indicadornuevo"},{"formula":"4*4*4*4*4*4*4*4","idIndicador":"indicadorPoderoso"}]

@@ -20,7 +20,7 @@ public class Visitor extends FormulasBaseVisitor<Double> {
 	@Override
 	public Double visitPrintExpr(PrintExprContext ctx){
 		Double value = visit(ctx.expresion());
-		System.out.println(value);
+		//System.out.println(value);
 		return value;
 	}
 	

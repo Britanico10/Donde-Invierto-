@@ -14,13 +14,11 @@ public class CreadorIndicadores {
 		Indicador nuevoIndicador;
 		
 		System.out.println("Ingrese el nombre del indicador.");
-    	Scanner scc = new Scanner(System.in);
-    	scc.useDelimiter("[:\\s]");
-    	String nombreIndicador = scc.nextLine();
-    	
-    	System.out.println("Ingrese la formula del indicador.");
     	Scanner sc = new Scanner(System.in);
     	sc.useDelimiter("[:\\s]");
+    	String nombreIndicador = sc.nextLine();
+    	
+    	System.out.println("Ingrese la formula del indicador.");
     	String formula = sc.nextLine();
     	
     	if (Analizador.evaluar(formula) != null){

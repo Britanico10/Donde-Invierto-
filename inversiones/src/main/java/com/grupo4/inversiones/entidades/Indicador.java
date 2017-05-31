@@ -5,12 +5,12 @@ import java.io.IOException;
 import com.grupo4.inversiones.tools.Analizador;
 
 public class Indicador {
-	private String idIndicador;
 	private String formula;
+	private String idIndicador;
 	
 	public Indicador(String _idIndicador, String _formula){
-		idIndicador = _idIndicador;
 		formula = _formula;
+		idIndicador = _idIndicador;
 	}
 	
 	public String getIdIndicador(){
