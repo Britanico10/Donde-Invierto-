@@ -1,5 +1,9 @@
 package com.grupo4.inversiones.entidades;
 
+import java.io.IOException;
+
+import com.grupo4.inversiones.tools.Analizador;
+
 public class Indicador {
 	private String idIndicador;
 	private String formula;
@@ -23,6 +27,10 @@ public class Indicador {
 	
 	public void setformula(String valor){
 		formula = valor;
+	}
+	
+	public double aplicarA(Empresa empresa){
+		return Analizador.evaluar(formula);
 	}
 
 }

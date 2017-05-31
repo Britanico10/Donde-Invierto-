@@ -1,0 +1,11 @@
+[
+
+		{"idIndicador":"indicador1",
+		"formula":"4+5*(8/7)"
+		},
+		
+		{"idIndicador":"indicador2",
+		"formula":"4*9+ebitda"
+		}
+
+]

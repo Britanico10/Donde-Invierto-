@@ -2,7 +2,20 @@ grammar Formulas;
 
 //Reglas
 
-indicador returns [double value]: e1 = expresion {$value = $e1.value;};
+indicador: expresion #printExpr
+;
+
+expresion: expresion op=('*'|'/') expresion #muldiv
+| expresion op=('+'|'-') expresion #sumres
+| NUMERO #double
+| INDICADOR #indi
+| CUENTA #cuenta
+| '(' expresion ')' #paren
+;
+
+
+
+/*indicador returns [double value]: e1 = expresion {$value = $e1.value;};
 
 expresion returns [double value]: 
 t1 = termino {$value = (double)$t1.value;}	
@@ -21,14 +34,14 @@ CUENTA {$value = $CUENTA.text;} #FactorCuenta
 | INDICADOR {$value = Double.parseDouble($INDICADOR.text);} #FactorComun
 | NUMERO {$value = Double.parseDouble($NUMERO.text);} #FactorComun
 | PA e1 = expresion PC {$value = $e1.value;} #FactorExpresion
-; 
+;  */
 
 
 //Lexemas
 CUENTA: 'ebitda' | 'fds' | 'fCashFlow' | 'ingNetoOpCont' | 'ingNetoOpDiscont' | 'deuda';
 MAS: '+';
 MENOS: '-';
-POR: '*';
+MUL: '*';
 DIV: '/';
 IGUAL: '=';
 MAYOR: '>';
