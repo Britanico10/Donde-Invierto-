@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.grupo4.inversiones.tools.BuscadorDeListas;
+
 public class Empresa {
 	
 	private String nombre;
@@ -32,6 +34,12 @@ public class Empresa {
 		return balances;
 	}
 	
+	public void mostrarBalances(int periodo){
+		Balance balance = BuscadorDeListas.buscarCuentaEn(balances,periodo);
+		System.out.println("BALANCES PARA EL PERIODO " + periodo + ":");
+		balance.mostrarse();
+	}
+	
 	public void mostrarBalances(){
 		
 		System.out.println("BALANCES:");
@@ -39,18 +47,8 @@ public class Empresa {
 		for (int i = 0; i <= balances.size() - 1; i++){
 			
 			System.out.println("Periodo: " + balances.get(i).getPeriodo());
+			balances.get(i).mostrarse();
 			
-			System.out.println("Deuda: " + balances.get(i).getDeuda());
-			
-			System.out.println("Ebitda: " + balances.get(i).getEbitda());
-			
-			System.out.println("fCashFlow: " + balances.get(i).getfCashFlow());
-			
-			System.out.println("Fds: " + balances.get(i).getFds());
-			
-			System.out.println("IngNetoOpCont: " + balances.get(i).getIngNetoOpCont());
-			
-			System.out.println("IngNetOpDiscont: " + balances.get(i).getIngNetoOpDiscont());
 			System.out.println(" ");
 		}
 	}

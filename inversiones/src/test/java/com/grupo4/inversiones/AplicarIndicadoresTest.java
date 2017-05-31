@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.tools.AplicarIndicadores;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
 
 public class AplicarIndicadoresTest {
@@ -19,7 +20,14 @@ public class AplicarIndicadoresTest {
 		List<Empresa> empresas;
 		empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
     	indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
-    	App.situacionActual.set
+    	App.situacionActual.setFst(empresas.get(0));
+		App.situacionActual.setSnd(2007);
+    	Empresa empresaActual = (Empresa) App.situacionActual.getFst();
+    	
+    	((Empresa) App.situacionActual.getFst()).mostrarBalances(2007);
+    	AplicarIndicadores.aplicarIndicadores(empresaActual, indicadores);
+    	
+    	assertEquals(indicadores.size(), 2);
 	}
 
 }

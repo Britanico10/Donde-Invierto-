@@ -61,5 +61,15 @@ public class Balance{
 		periodo = _periodo;
 	}
 	
+	public void mostrarse(){
+		System.out.println("Deuda: " + this.deuda);
+		System.out.println("Ebitda: " + this.ebitda);
+		System.out.println("fCashFlow: " + this.fCashFlow);
+		System.out.println("Fds: " + this.fds);
+		System.out.println("IngNetoOpCont: " + this.ingNetoOpCont);
+		System.out.println("IngNetOpDiscont: " + this.ingNetoOpDiscont);
+		System.out.println(" ");
+	}
+	
 
 }

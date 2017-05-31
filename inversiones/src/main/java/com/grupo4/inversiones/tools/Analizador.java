@@ -17,7 +17,7 @@ public class Analizador {
     	FormulasParser parser = new FormulasParser(tokens);
     	ParseTree tree = parser.indicador(); //parse
     	
-    	System.out.println(tree.toStringTree(parser));
+    	//System.out.println(tree.toStringTree(parser));
     	
     	Visitor visitor = new Visitor();
     	return visitor.visit(tree);
