@@ -9,6 +9,7 @@ import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.tools.AplicarIndicadores;
 import com.grupo4.inversiones.tools.CreadorIndicadores;
+import com.grupo4.inversiones.tools.EditarIndicador;
 import com.grupo4.inversiones.tools.ParDeValores;
 import com.grupo4.inversiones.tools.PrintEmpresas;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
@@ -35,7 +36,8 @@ public static List<Empresa> empresas;
     		System.out.println("3. Mostrar empresas.");
     		System.out.println("4. Mostrar balances para cierto periodo.");
     		System.out.println("5. Mostrar indicadores.");
-    		System.out.println("6. Cerrar aplicación.");
+    		System.out.println("6. Modificar indicador.");
+    		System.out.println("7. Cerrar aplicación.");
         	Scanner sc = new Scanner(System.in);
         	sc.useDelimiter("[:\\s]");
         	opcionElegida = Integer.parseInt(sc.nextLine());
@@ -47,6 +49,8 @@ public static List<Empresa> empresas;
         	case 2: 
         		System.out.println("Seleccione una empresa");
         		situacionActual.setFst(empresas.get(Integer.parseInt(sc.nextLine())));
+        		System.out.println("Seleccione un periodo");
+        		situacionActual.setSnd((Integer.parseInt(sc.nextLine())));
         		AplicarIndicadores.aplicarIndicadores((Empresa)situacionActual.getFst(),indicadores);
         		break;
         	case 3: 
@@ -69,7 +73,15 @@ public static List<Empresa> empresas;
         			System.out.println(" ");
         		}
         		break;
-        	case 6: System.exit(0);
+        	case 6: 
+        		System.out.println("Seleccione un indicador.");
+        		String indicadorAModificar = (sc.nextLine());
+        		System.out.println("Ingrese la nueva formula.");
+        		String nuevaFormula = (sc.nextLine());
+        		EditarIndicador.editarIndicador(indicadores,indicadorAModificar,nuevaFormula);
+        		cargadorDeArchivos.guardarIndicadores("src/main/indicadores.txt", indicadores);
+        		break;
+        	case 7: System.exit(0);
         		break;
         	
         	}
