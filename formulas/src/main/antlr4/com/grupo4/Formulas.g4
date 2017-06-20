@@ -23,7 +23,7 @@ MAYOROIGUAL: '>=';
 MENOROIGUAL: '<=';
 PA: '(';
 PC: ')';
-INDICADOR: [a-z]+ ;
+INDICADOR: [a-zA-Z]+ ;
 NUMERO: [0-9]+;
 
 WS : [ \t\r\n]+ -> skip ;

@@ -1,0 +1,44 @@
+//created on: jun 19, 2017
+package com.grupo4.drools.rules
+
+import com.grupo4.inversiones.entidades.Empresa;
+import java.util.Calendar;
+
+
+
+//declare any global variables here
+
+rule "Maximizar ROE"
+
+    when
+        //conditions
+    then
+        //actions
+
+end
+
+rule "Minimizar el nivel de deuda"
+    //include attributes such as "salience" here...
+    when
+        //conditions
+    then
+        //actions
+
+end
+
+rule "Márgenes consistentemente crecientes"
+    //include attributes such as "salience" here...
+    when
+        //conditions
+    then
+        //actions
+
+end
+
+rule "Longevidad"
+    //include attributes such as "salience" here...
+    when
+    then
+        //actions
+
+end

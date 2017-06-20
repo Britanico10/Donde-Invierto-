@@ -11,6 +11,7 @@ public class Empresa {
 	private int inicioActividad;
 	private List<Balance> balances = new ArrayList<Balance>();
 	
+	
 	public Empresa(String _nombre) {
 		this.nombre = _nombre;
 	}
