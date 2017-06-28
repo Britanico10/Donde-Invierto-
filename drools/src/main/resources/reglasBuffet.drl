@@ -3,12 +3,23 @@ package com.grupo4.drools.rules
 
 import com.grupo4.inversiones.entidades.Empresa;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Collections;
 
+global java.util.List listaEmpresas;
+global java.lang.Integer anio;
 
+rule "Longevidad"
+dialect "java"
+    //include attributes such as "salience" here...
+    when
+    $e: Empresa(inicioActividad < (anio - 10))
+    then
+		listaEmpresas.add($e);
+		//Collections.sort(listaEmpresas,((a,b) -> a.getInicioActividad().compareTo(b.getInicioActividad())));
+	end
 
-//declare any global variables here
-
-rule "Maximizar ROE"
+/*rule "Maximizar ROE"
 
     when
         //conditions
@@ -33,12 +44,4 @@ rule "Márgenes consistentemente crecientes"
     then
         //actions
 
-end
-
-rule "Longevidad"
-    //include attributes such as "salience" here...
-    when
-    then
-        //actions
-
-end
+end */

@@ -2,8 +2,6 @@ package com.grupo4.inversiones.tools;
 
 import java.util.List;
 import java.util.Scanner;
-
-import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.tools.Analizador;
 
@@ -27,7 +25,7 @@ public class CreadorIndicadores {
     		System.out.println("Indicador guardado.");
     		System.out.println(Analizador.evaluar(formula));
     	}
-		
+		sc.close();
 	}
 
 }

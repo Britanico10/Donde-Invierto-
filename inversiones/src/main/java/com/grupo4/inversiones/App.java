@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.tools.AplicarIndicadores;
 import com.grupo4.inversiones.tools.CreadorIndicadores;
 import com.grupo4.inversiones.tools.EditarIndicador;
@@ -83,10 +84,11 @@ public static List<Empresa> empresas;
         		break;
         	case 7: System.exit(0);
         		break;
+        	case 8: com.grupo4.drools.App.main(empresas);
+        		break;
         	
         	}
     	}
-    	
     	
     	
     }
