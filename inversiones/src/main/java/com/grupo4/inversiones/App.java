@@ -14,6 +14,7 @@ import com.grupo4.inversiones.tools.EditarIndicador;
 import com.grupo4.inversiones.tools.ParDeValores;
 import com.grupo4.inversiones.tools.PrintEmpresas;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
+import com.grupo4.inversiones.tools.Reglas;
 
 public class App{
 
@@ -38,7 +39,8 @@ public static List<Empresa> empresas;
     		System.out.println("4. Mostrar balances para cierto periodo.");
     		System.out.println("5. Mostrar indicadores.");
     		System.out.println("6. Modificar indicador.");
-    		System.out.println("7. Cerrar aplicación.");
+    		System.out.println("7. Inicializar motor de reglas.");
+    		System.out.println("8. Cerrar aplicación.");
         	Scanner sc = new Scanner(System.in);
         	sc.useDelimiter("[:\\s]");
         	opcionElegida = Integer.parseInt(sc.nextLine());
@@ -82,9 +84,9 @@ public static List<Empresa> empresas;
         		EditarIndicador.editarIndicador(indicadores,indicadorAModificar,nuevaFormula);
         		cargadorDeArchivos.guardarIndicadores("src/main/indicadores.txt", indicadores);
         		break;
-        	case 7: System.exit(0);
-        		break;
-        	case 8: com.grupo4.drools.App.main(empresas);
+        	case 7: Reglas.inicializarMotor(empresas);
+    			break;
+        	case 8: System.exit(0);
         		break;
         	
         	}

@@ -10,7 +10,17 @@ import org.kie.api.runtime.KieSession;
 import com.grupo4.inversiones.entidades.Empresa;
 
 public class App {
-	 public static void main(List<Empresa> empresas) {
+	
+	public static void main() {
+		
+		KieServices ks = KieServices.Factory.get();
+		KieContainer kContainer = ks.newKieContainer(ks.newReleaseId(
+				"com.grupo4", "drools",
+				"1.0.0"));
+		KieSession kieSession = kContainer.newKieSession("sesionReglasBuffet");
+	}
+	 
+	/*public static void main(List<Empresa> empresas) {
 	 List<Empresa> listaEmpresas = new ArrayList<Empresa>();
 	 Calendar cal = Calendar.getInstance(); 
      int anio = cal.get(Calendar.YEAR);
@@ -30,5 +40,5 @@ public class App {
      int fired = kSession.fireAllRules();
      System.out.println( "Number of Rules executed = " + fired );
      
-	 }
+	 } */
 	}

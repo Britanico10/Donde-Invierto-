@@ -7,7 +7,7 @@
     <properties>
   		<maven.compiler.source>1.8</maven.compiler.source>
  		<maven.compiler.target>1.8</maven.compiler.target>
-        <runtime.version>7.0.0.Final</runtime.version>
+        <runtime.version>6.5.0.Final</runtime.version>
     </properties>
  
     <repositories>
@@ -32,6 +32,13 @@
             <artifactId>kie-api</artifactId>
             <version>${runtime.version}</version>
         </dependency>
+        
+        <dependency>
+		<groupId>org.kie</groupId>
+		<artifactId>kie-ci</artifactId>
+		<version>${runtime.version}</version>
+		</dependency>
+		
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-core</artifactId>
@@ -42,18 +49,7 @@
             <artifactId>drools-compiler</artifactId>
             <version>${runtime.version}</version>
         </dependency>
-        
-            <dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-api</artifactId>
-       <version>1.7.5</version>
-   </dependency>
-   <dependency>
-       <groupId>org.slf4j</groupId>
-       <artifactId>slf4j-log4j12</artifactId>
-       <version>1.7.5</version>
-   </dependency>
-        
+		
     </dependencies>
   
 </project>
