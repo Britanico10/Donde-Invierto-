@@ -1,7 +1,7 @@
 [
 
         {
-            "nombre":"América Móvil",
+            "nombre":"Amï¿½rica Mï¿½vil",
             "inicioActividad":2000,
             "balances":
              [
@@ -12,7 +12,9 @@
               "fCashFlow":955,
               "ingNetoOpCont": 2221,
 	      "ingNetoOpDiscont": 1051,
-              "deuda": 15},
+              "deuda": 15,
+              "capitalPropio": 50000
+              },
 
             {"periodo": 2007,
              "ebitda": 77691,
@@ -20,7 +22,8 @@
               "fCashFlow":1096,
               "ingNetoOpCont": 3221,
 	      "ingNetoOpDiscont": 1221,
-              "deuda": 12
+              "deuda": 12,
+              "capitalPropio": 30000
 		},
             {"periodo": 2008,
              "ebitda": 85291,
@@ -28,7 +31,8 @@
               "fCashFlow":1198,
               "ingNetoOpCont": 4568,
 	      "ingNetoOpDiscont": 2112,
-              "deuda": 14
+              "deuda": 14,
+              "capitalPropio": 70000
 		},
             {"periodo": 2009,
              "ebitda": 79463,
@@ -36,7 +40,8 @@
               "fCashFlow":1234,
               "ingNetoOpCont": 2789,
 	      "ingNetoOpDiscont": 987,
-              "deuda": 13
+              "deuda": 13,
+              "capitalPropio": 80000
 		},
             {"periodo": 2010,
              "ebitda": 74961,
@@ -44,7 +49,8 @@
               "fCashFlow":1078,
               "ingNetoOpCont": 2034,
 	      "ingNetoOpDiscont": 1001,
-              "deuda": 12
+              "deuda": 12,
+              "capitalPropio": 40000
 		},
             {"periodo": 2011,
              "ebitda": 86431,
@@ -52,7 +58,8 @@
               "fCashFlow":2468,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 859,
-              "deuda": 11
+              "deuda": 11,
+              "capitalPropio": 90000
 		},
          
             {"periodo": 2012,
@@ -61,7 +68,8 @@
               "fCashFlow":3468,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 859,
-              "deuda": 10
+              "deuda": 10,
+              "capitalPropio": 150000
 		},
 
             {"periodo": 2013,
@@ -70,7 +78,8 @@
               "fCashFlow":4468,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 1859,
-              "deuda": 9
+              "deuda": 9,
+              "capitalPropio": 250000
 		},
 
             {"periodo": 2014,
@@ -79,7 +88,8 @@
               "fCashFlow":2468,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 859,
-              "deuda": 8
+              "deuda": 8,
+              "capitalPropio": 550000
 		},
 
             {"periodo": 2015,
@@ -88,7 +98,8 @@
               "fCashFlow":2468,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 859,
-              "deuda": 11
+              "deuda": 11,
+              "capitalPropio": 5450000
 		},
             {"periodo": 2016,
              "ebitda": 91234,
@@ -96,7 +107,8 @@
               "fCashFlow":2468,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 859,
-              "deuda": 11
+              "deuda": 11,
+              "capitalPropio": 850000
 		}
 
 
@@ -116,7 +128,8 @@
               "fCashFlow":789,
               "ingNetoOpCont": 2345,
 	      "ingNetoOpDiscont": 1234,
-              "deuda": 7
+              "deuda": 7,
+              "capitalPropio": 50000
              },
 
             {"periodo": 2007,
@@ -125,7 +138,8 @@
               "fCashFlow":978,
               "ingNetoOpCont": 3456,
 	      "ingNetoOpDiscont": 2123,
-              "deuda": 6
+              "deuda": 6,
+              "capitalPropio": 50000
 		},
             {"periodo": 2008,
              "ebitda": 34567,
@@ -133,7 +147,8 @@
               "fCashFlow":1012,
               "ingNetoOpCont": 3232,
 	      "ingNetoOpDiscont": 1331,
-              "deuda": 4
+              "deuda": 4,
+              "capitalPropio": 150000
 		},
             {"periodo": 2009,
              "ebitda": 29291,
@@ -141,7 +156,8 @@
               "fCashFlow":999,
               "ingNetoOpCont": 2929,
 	      "ingNetoOpDiscont": 778,
-              "deuda": 7
+              "deuda": 7,
+              "capitalPropio": 250000
 		},
             {"periodo": 2010,
              "ebitda": 54961,
@@ -149,7 +165,8 @@
               "fCashFlow":3078,
               "ingNetoOpCont": 4034,
 	      "ingNetoOpDiscont": 1001,
-              "deuda": 5
+              "deuda": 5,
+              "capitalPropio": 52000
 		},
             {"periodo": 2011,
              "ebitda": 66431,
@@ -157,7 +174,8 @@
               "fCashFlow":5468,
               "ingNetoOpCont": 4114,
 	      "ingNetoOpDiscont": 1859,
-              "deuda": 8
+              "deuda": 8,
+              "capitalPropio": 750000
 		},
          
           {"periodo": 2012,
@@ -166,7 +184,8 @@
               "fCashFlow":5368,
               "ingNetoOpCont": 4444,
 	      "ingNetoOpDiscont": 1759,
-              "deuda": 8
+              "deuda": 8,
+              "capitalPropio": 90000
 		},
           
             {"periodo": 2013,
@@ -175,7 +194,8 @@
               "fCashFlow":6468,
               "ingNetoOpCont": 4224,
 	      "ingNetoOpDiscont": 2859,
-              "deuda": 6
+              "deuda": 6,
+              "capitalPropio": 60000
 		},
          
           {"periodo": 2014,
@@ -184,7 +204,8 @@
               "fCashFlow":5468,
               "ingNetoOpCont": 4114,
 	      "ingNetoOpDiscont": 1859,
-              "deuda": 5
+              "deuda": 5,
+              "capitalPropio": 30000
 		},
          {"periodo": 2015,
              "ebitda": 66866,
@@ -192,7 +213,8 @@
               "fCashFlow":5658,
               "ingNetoOpCont": 4114,
 	      "ingNetoOpDiscont": 1859,
-              "deuda": 5
+              "deuda": 5,
+              "capitalPropio": 57000
 		},
           {"periodo": 2016,
              "ebitda": 71866,
@@ -200,7 +222,8 @@
               "fCashFlow":7468,
               "ingNetoOpCont": 5114,
 	      "ingNetoOpDiscont": 2159,
-              "deuda": 4
+              "deuda": 4,
+              "capitalPropio": 70000
 		}
        
 	]
@@ -217,7 +240,9 @@
               "fCashFlow":955,
               "ingNetoOpCont": 2221,
 	      "ingNetoOpDiscont": 1051,
-              "deuda": 15},
+              "deuda": 15,
+              "capitalPropio": 50000
+              },
 
             {"periodo": 2007,
              "ebitda": 77691,
@@ -225,7 +250,8 @@
               "fCashFlow":1096,
               "ingNetoOpCont": 3221,
 	      "ingNetoOpDiscont": 1221,
-              "deuda": 12
+              "deuda": 12,
+              "capitalPropio": 50000
 		},
             {"periodo": 2008,
              "ebitda": 85291,
@@ -233,7 +259,8 @@
               "fCashFlow":1198,
               "ingNetoOpCont": 4568,
 	      "ingNetoOpDiscont": 2112,
-              "deuda": 14
+              "deuda": 14,
+              "capitalPropio": 50000
 		},
             {"periodo": 2009,
              "ebitda": 79463,
@@ -241,7 +268,8 @@
               "fCashFlow":1234,
               "ingNetoOpCont": 2789,
 	      "ingNetoOpDiscont": 987,
-              "deuda": 13
+              "deuda": 13,
+              "capitalPropio": 50000
 		},
             {"periodo": 2010,
              "ebitda": 74961,
@@ -249,7 +277,8 @@
               "fCashFlow":1078,
               "ingNetoOpCont": 2034,
 	      "ingNetoOpDiscont": 1001,
-              "deuda": 12
+              "deuda": 12,
+              "capitalPropio": 50000
 		},
 
             {"periodo": 2011,
@@ -258,7 +287,8 @@
               "fCashFlow":2298,
               "ingNetoOpCont": 4568,
 	      "ingNetoOpDiscont": 2112,
-              "deuda": 14
+              "deuda": 14,
+              "capitalPropio": 50000
 		},
             {"periodo": 2012,
              "ebitda": 79463,
@@ -266,7 +296,8 @@
               "fCashFlow":2934,
               "ingNetoOpCont": 2789,
 	      "ingNetoOpDiscont": 987,
-              "deuda": 11
+              "deuda": 11,
+              "capitalPropio": 50000
 		},
             {"periodo": 2013,
              "ebitda": 74961,
@@ -274,7 +305,8 @@
               "fCashFlow":2078,
               "ingNetoOpCont": 2034,
 	      "ingNetoOpDiscont": 1001,
-              "deuda": 12
+              "deuda": 12,
+              "capitalPropio": 50000
 		},
 
             {"periodo": 2014,
@@ -283,7 +315,8 @@
               "fCashFlow":3468,
               "ingNetoOpCont": 2299,
 	      "ingNetoOpDiscont": 859,
-              "deuda": 10
+              "deuda": 10,
+              "capitalPropio": 250000
 		},
             {"periodo": 2015,
              "ebitda": 79555,
@@ -291,7 +324,8 @@
               "fCashFlow":2934,
               "ingNetoOpCont": 2789,
 	      "ingNetoOpDiscont": 987,
-              "deuda": 9
+              "deuda": 9,
+              "capitalPropio": 150000
 		},
             {"periodo": 2016,
              "ebitda": 74961,
@@ -299,7 +333,8 @@
               "fCashFlow":3078,
               "ingNetoOpCont": 2034,
 	      "ingNetoOpDiscont": 1001,
-              "deuda": 7
+              "deuda": 7,
+              "capitalPropio": 850000
 		}
          
 	]
@@ -317,7 +352,9 @@
               "fCashFlow":1234,
               "ingNetoOpCont": 979,
 	      "ingNetoOpDiscont": 435,
-              "deuda": 18},
+              "deuda": 18,
+              "capitalPropio": 50000
+              },
 
             {"periodo": 2007,
              "ebitda": 44444,
@@ -325,7 +362,8 @@
               "fCashFlow":2222,
               "ingNetoOpCont": 1728,
 	      "ingNetoOpDiscont": 924,
-              "deuda": 15
+              "deuda": 15,
+              "capitalPropio": 20000
 		},
             {"periodo": 2008,
              "ebitda": 55555,
@@ -333,7 +371,8 @@
               "fCashFlow":1198,
               "ingNetoOpCont": 4568,
 	      "ingNetoOpDiscont": 2112,
-              "deuda": 11
+              "deuda": 11,
+              "capitalPropio": 850000
 		},
             {"periodo": 2009,
              "ebitda": 66666,
@@ -341,7 +380,8 @@
               "fCashFlow":3333,
               "ingNetoOpCont": 2345,
 	      "ingNetoOpDiscont": 1234,
-              "deuda": 9
+              "deuda": 9,
+              "capitalPropio": 750000
 		},
             {"periodo": 2010,
              "ebitda": 69696,
@@ -349,7 +389,8 @@
               "fCashFlow":3939,
               "ingNetoOpCont": 2929,
 	      "ingNetoOpDiscont": 1231,
-              "deuda": 8
+              "deuda": 8,
+              "capitalPropio": 10000
 		},
             {"periodo": 2011,
              "ebitda": 77777,
@@ -357,7 +398,8 @@
               "fCashFlow":6545,
               "ingNetoOpCont": 3434,
 	      "ingNetoOpDiscont": 1234,
-              "deuda": 4
+              "deuda": 4,
+              "capitalPropio": 650000
 		},
        
 
@@ -367,7 +409,8 @@
               "fCashFlow":5222,
               "ingNetoOpCont": 4728,
 	      "ingNetoOpDiscont": 1984,
-              "deuda": 5
+              "deuda": 5,
+              "capitalPropio": 750000
 		},
             {"periodo": 2013,
              "ebitda": 55555,
@@ -375,7 +418,8 @@
               "fCashFlow":3198,
               "ingNetoOpCont": 4568,
 	      "ingNetoOpDiscont": 2112,
-              "deuda": 7
+              "deuda": 7,
+              "capitalPropio": 850000
 		},
             {"periodo": 2014,
              "ebitda": 46666,
@@ -383,7 +427,8 @@
               "fCashFlow":3333,
               "ingNetoOpCont": 2345,
 	      "ingNetoOpDiscont": 1234,
-              "deuda": 8
+              "deuda": 8,
+              "capitalPropio": 780000
 		},
             {"periodo": 2015,
              "ebitda": 79696,
@@ -391,7 +436,8 @@
               "fCashFlow":4939,
               "ingNetoOpCont": 3929,
 	      "ingNetoOpDiscont": 1231,
-              "deuda": 6
+              "deuda": 6,
+              "capitalPropio": 50007
 		},
             {"periodo": 2016,
              "ebitda": 79977,
@@ -399,7 +445,8 @@
               "fCashFlow":6545,
               "ingNetoOpCont": 5454,
 	      "ingNetoOpDiscont": 1234,
-              "deuda": 4
+              "deuda": 4,
+              "capitalPropio": 80000
 		}
 
 	]
@@ -416,7 +463,9 @@
               "fCashFlow":1000,
               "ingNetoOpCont": 1500,
 	      "ingNetoOpDiscont": 500,
-              "deuda": 2},
+              "deuda": 2,
+              "capitalPropio": 70000
+              },
 
             {"periodo": 2007,
              "ebitda": 66766,
@@ -424,7 +473,8 @@
               "fCashFlow":2000,
               "ingNetoOpCont": 1800,
 	      "ingNetoOpDiscont": 700,
-              "deuda": 1
+              "deuda": 1,
+              "capitalPropio": 50000
 		},
             {"periodo": 2008,
              "ebitda": 77677,
@@ -432,7 +482,8 @@
               "fCashFlow":4000,
               "ingNetoOpCont": 2568,
 	      "ingNetoOpDiscont": 2112,
-              "deuda": 2
+              "deuda": 2,
+              "capitalPropio": 505000
 		},
             {"periodo": 2009,
              "ebitda": 79463,
@@ -440,7 +491,8 @@
               "fCashFlow":3333,
               "ingNetoOpCont": 2222,
 	      "ingNetoOpDiscont": 999,
-              "deuda": 3
+              "deuda": 3,
+              "capitalPropio": 570000
 		},
             {"periodo": 2010,
              "ebitda": 74961,
@@ -448,7 +500,8 @@
               "fCashFlow":1111,
               "ingNetoOpCont": 2024,
 	      "ingNetoOpDiscont": 1221,
-              "deuda": 2
+              "deuda": 2,
+              "capitalPropio": 40000
 		},
             {"periodo": 2011,
              "ebitda": 72723,
@@ -456,7 +509,8 @@
               "fCashFlow":3453,
               "ingNetoOpCont": 1212,
 	      "ingNetoOpDiscont": 859,
-              "deuda": 2
+              "deuda": 2,
+              "capitalPropio": 7750000
 		},
          
             {"periodo": 2012,
@@ -465,7 +519,8 @@
               "fCashFlow":4478,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 1359,
-              "deuda": 3
+              "deuda": 3,
+              "capitalPropio": 7850000
 		},
 
             {"periodo": 2013,
@@ -474,7 +529,8 @@
               "fCashFlow":4949,
               "ingNetoOpCont": 2999,
 	      "ingNetoOpDiscont": 1798,
-              "deuda": 3
+              "deuda": 3,
+              "capitalPropio": 150000
 		},
 
             {"periodo": 2014,
@@ -483,7 +539,8 @@
               "fCashFlow":5468,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 1478,
-              "deuda": 2
+              "deuda": 2,
+              "capitalPropio": 70000
 		},
 
             {"periodo": 2015,
@@ -492,7 +549,8 @@
               "fCashFlow":5566,
               "ingNetoOpCont": 4334,
 	      "ingNetoOpDiscont": 1150,
-              "deuda": 1
+              "deuda": 1,
+              "capitalPropio": 50007
 		},
             {"periodo": 2016,
              "ebitda": 91234,
@@ -500,7 +558,8 @@
               "fCashFlow":5968,
               "ingNetoOpCont": 5959,
 	      "ingNetoOpDiscont": 1010,
-              "deuda": 1
+              "deuda": 1,
+              "capitalPropio": 5008
 		}
 
 
@@ -519,7 +578,9 @@
               "fCashFlow":1000,
               "ingNetoOpCont": 1500,
 	      "ingNetoOpDiscont": 500,
-              "deuda": 2},
+              "deuda": 2,
+              "capitalPropio": 50000
+              },
 
             {"periodo": 2007,
              "ebitda": 66766,
@@ -527,7 +588,8 @@
               "fCashFlow":2000,
               "ingNetoOpCont": 1800,
 	      "ingNetoOpDiscont": 700,
-              "deuda": 1
+              "deuda": 1,
+              "capitalPropio": 50000
 		},
             {"periodo": 2008,
              "ebitda": 77677,
@@ -535,7 +597,8 @@
               "fCashFlow":4000,
               "ingNetoOpCont": 2568,
 	      "ingNetoOpDiscont": 2112,
-              "deuda": 2
+              "deuda": 2,
+              "capitalPropio": 50000
 		},
             {"periodo": 2009,
              "ebitda": 79463,
@@ -543,7 +606,8 @@
               "fCashFlow":3333,
               "ingNetoOpCont": 2222,
 	      "ingNetoOpDiscont": 999,
-              "deuda": 3
+              "deuda": 3,
+              "capitalPropio": 50000
 		},
             {"periodo": 2010,
              "ebitda": 74961,
@@ -551,7 +615,8 @@
               "fCashFlow":1111,
               "ingNetoOpCont": 2024,
 	      "ingNetoOpDiscont": 1221,
-              "deuda": 2
+              "deuda": 2,
+              "capitalPropio": 50000
 		},
             {"periodo": 2011,
              "ebitda": 72723,
@@ -559,7 +624,8 @@
               "fCashFlow":3453,
               "ingNetoOpCont": 1212,
 	      "ingNetoOpDiscont": 859,
-              "deuda": 2
+              "deuda": 2,
+              "capitalPropio": 50000
 		},
          
             {"periodo": 2012,
@@ -568,7 +634,8 @@
               "fCashFlow":4478,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 1359,
-              "deuda": 3
+              "deuda": 3,
+              "capitalPropio": 50000
 		},
 
             {"periodo": 2013,
@@ -577,7 +644,8 @@
               "fCashFlow":4949,
               "ingNetoOpCont": 2999,
 	      "ingNetoOpDiscont": 1798,
-              "deuda": 3
+              "deuda": 3,
+              "capitalPropio": 50000
 		},
 
             {"periodo": 2014,
@@ -586,7 +654,8 @@
               "fCashFlow":5468,
               "ingNetoOpCont": 3214,
 	      "ingNetoOpDiscont": 1478,
-              "deuda": 2
+              "deuda": 2,
+              "capitalPropio": 50000
 		},
 
             {"periodo": 2015,
@@ -595,7 +664,8 @@
               "fCashFlow":5566,
               "ingNetoOpCont": 4334,
 	      "ingNetoOpDiscont": 1150,
-              "deuda": 1
+              "deuda": 1,
+              "capitalPropio": 50000
 		},
             {"periodo": 2016,
              "ebitda": 91234,
@@ -603,7 +673,8 @@
               "fCashFlow":5968,
               "ingNetoOpCont": 5959,
 	      "ingNetoOpDiscont": 1010,
-              "deuda": 1
+              "deuda": 1,
+              "capitalPropio": 50000
 		}
 
 
@@ -623,7 +694,9 @@
               "fCashFlow":78,
               "ingNetoOpCont": 158,
 	      "ingNetoOpDiscont": 25,
-              "deuda": 18},
+              "deuda": 18,
+              "capitalPropio": 60000
+              },
 
             {"periodo": 2013,
              "ebitda": 2113,
@@ -631,7 +704,8 @@
               "fCashFlow":135,
               "ingNetoOpCont": 200,
 	      "ingNetoOpDiscont": 46,
-              "deuda": 15
+              "deuda": 15,
+              "capitalPropio": 60000
 		},
             {"periodo": 2014,
              "ebitda": 3729,
@@ -639,7 +713,8 @@
               "fCashFlow":1597,
               "ingNetoOpCont": 456,
 	      "ingNetoOpDiscont": 89,
-              "deuda": 15
+              "deuda": 15,
+              "capitalPropio": 60000
 		},
             {"periodo": 2015,
              "ebitda": 10463,
@@ -647,7 +722,8 @@
               "fCashFlow":3456,
               "ingNetoOpCont": 1346,
 	      "ingNetoOpDiscont": 498,
-              "deuda": 11
+              "deuda": 11,
+              "capitalPropio": 60000
 		},
             {"periodo": 2016,
              "ebitda": 24961,
@@ -655,7 +731,8 @@
               "fCashFlow":6543,
               "ingNetoOpCont": 4321,
 	      "ingNetoOpDiscont": 1643,
-              "deuda": 9
+              "deuda": 9,
+              "capitalPropio": 60000
 		}
             ]
          }

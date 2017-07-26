@@ -54,26 +54,31 @@ public class Visitor extends FormulasBaseVisitor<Double> {
 	
 	@Override
 	public Double visitIndi(IndiContext ctx){
-		Indicador indicador = BuscadorDeListas.buscarIndicadorEn(App.indicadores,ctx.getText());
+		Indicador indicador = Listas.buscarIndicadorEn(App.indicadores,ctx.getText());
 		if (indicador == null) throw new IllegalArgumentException("Indicador no válido.");
-		return indicador.aplicarA((Empresa) App.situacionActual.getFst());
+		return indicador.aplicarA(App.empresaActual, App.periodoActual);
 	}
 	
 	@Override
 	public Double visitCuenta(CuentaContext ctx){
 		Balance balance;
-		List<Balance> balancesActuales = ((Empresa) App.situacionActual.getFst()).getBalances();
-		balance = BuscadorDeListas.buscarCuentaEn(balancesActuales,(int) App.situacionActual.getSnd());
-		switch(ctx.getText()){
-		case "ebitda": return 1.0*balance.getEbitda(); //1.0* para pasar a double
-		case "fds": return 1.0*balance.getFds();
-		case "fCashFlow": return 1.0*balance.getfCashFlow();
-		case "ingNetoOpCont": return 1.0*balance.getIngNetoOpCont();
-		case "ingNetoOpDiscont": return 1.0*balance.getIngNetoOpDiscont();
-		case "deuda": return 1.0*balance.getDeuda();
-		default: throw new IllegalArgumentException("Cuenta no válida");
-		
-		}
+		List<Balance> balancesActuales = App.empresaActual.getBalances();
+		balance = Listas.buscarCuentaEn(balancesActuales,App.periodoActual);
+		if (balance != null){
+			switch(ctx.getText()){
+			case "ebitda": return 1.0*balance.getEbitda(); //1.0* para pasar a double
+			case "fds": return 1.0*balance.getFds();
+			case "fCashFlow": return 1.0*balance.getfCashFlow();
+			case "ingNetoOpCont": return 1.0*balance.getIngNetoOpCont();
+			case "ingNetoOpDiscont": return 1.0*balance.getIngNetoOpDiscont();
+			case "deuda": return 1.0*balance.getDeuda();
+			case "capitalPropio": return 1.0*balance.getCapitalPropio();
+			default: throw new IllegalArgumentException("Cuenta no válida");
+			}
+		} 
+		else{
+			return 0.0;
+			}
 	}
 	
 	@Override

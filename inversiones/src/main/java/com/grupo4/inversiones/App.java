@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
-import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.tools.AplicarIndicadores;
 import com.grupo4.inversiones.tools.CreadorIndicadores;
 import com.grupo4.inversiones.tools.EditarIndicador;
@@ -18,7 +17,8 @@ import com.grupo4.inversiones.tools.Reglas;
 
 public class App{
 
-public static ParDeValores situacionActual = new ParDeValores(); //fst = empresaActual, snd = periodo
+public static Empresa empresaActual;
+public static int periodoActual;
 public static List<Indicador> indicadores;
 public static List<Empresa> empresas;
 
@@ -27,8 +27,8 @@ public static List<Empresa> empresas;
     	empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
     	indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
     	
-    	situacionActual.setFst(empresas.get(0));
-    	situacionActual.setSnd(2007);
+    	empresaActual = empresas.get(0);
+    	periodoActual = 2007;
     	
     	while(true){
     		int opcionElegida;
@@ -51,20 +51,21 @@ public static List<Empresa> empresas;
         		break;
         	case 2: 
         		System.out.println("Seleccione una empresa");
-        		situacionActual.setFst(empresas.get(Integer.parseInt(sc.nextLine())));
+        		//situacionActual.setFst(empresas.get(Integer.parseInt(sc.nextLine())));
+        		Empresa empresa = empresas.get(Integer.parseInt(sc.nextLine()));
         		System.out.println("Seleccione un periodo");
-        		situacionActual.setSnd((Integer.parseInt(sc.nextLine())));
-        		AplicarIndicadores.aplicarIndicadores((Empresa)situacionActual.getFst(),indicadores);
+        		int periodo = Integer.parseInt(sc.nextLine());
+        		AplicarIndicadores.aplicarIndicadores(empresa, periodo, indicadores);
         		break;
         	case 3: 
         		PrintEmpresas.mostrarEmpresas(empresas);
         		break;
         	case 4: 
         		System.out.println("Seleccione una empresa");
-        		situacionActual.setFst(empresas.get(Integer.parseInt(sc.nextLine())));
+        		empresaActual = empresas.get(Integer.parseInt(sc.nextLine()));
         		System.out.println("Seleccione un periodo");
-        		situacionActual.setSnd((Integer.parseInt(sc.nextLine())));
-        		((Empresa) situacionActual.getFst()).mostrarBalances((int) situacionActual.getSnd());
+        		periodoActual = Integer.parseInt(sc.nextLine());
+        		empresaActual.mostrarBalances(periodoActual);
         		break;
         	case 5:
         		for (int i = 0; i <= indicadores.size() - 1; i++){
@@ -84,19 +85,14 @@ public static List<Empresa> empresas;
         		EditarIndicador.editarIndicador(indicadores,indicadorAModificar,nuevaFormula);
         		cargadorDeArchivos.guardarIndicadores("src/main/indicadores.txt", indicadores);
         		break;
-        	case 7: Reglas.inicializarMotor(empresas);
+        	//case 7: Reglas.inicializarMotor(empresas,"asdasdasd");
+        	case 7: com.grupo4.drools.App.main(empresas);
     			break;
         	case 8: System.exit(0);
         		break;
-        	
         	}
     	}
     	
     	
     }
 }
-
-/*
-Test de la gramática definida
-Test de manejo de errores (Exceptions)
-*/

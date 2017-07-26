@@ -3,25 +3,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.grupo4.inversiones.tools.BuscadorDeListas;
+import com.grupo4.inversiones.tools.Listas;
 
-public class Empresa {
+public class Empresa implements Comparable<Empresa>{
 	
 	private String nombre;
 	private int inicioActividad;
 	private List<Balance> balances = new ArrayList<Balance>();
+	
+	private double poder= 0;
 	
 	
 	public Empresa(String _nombre) {
 		this.nombre = _nombre;
 	}
 	
+	public double getPoder() {
+		return poder;
+	}
+
+	public void setPoder(double poder) {
+		this.poder = poder;
+	}
+	
 	public int getInicioActividad() {
 		return inicioActividad;
 	}
 
-	public void setInicioActividad(int inicoActividad) {
-		inicioActividad = inicoActividad;
+	public void setInicioActividad(int inicioActividad) {
+		this.inicioActividad = inicioActividad;
 	}
 	
 	public void agregarElemento(Balance balance){
@@ -36,7 +46,7 @@ public class Empresa {
 	}
 	
 	public void mostrarBalances(int periodo){
-		Balance balance = BuscadorDeListas.buscarCuentaEn(balances,periodo);
+		Balance balance = Listas.buscarCuentaEn(balances,periodo);
 		System.out.println("BALANCES PARA EL PERIODO " + periodo + ":");
 		balance.mostrarse();
 	}
@@ -58,6 +68,14 @@ public class Empresa {
 		System.out.println("Nombre de la empresa: " + this.getNombre());
 		System.out.println("Inicio  de actividad: " + this.getInicioActividad());;
 		this.mostrarBalances();
+	}
+	
+	public int compareTo(Empresa empresa) {
+
+		double poderDeComparacion = empresa.getPoder();
+
+		return (int)(poderDeComparacion - this.poder);
+
 	}
 	
 }

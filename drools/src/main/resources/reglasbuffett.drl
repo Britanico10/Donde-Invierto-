@@ -1,0 +1,57 @@
+//created on: jun 19, 2017
+package com.grupo4.drools.rules
+
+import com.grupo4.inversiones.entidades.Empresa;
+import com.grupo4.inversiones.entidades.Balance;
+import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.tools.AplicarIndicadores;
+import com.grupo4.inversiones.tools.AplicarIndicadores;
+import com.grupo4.inversiones.App;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Collections;
+
+global java.util.List listaEmpresas;
+global java.lang.Integer anio;
+global java.util.List indicadores;
+
+rule "Maximizar ROE"
+
+    when
+        $e: Empresa($p: poder, $i: inicioActividad < (anio - 10))
+    then
+    	double roe = com.grupo4.inversiones.tools.AplicarIndicadores.promedioIndicadorEnLapso("ROE",$e,10);
+		$e.setPoder($p + roe * 5);
+end 
+
+rule "Longevidad"
+dialect "java"
+    //include attributes such as "salience" here...
+    when
+    $e: Empresa($i: inicioActividad < (anio - 10), $p: poder)
+    then
+    	$e.setPoder(($p + anio - $i) * 10);
+		listaEmpresas.add($e);
+end
+
+rule "Minimizar el nivel de deuda"
+    //include attributes such as "salience" here...
+    when
+        $e: Empresa($p: poder, $i: inicioActividad < (anio - 10))
+    then
+    	double deuda = com.grupo4.inversiones.tools.AplicarIndicadores.aplicarIndicador("proporcionDeuda",$e,anio-1);
+		$e.setPoder($p - deuda * 20);
+
+end
+
+
+
+rule "Márgenes consistentemente crecientes"
+    //include attributes such as "salience" here...
+    when
+         $e: Empresa($p: poder, $i: inicioActividad < (anio - 10))
+         eval(!(com.grupo4.inversiones.tools.AplicarIndicadores.indicadorEsConsistente("Margen",$e,10)))
+    then
+        com.grupo4.inversiones.tools.Listas.sacarDeLista($e,listaEmpresas);
+end 
+

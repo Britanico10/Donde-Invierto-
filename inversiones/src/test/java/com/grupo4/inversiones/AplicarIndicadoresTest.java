@@ -21,11 +21,12 @@ public class AplicarIndicadoresTest {
 		List<Empresa> empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
     	Indicador indicador = new Indicador("prueba","4+ebitda");
     	indicadores.add(indicador);
-    	App.situacionActual.setFst(empresas.get(0));
-		App.situacionActual.setSnd(2007);
-		Empresa empresa = (Empresa) App.situacionActual.getFst();
+    	App.empresaActual = empresas.get(0);
+		App.periodoActual = 2007;
+		Empresa empresa = App.empresaActual;
+		int periodo = App.periodoActual;
     	
-    	assertEquals(77695.0, indicador.aplicarA(empresa), 0.0);
+    	assertEquals(77695.0, indicador.aplicarA(empresa, periodo), 0.0);
 	}
 
 }

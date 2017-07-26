@@ -23,9 +23,10 @@ public class CreadorIndicadores {
     		nuevoIndicador = new Indicador(nombreIndicador,formula);
     		indicadores.add(nuevoIndicador);
     		System.out.println("Indicador guardado.");
-    		System.out.println(Analizador.evaluar(formula));
+    		//System.out.println(Analizador.evaluar(formula));
+    		Analizador.evaluar(formula);
     	}
-		sc.close();
+
 	}
 
 }

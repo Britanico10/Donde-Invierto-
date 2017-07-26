@@ -2,6 +2,7 @@ package com.grupo4.inversiones.entidades;
 
 import java.io.IOException;
 
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.tools.Analizador;
 
 public class Indicador {
@@ -29,7 +30,9 @@ public class Indicador {
 		formula = valor;
 	}
 	
-	public double aplicarA(Empresa empresa){
+	public double aplicarA(Empresa empresa, int periodo){
+		App.empresaActual = empresa;
+		App.periodoActual = periodo;
 		return Analizador.evaluar(formula);
 	}
 

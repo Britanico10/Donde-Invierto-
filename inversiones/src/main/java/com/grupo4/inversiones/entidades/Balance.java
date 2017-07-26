@@ -9,12 +9,21 @@ public class Balance{
 	private int ingNetoOpCont = 0;
 	private int ingNetoOpDiscont = 0;
 	private int deuda = 0;
+	private int capitalPropio = 0;
 	
 	public int getDeuda() {
 		return deuda;
 	}
 	public void setDeuda(int deuda) {
 		this.deuda = deuda;
+	}
+	
+	public int getCapitalPropio() {
+		return capitalPropio;
+	}
+	
+	public void setCapitalPropio(int capitalPropio) {
+		this.capitalPropio = capitalPropio;
 	}
 
 	public int getEbitda() {
@@ -68,6 +77,7 @@ public class Balance{
 		System.out.println("Fds: " + this.fds);
 		System.out.println("IngNetoOpCont: " + this.ingNetoOpCont);
 		System.out.println("IngNetOpDiscont: " + this.ingNetoOpDiscont);
+		System.out.println("capitalPropio: " + this.capitalPropio);
 		System.out.println(" ");
 	}
 	

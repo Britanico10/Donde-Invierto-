@@ -10,22 +10,6 @@
         <runtime.version>6.5.0.Final</runtime.version>
     </properties>
  
-    <repositories>
-        <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Repository Group</name>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
- 
     <dependencies>
         <dependency>
             <groupId>org.kie</groupId>
@@ -49,6 +33,12 @@
             <artifactId>drools-compiler</artifactId>
             <version>${runtime.version}</version>
         </dependency>
+        
+        <dependency>    
+     		 <groupId>com.grupo4</groupId>
+	 		 <artifactId>inversiones</artifactId>
+ 			 <version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		
     </dependencies>
   

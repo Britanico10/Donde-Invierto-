@@ -7,7 +7,7 @@ import java.util.Optional;
 import com.grupo4.inversiones.entidades.Balance;
 import com.grupo4.inversiones.entidades.Indicador;
 
-public class BuscadorDeListas {
+public class Listas {
 	
 	public static Indicador buscarIndicadorEn(List<Indicador> indicadores, String nombreIndicador){
 		    Optional<Indicador> indicador = indicadores.stream()
@@ -21,6 +21,11 @@ public class BuscadorDeListas {
 	        .filter(p -> p.getPeriodo() == periodo)
 	        .findFirst();
 	    return balance.isPresent() ? balance.get() : null;
-}
+	}
+	
+	public static void sacarDeLista(Object obj, List<Object> lista){
+		int pos = lista.indexOf(obj);
+		lista.remove(pos);
+	}
 
 }

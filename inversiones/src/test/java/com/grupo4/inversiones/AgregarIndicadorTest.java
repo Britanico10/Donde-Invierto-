@@ -24,8 +24,8 @@ public class AgregarIndicadorTest {
 		List<Indicador> indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
 		List<Empresa> empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
 		
-    	App.situacionActual.setFst(empresas.get(0));
-		App.situacionActual.setSnd(2007);
+    	App.empresaActual = empresas.get(0);
+		App.periodoActual = 2007;
 		
 		tamañoAnterior = indicadores.size();
 	
