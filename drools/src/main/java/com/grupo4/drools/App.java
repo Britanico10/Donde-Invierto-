@@ -49,7 +49,7 @@ public class App {
 	    	System.out.println("Empresa: ");
 	    	System.out.println(listaEmpresas.get(i).getNombre());
 	    	System.out.println("Ranking: ");
-		    System.out.println(listaEmpresas.get(i).getPoder());
+		    System.out.println(listaEmpresas.get(i).getRentabilidad());
 		    System.out.println( " " );
 	    }
      

@@ -1,0 +1,26 @@
+package com.grupo4.drools.rules
+
+import com.grupo4.inversiones.entidades.Empresa;
+import com.grupo4.inversiones.entidades.Balance;
+import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.tools.AplicarIndicadores;
+import com.grupo4.inversiones.tools.AplicarIndicadores;
+import com.grupo4.inversiones.App;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Collections;
+
+global java.util.List listaEmpresas;
+global java.lang.Integer anio;
+global java.util.List indicadores;
+
+rule "Inicio Anio"
+dialect "java"
+    //include attributes such as "salience" here...
+    when
+    $e: Empresa($i: inicioActividad == anio, $r: rentabilidad)
+    then
+    	$e.setRentabilidad(($r + anio - $i) * 999);
+		listaEmpresas.add($e);
+		System.out.println("rentabilidad");
+end

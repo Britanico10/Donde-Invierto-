@@ -1,8 +1,15 @@
 <kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns="http://jboss.org/kie/6.0.0/kmodule">
 
-<kbase name="reglasbuffett" default="true">
-<ksession name="buffett" type="stateful" default="true"/>
+<kbase name="reglasPrueba" default="true">
+<ksession name="prueba" type="stateful" default="true"/>
 </kbase>
+
+
+<!-- <kbase name="reglasbuffett" default="false">
+<ksession name="buffett" type="stateful" default="true"/>
+</kbase>-->
+
+
 
 </kmodule>
