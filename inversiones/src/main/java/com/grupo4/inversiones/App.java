@@ -14,6 +14,7 @@ import com.grupo4.inversiones.tools.ParDeValores;
 import com.grupo4.inversiones.tools.PrintEmpresas;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
 import com.grupo4.inversiones.tools.Reglas;
+import com.grupo4.inversiones.tools.Rentabilidad;
 
 public class App{
 
@@ -85,8 +86,12 @@ public static List<Empresa> empresas;
         		EditarIndicador.editarIndicador(indicadores,indicadorAModificar,nuevaFormula);
         		cargadorDeArchivos.guardarIndicadores("src/main/indicadores.txt", indicadores);
         		break;
-        	//case 7: Reglas.inicializarMotor(empresas,"asdasdasd");
-        	case 7: com.grupo4.drools.App.main(empresas);
+        	case 7: 
+        		System.out.println("Seleccione una metodologia.");
+        		String metodologia = (sc.nextLine());
+        		Rentabilidad.inicializarRentabilidad(empresas);
+        		Reglas.inicializarMotor(empresas,metodologia);
+        		
     			break;
         	case 8: System.exit(0);
         		break;

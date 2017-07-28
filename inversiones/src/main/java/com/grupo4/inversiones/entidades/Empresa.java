@@ -11,19 +11,19 @@ public class Empresa implements Comparable<Empresa>{
 	private int inicioActividad;
 	private List<Balance> balances = new ArrayList<Balance>();
 	
-	private double poder= 0;
+	private double rentabilidad= 0;
 	
 	
 	public Empresa(String _nombre) {
 		this.nombre = _nombre;
 	}
 	
-	public double getPoder() {
-		return poder;
+	public double getRentabilidad() {
+		return rentabilidad;
 	}
 
-	public void setPoder(double poder) {
-		this.poder = poder;
+	public void setRentabilidad(double rentabilidad) {
+		this.rentabilidad = rentabilidad;
 	}
 	
 	public int getInicioActividad() {
@@ -72,9 +72,9 @@ public class Empresa implements Comparable<Empresa>{
 	
 	public int compareTo(Empresa empresa) {
 
-		double poderDeComparacion = empresa.getPoder();
+		double rentabilidadDeComparacion = empresa.getRentabilidad();
 
-		return (int)(poderDeComparacion - this.poder);
+		return (int)(rentabilidadDeComparacion - this.rentabilidad);
 
 	}
 	
