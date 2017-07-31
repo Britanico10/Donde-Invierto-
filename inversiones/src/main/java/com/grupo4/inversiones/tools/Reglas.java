@@ -19,12 +19,12 @@ public class Reglas {
 
 	}
 	
-	public static void inicializarMotor(List<Empresa> empresas, String nombreMetodologia){
+	public static List<Empresa> inicializarMotor(List<Empresa> empresas, String nombreMetodologia){
 		
 		List<Empresa> listaEmpresas = new ArrayList<Empresa>();
 		List<Indicador> indicadores = com.grupo4.inversiones.App.indicadores;
 		Calendar cal = Calendar.getInstance(); 
-	    int anio = cal.get(Calendar.YEAR);
+	    int year = cal.get(Calendar.YEAR);
 		 
 		System.out.println( "Bootstrapping the Rule Engine ..." );
 		KieServices ks = KieServices.Factory.get();
@@ -36,26 +36,15 @@ public class Reglas {
 	    }
 	     
 	    kSession.setGlobal("listaEmpresas", listaEmpresas);
-	    kSession.setGlobal("anio", anio);
+	    kSession.setGlobal("year", year);
 	    kSession.setGlobal("indicadores", indicadores);
 	     
 	    int fired = kSession.fireAllRules();
 	    System.out.println( "Number of Rules executed = " + fired );
 	    System.out.println( " " );
-	     
-	    //System.out.println(listaEmpresas.get(0).getPoder());
-	    //System.out.println(listaEmpresas.get(0).getNombre());
 		
 	    Collections.sort(listaEmpresas);
-	     
-	    for (int i = 0; i < listaEmpresas.size(); i++){
-	    	System.out.println("Empresa: ");
-	    	System.out.println(listaEmpresas.get(i).getNombre());
-	    	System.out.println("Rentabilidad de Inversion: ");
-		    System.out.println(listaEmpresas.get(i).getRentabilidad());
-		    System.out.println( " " );
-	    }
-     
+	    return listaEmpresas;
 	} 
 
 }

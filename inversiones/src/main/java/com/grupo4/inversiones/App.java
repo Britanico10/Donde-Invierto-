@@ -22,7 +22,7 @@ public static Empresa empresaActual;
 public static int periodoActual;
 public static List<Indicador> indicadores;
 public static List<Empresa> empresas;
-
+public static List<Empresa> empresasOrdenadas;
     public static void main(String[] args) throws IOException {
     	
     	empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
@@ -90,8 +90,8 @@ public static List<Empresa> empresas;
         		System.out.println("Seleccione una metodologia.");
         		String metodologia = (sc.nextLine());
         		Rentabilidad.inicializarRentabilidad(empresas);
-        		Reglas.inicializarMotor(empresas,metodologia);
-        		
+        		empresasOrdenadas = Reglas.inicializarMotor(empresas,metodologia);
+        		PrintEmpresas.imprimirResultado(empresasOrdenadas); 
     			break;
         	case 8: System.exit(0);
         		break;

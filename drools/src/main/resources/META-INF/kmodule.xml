@@ -6,9 +6,9 @@
 </kbase>
 
 
-<!-- <kbase name="reglasbuffett" default="false">
+<kbase name="reglasbuffett" default="false">
 <ksession name="buffett" type="stateful" default="true"/>
-</kbase>-->
+</kbase>
 
 
 

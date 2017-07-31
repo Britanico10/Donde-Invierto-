@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.Collections;
 
 global java.util.List listaEmpresas;
-global java.lang.Integer anio;
+global java.lang.Integer year;
 global java.util.List indicadores;
 
 rule "Maximizar ROE"
 
     when
-        $e: Empresa($r: rentabilidad, $i: inicioActividad < (anio - 10))
+        $e: Empresa($r: rentabilidad, $i: inicioActividad < (year - 10))
     then
     	double roe = com.grupo4.inversiones.tools.AplicarIndicadores.promedioIndicadorEnLapso("ROE",$e,10);
     	int multiplicadorRoe = 5;
@@ -29,19 +29,19 @@ rule "Longevidad"
 dialect "java"
     //include attributes such as "salience" here...
     when
-    $e: Empresa($i: inicioActividad < (anio - 10), $r: rentabilidad)
+    $e: Empresa($i: inicioActividad < (year - 10), $r: rentabilidad)
     then
     	int multiplicadorLongevidad = 10;
-    	$e.setRentabilidad(($r + anio - $i) * multiplicadorLongevidad);
+    	$e.setRentabilidad(($r + year - $i) * multiplicadorLongevidad);
 		listaEmpresas.add($e);
 end
 
 rule "Minimizar el nivel de deuda"
     //include attributes such as "salience" here...
     when
-        $e: Empresa($r: rentabilidad, $i: inicioActividad < (anio - 10))
+        $e: Empresa($r: rentabilidad, $i: inicioActividad < (year - 10))
     then
-    	double deuda = com.grupo4.inversiones.tools.AplicarIndicadores.aplicarIndicador("proporcionDeuda",$e,anio-1);
+    	double deuda = com.grupo4.inversiones.tools.AplicarIndicadores.aplicarIndicador("proporcionDeuda",$e,year-1);
     	int multiplicadorDeuda = 20;
 		$e.setRentabilidad($r - deuda * multiplicadorDeuda);
 
@@ -52,7 +52,7 @@ end
 rule "Márgenes consistentemente crecientes"
     //include attributes such as "salience" here...
     when
-         $e: Empresa($r: rentabilidad, $i: inicioActividad < (anio - 10))
+         $e: Empresa($r: rentabilidad, $i: inicioActividad < (year - 10))
          eval(!(com.grupo4.inversiones.tools.AplicarIndicadores.indicadorEsConsistente("Margen",$e,10)))
     then
         com.grupo4.inversiones.tools.Listas.sacarDeLista($e,listaEmpresas);

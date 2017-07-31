@@ -11,16 +11,16 @@ import java.util.List;
 import java.util.Collections;
 
 global java.util.List listaEmpresas;
-global java.lang.Integer anio;
+global java.lang.Integer year;
 global java.util.List indicadores;
 
-rule "Inicio Anio"
+rule "Inicio year"
 dialect "java"
     //include attributes such as "salience" here...
     when
-    $e: Empresa($i: inicioActividad == anio, $r: rentabilidad)
+    $e: Empresa($i: inicioActividad == year, $r: rentabilidad)
     then
-    	$e.setRentabilidad(($r + anio - $i) * 999);
+    	$e.setRentabilidad(($r + year - $i) * 999);
 		listaEmpresas.add($e);
 		System.out.println("rentabilidad");
 end
