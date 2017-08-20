@@ -1,6 +1,5 @@
 package com.grupo4.inversiones.entidades;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.grupo4.inversiones.tools.Listas;

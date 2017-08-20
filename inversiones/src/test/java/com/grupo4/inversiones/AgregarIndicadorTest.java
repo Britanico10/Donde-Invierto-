@@ -4,14 +4,12 @@ import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Scanner;
 
 import org.junit.Test;
 
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.tools.Analizador;
-import com.grupo4.inversiones.tools.CreadorIndicadores;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
 
 public class AgregarIndicadorTest {

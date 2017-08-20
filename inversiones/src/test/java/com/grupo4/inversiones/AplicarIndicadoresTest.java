@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
-import com.grupo4.inversiones.tools.AplicarIndicadores;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
 
 public class AplicarIndicadoresTest {

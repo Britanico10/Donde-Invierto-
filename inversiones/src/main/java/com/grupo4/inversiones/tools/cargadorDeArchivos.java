@@ -15,6 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.entidades.Metodologia;
 
 public class cargadorDeArchivos {
 	
@@ -36,6 +37,16 @@ public class cargadorDeArchivos {
 		JsonReader reader = new JsonReader(new FileReader(path));
 		indicadores = gson.fromJson(reader, tipoListaIndicador);
 		return indicadores;
+	}
+	
+	public static List<Metodologia> cargarArchivoMetodologias(String path) throws FileNotFoundException {
+		List<Metodologia> metodologias = new ArrayList<Metodologia>();
+		Type tipoListaMetodologia = new TypeToken<ArrayList<Metodologia>>() {
+		}.getType();
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new FileReader(path));
+		metodologias = gson.fromJson(reader, tipoListaMetodologia);
+		return metodologias;
 	}
 	
 	public static void guardarIndicadores(String path ,List<Indicador> indicadores) throws IOException {

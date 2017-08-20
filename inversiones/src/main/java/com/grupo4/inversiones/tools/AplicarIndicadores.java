@@ -4,7 +4,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import com.grupo4.inversiones.App;
-import com.grupo4.inversiones.entidades.Balance;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 

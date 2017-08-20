@@ -12,7 +12,6 @@ import com.grupo4.FormulasParser.PrintExprContext;
 import com.grupo4.FormulasParser.SumresContext;
 import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Balance;
-import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 
 public class Visitor extends FormulasBaseVisitor<Double> {
@@ -73,6 +72,7 @@ public class Visitor extends FormulasBaseVisitor<Double> {
 			case "ingNetoOpDiscont": return 1.0*balance.getIngNetoOpDiscont();
 			case "deuda": return 1.0*balance.getDeuda();
 			case "capitalPropio": return 1.0*balance.getCapitalPropio();
+			case "inicioActividad": return 1.0*App.empresaActual.getInicioActividad();
 			default: throw new IllegalArgumentException("Cuenta no válida");
 			}
 		} 

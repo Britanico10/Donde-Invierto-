@@ -27,5 +27,13 @@ public class Listas {
 		int pos = lista.indexOf(obj);
 		lista.remove(pos);
 	}
+	
+	public static List copiarLista(List lista){
+		List nuevaLista = new ArrayList();
+		for(int i = 0; i < lista.size(); i++) {
+			nuevaLista.add(lista.get(i));
+		}
+		return nuevaLista;
+	}
 
 }

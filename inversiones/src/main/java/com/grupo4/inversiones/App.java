@@ -1,20 +1,19 @@
 package com.grupo4.inversiones;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.entidades.Metodologia;
+import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
+import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
 import com.grupo4.inversiones.tools.AplicarIndicadores;
 import com.grupo4.inversiones.tools.CreadorIndicadores;
 import com.grupo4.inversiones.tools.EditarIndicador;
-import com.grupo4.inversiones.tools.ParDeValores;
 import com.grupo4.inversiones.tools.PrintEmpresas;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
-import com.grupo4.inversiones.tools.Reglas;
-import com.grupo4.inversiones.tools.Rentabilidad;
 
 public class App{
 
@@ -22,7 +21,11 @@ public static Empresa empresaActual;
 public static int periodoActual;
 public static List<Indicador> indicadores;
 public static List<Empresa> empresas;
-public static List<Empresa> empresasOrdenadas;
+public static List<CondicionFiltro> condicionesFiltro;
+public static List<CondicionOrden> condicionesOrden;
+public static List<Metodologia> metodologias;
+
+
     public static void main(String[] args) throws IOException {
     	
     	empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
@@ -40,7 +43,7 @@ public static List<Empresa> empresasOrdenadas;
     		System.out.println("4. Mostrar balances para cierto periodo.");
     		System.out.println("5. Mostrar indicadores.");
     		System.out.println("6. Modificar indicador.");
-    		System.out.println("7. Inicializar motor de reglas.");
+    		System.out.println("7. Aplicar metodología.");
     		System.out.println("8. Cerrar aplicación.");
         	Scanner sc = new Scanner(System.in);
         	sc.useDelimiter("[:\\s]");
@@ -86,13 +89,6 @@ public static List<Empresa> empresasOrdenadas;
         		EditarIndicador.editarIndicador(indicadores,indicadorAModificar,nuevaFormula);
         		cargadorDeArchivos.guardarIndicadores("src/main/indicadores.txt", indicadores);
         		break;
-        	case 7: 
-        		System.out.println("Seleccione una metodologia.");
-        		String metodologia = (sc.nextLine());
-        		Rentabilidad.inicializarRentabilidad(empresas);
-        		empresasOrdenadas = Reglas.inicializarMotor(empresas,metodologia);
-        		PrintEmpresas.imprimirResultado(empresasOrdenadas); 
-    			break;
         	case 8: System.exit(0);
         		break;
         	}
