@@ -41,7 +41,17 @@ public class Metodologia {
 		
 	}
 	
+	public void agregarCondicionFiltro(CondicionFiltro condicion) {
+		condicionesFiltro.add(condicion);
+	}
 	
+	public void agregarCondicionOrden(CondicionOrden condicion) {
+		condicionesOrden.add(condicion);
+	}
+	
+	public void setNombre(String _nombre) {
+		nombre = _nombre;
+	}
 	
 	
 }
