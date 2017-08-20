@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
-import com.grupo4.inversiones.tools.Listas;
 
 public class Maximizar extends CondicionOrden {
 	
