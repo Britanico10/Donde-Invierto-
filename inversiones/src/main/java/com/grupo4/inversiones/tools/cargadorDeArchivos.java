@@ -65,11 +65,6 @@ public class cargadorDeArchivos {
 		
 		file.flush();
 		file.close();
- 
-		// try-with-resources statement based on post comment below :)
-		//try (FileWriter file = new FileWriter("src/main/indicadores.txt")) {
-			//file.write(obj.toJSONString());
-		//}
 		
 	}
 	

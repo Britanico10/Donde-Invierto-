@@ -1,6 +1,7 @@
 package com.grupo4.inversiones;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,7 +11,10 @@ import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
 import com.grupo4.inversiones.tools.AplicarIndicadores;
+import com.grupo4.inversiones.tools.CreadorCondicionesFiltro;
+import com.grupo4.inversiones.tools.CreadorCondicionesOrden;
 import com.grupo4.inversiones.tools.CreadorIndicadores;
+import com.grupo4.inversiones.tools.CreadorMetodologias;
 import com.grupo4.inversiones.tools.EditarIndicador;
 import com.grupo4.inversiones.tools.PrintEmpresas;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
@@ -30,6 +34,9 @@ public static List<Metodologia> metodologias;
     	
     	empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
     	indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
+    	condicionesFiltro = new ArrayList<CondicionFiltro>();
+    	condicionesOrden = new ArrayList<CondicionOrden>();
+    	metodologias = new ArrayList<Metodologia>();
     	
     	empresaActual = empresas.get(0);
     	periodoActual = 2007;
@@ -43,8 +50,11 @@ public static List<Metodologia> metodologias;
     		System.out.println("4. Mostrar balances para cierto periodo.");
     		System.out.println("5. Mostrar indicadores.");
     		System.out.println("6. Modificar indicador.");
-    		System.out.println("7. Aplicar metodología.");
-    		System.out.println("8. Cerrar aplicación.");
+    		System.out.println("7. Crear condición de filtro.");
+    		System.out.println("8. Crear condición de orden.");
+    		System.out.println("9. Crear metodología.");
+    		System.out.println("10. Aplicar metodología.");
+    		System.out.println("11. Cerrar aplicación.");
         	Scanner sc = new Scanner(System.in);
         	sc.useDelimiter("[:\\s]");
         	opcionElegida = Integer.parseInt(sc.nextLine());
@@ -55,7 +65,6 @@ public static List<Metodologia> metodologias;
         		break;
         	case 2: 
         		System.out.println("Seleccione una empresa");
-        		//situacionActual.setFst(empresas.get(Integer.parseInt(sc.nextLine())));
         		Empresa empresa = empresas.get(Integer.parseInt(sc.nextLine()));
         		System.out.println("Seleccione un periodo");
         		int periodo = Integer.parseInt(sc.nextLine());
@@ -89,7 +98,21 @@ public static List<Metodologia> metodologias;
         		EditarIndicador.editarIndicador(indicadores,indicadorAModificar,nuevaFormula);
         		cargadorDeArchivos.guardarIndicadores("src/main/indicadores.txt", indicadores);
         		break;
-        	case 8: System.exit(0);
+        	case 7:
+        		CreadorCondicionesFiltro.crearCondicionFiltro(condicionesFiltro);
+        		break;
+        	case 8:
+        		CreadorCondicionesOrden.crearCondicionOrden(condicionesOrden);
+        		break;
+        	case 9:
+        		CreadorMetodologias.crearMetodologia(metodologias);
+        		break;
+        	case 10:
+        		System.out.println("Seleccione una metodología.");
+        		Metodologia metodologiaAAplicar = metodologias.get(Integer.parseInt(sc.nextLine()));
+        		metodologiaAAplicar.aplicarMetodologiaATodas(empresas);
+        		break;
+        	case 11: System.exit(0);
         		break;
         	}
     	}

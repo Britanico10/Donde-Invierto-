@@ -16,7 +16,7 @@ public class PrintEmpresas {
 		   for (int i = 0; i < empresas.size(); i++){
 		    	System.out.println("Empresa: ");
 		    	System.out.println(empresas.get(i).getNombre());
-		    	System.out.println("Rentabilidad de Inversion: ");
+		    	System.out.println("Rentabilidad de inversión: ");
 			    System.out.println(empresas.get(i).getRentabilidad());
 			    System.out.println( " " );
 		    }

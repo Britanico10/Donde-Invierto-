@@ -37,6 +37,7 @@ public class CreadorMetodologias {
     		opcion = Integer.parseInt(sc.nextLine());
     	}
     	
+    	metodologias.add(metodologia);
     	System.out.println("Metodología creada.");
     	
 	}

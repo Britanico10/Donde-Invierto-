@@ -36,7 +36,7 @@ public class Metodologia {
 		
 		
 		Collections.sort(empresasFiltradas);
-		//PrintEmpresas.mostrarEmpresas(empresasFiltradas);
+		PrintEmpresas.mostrarEmpresas(empresasFiltradas);
 		return empresasFiltradas;
 		
 	}

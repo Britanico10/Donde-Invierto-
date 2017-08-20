@@ -11,7 +11,7 @@ expresion: expresion op=('*'|'/') expresion #muldiv
 | '(' expresion ')' #paren
 ;
 
-CUENTA: 'ebitda' | 'fds' | 'fCashFlow' | 'ingNetoOpCont' | 'ingNetoOpDiscont' | 'deuda' | 'capitalPropio' ;
+CUENTA: 'ebitda' | 'fds' | 'fCashFlow' | 'ingNetoOpCont' | 'ingNetoOpDiscont' | 'deuda' | 'capitalPropio' | 'inicioActividad' ;
 MAS: '+';
 MENOS: '-';
 MUL: '*';
