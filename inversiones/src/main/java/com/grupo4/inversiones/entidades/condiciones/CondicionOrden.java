@@ -9,7 +9,15 @@ public class CondicionOrden extends Condicion {
 	
 	int importancia;
 	
-	public CondicionOrden(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, Indicador _indicador, int _periodo, int _importancia) {
+	public int getImportancia() {
+		return importancia;
+	}
+
+	public void setImportancia(int importancia) {
+		this.importancia = importancia;
+	}
+
+	public CondicionOrden(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _indicador, int _periodo, int _importancia) {
 		super(_nombreCondicion, _inicioIntervalo, _finalIntervalo, _indicador, _periodo);
 		importancia = _importancia;
 	}

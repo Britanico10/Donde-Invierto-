@@ -27,10 +27,11 @@ public class CreadorCondicionesOrden {
 	    	String nombreCondicion = sc.nextLine();
 	    	
 	    	Indicador indicador = null;
+	    	String nombreIndicador = null;
 	    	
 	    	while (indicador == null) {
 	        	System.out.println("Ingrese el indicador utilizado en la condición.");
-	        	String nombreIndicador = sc.nextLine();
+	        	nombreIndicador = sc.nextLine();
 	    		indicador = Listas.buscarIndicadorEn(App.indicadores,nombreIndicador);
 	    		if (indicador == null) {
 	    			System.out.println("Indicador no válido.");
@@ -53,24 +54,24 @@ public class CreadorCondicionesOrden {
 	    		inicioIntervalo = Integer.parseInt(sc.nextLine());
 	    		System.out.println("Indique final del intervalo");
 	    		finalIntervalo = Integer.parseInt(sc.nextLine());
-	    		nuevaCondicionOrden = new Maximizar(nombreCondicion, inicioIntervalo, finalIntervalo, indicador, importancia);
+	    		nuevaCondicionOrden = new Maximizar(nombreCondicion, inicioIntervalo, finalIntervalo, nombreIndicador, importancia);
 	    		break;
 	    	case 2:
 	    		System.out.println("Indique inicio del intervalo.");
 	    		inicioIntervalo = Integer.parseInt(sc.nextLine());
 	    		System.out.println("Indique final del intervalo");
 	    		finalIntervalo = Integer.parseInt(sc.nextLine());
-	    		nuevaCondicionOrden = new Minimizar(nombreCondicion, inicioIntervalo, finalIntervalo, indicador, importancia);
+	    		nuevaCondicionOrden = new Minimizar(nombreCondicion, inicioIntervalo, finalIntervalo, nombreIndicador, importancia);
 	    		break;
 	    	case 3:
 	    		System.out.println("Indique el periodo.");
 	    		periodo = Integer.parseInt(sc.nextLine());
-	    		nuevaCondicionOrden = new OrdenMayor(nombreCondicion, indicador, periodo, importancia);
+	    		nuevaCondicionOrden = new OrdenMayor(nombreCondicion, nombreIndicador, periodo, importancia);
 	    		break;
 	    	case 4:
 	    		System.out.println("Indique el periodo.");
 	    		periodo = Integer.parseInt(sc.nextLine());
-	    		nuevaCondicionOrden = new OrdenMenor(nombreCondicion, indicador, periodo, importancia);
+	    		nuevaCondicionOrden = new OrdenMenor(nombreCondicion, nombreIndicador, periodo, importancia);
 	    		break;
 	    	default:
 	    		System.out.println("Opción no válida.");

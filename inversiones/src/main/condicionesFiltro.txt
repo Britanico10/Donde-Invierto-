@@ -1,0 +1,1 @@
+[{"nombreCondicion":"condordenprueba","comparador":10,"periodo":2007,"inicioIntervalo":0,"nombreIndicador":"ROE","finalIntervalo":0},{"nombreCondicion":"cf","comparador":10,"periodo":2007,"inicioIntervalo":0,"nombreIndicador":"ROE","finalIntervalo":0}]

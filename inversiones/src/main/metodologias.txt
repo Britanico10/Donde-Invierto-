@@ -1,5 +1,1 @@
-[
-	
-	
-
-]
+[{"condicionesOrden":["pruebacondorden"],"condicionesFiltro":["condordenprueba"],"nombre":"pp"},{"condicionesOrden":["pruebacondorden"],"condicionesFiltro":["condordenprueba"],"nombre":"pp2"},{"condicionesOrden":["co"],"condicionesFiltro":["cf"],"nombre":"meto"}]

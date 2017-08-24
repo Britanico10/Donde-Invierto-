@@ -1,20 +1,58 @@
 package com.grupo4.inversiones.entidades.condiciones;
 
-import com.grupo4.inversiones.entidades.Indicador;
-
 public class Condicion {
 	
 	String nombreCondicion;
-	Indicador indicador;
+	String nombreIndicador;
 	int periodo;
 	int inicioIntervalo;
 	int finalIntervalo;
 	
-	public Condicion(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, Indicador _indicador, int _periodo) {
+	public String getNombreCondicion() {
+		return nombreCondicion;
+	}
+
+	public void setNombreCondicion(String nombreCondicion) {
+		this.nombreCondicion = nombreCondicion;
+	}
+
+	public String getNombreIndicador() {
+		return nombreIndicador;
+	}
+
+	public void setNombreIndicador(String nombreIndicador) {
+		this.nombreIndicador = nombreIndicador;
+	}
+
+	public int getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(int periodo) {
+		this.periodo = periodo;
+	}
+
+	public int getInicioIntervalo() {
+		return inicioIntervalo;
+	}
+
+	public void setInicioIntervalo(int inicioIntervalo) {
+		this.inicioIntervalo = inicioIntervalo;
+	}
+
+	public int getFinalIntervalo() {
+		return finalIntervalo;
+	}
+
+	public void setFinalIntervalo(int finalIntervalo) {
+		this.finalIntervalo = finalIntervalo;
+	}
+
+	public Condicion(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador, int _periodo) {
 		nombreCondicion = _nombreCondicion;
 		inicioIntervalo = _inicioIntervalo;
 		finalIntervalo = _finalIntervalo;
-		indicador = _indicador;
+		nombreIndicador = _nombreIndicador;
 		periodo = _periodo;
 	}
 

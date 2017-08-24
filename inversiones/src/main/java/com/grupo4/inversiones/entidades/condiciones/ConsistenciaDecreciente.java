@@ -3,17 +3,21 @@ package com.grupo4.inversiones.entidades.condiciones;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.tools.Listas;
 
 public class ConsistenciaDecreciente extends CondicionFiltro {
 	
-	public ConsistenciaDecreciente(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, Indicador _indicador) {
-		super(_nombreCondicion, _inicioIntervalo, _finalIntervalo, _indicador, 0);
+	public ConsistenciaDecreciente(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador) {
+		super(_nombreCondicion, _inicioIntervalo, _finalIntervalo, _nombreIndicador, 0, 0);
 	}
 	
 	@Override
 	public List<Empresa> filtrar(List<Empresa> empresas){
+		
+		Indicador indicador = Listas.buscarIndicadorEn(App.indicadores,nombreIndicador);
 		
 		List<Empresa> filtradas = new ArrayList<Empresa>();
 		Boolean tieneDesnivel = false;

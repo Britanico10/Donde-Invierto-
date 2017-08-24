@@ -2,8 +2,11 @@ package com.grupo4.inversiones.entidades;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
+import com.grupo4.inversiones.tools.Listas;
 import com.grupo4.inversiones.tools.PrintEmpresas;
 import com.grupo4.inversiones.tools.Rentabilidad;
 import edu.emory.mathcs.backport.java.util.Collections;
@@ -11,13 +14,34 @@ import edu.emory.mathcs.backport.java.util.Collections;
 public class Metodologia {
 	
 	private String nombre;
-	private List<CondicionOrden> condicionesOrden = new ArrayList<CondicionOrden>();
-	private List<CondicionFiltro> condicionesFiltro = new ArrayList<CondicionFiltro>();
+	private List<String> condicionesOrden = new ArrayList<String>();
+	private List<String> condicionesFiltro = new ArrayList<String>();
+	
+	public List<String> getCondicionesOrden() {
+		return condicionesOrden;
+	}
+
+	public void setCondicionesOrden(List<String> condicionesOrden) {
+		this.condicionesOrden = condicionesOrden;
+	}
+
+	public List<String> getCondicionesFiltro() {
+		return condicionesFiltro;
+	}
+
+	public void setCondicionesFiltro(List<String> condicionesFiltro) {
+		this.condicionesFiltro = condicionesFiltro;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
 	
 	public List<Empresa> aplicarCondicionesFiltro(List<Empresa> empresas) {
 		List<Empresa> empresasFiltradas = empresas;
 		for(int i = 0; i < condicionesFiltro.size(); i++) {
-			empresasFiltradas = condicionesFiltro.get(i).filtrar(empresas);
+			CondicionFiltro condicionBuscada = Listas.buscarCondicionFiltroEn(App.condicionesFiltro, condicionesFiltro.get(i));
+			empresasFiltradas = condicionBuscada.filtrar(empresas);
 		}
 		return empresasFiltradas;
 	}
@@ -25,7 +49,8 @@ public class Metodologia {
 	public void aplicarCondicionesDeOrden(List<Empresa> empresas) {
 		Rentabilidad.inicializarRentabilidad(empresas);
 		for(int i = 0; i < condicionesOrden.size(); i++) {
-			condicionesOrden.get(i).evaluar(empresas);
+			CondicionOrden condicionBuscada = Listas.buscarCondicionOrdenEn(App.condicionesOrden, condicionesOrden.get(i));
+			condicionBuscada.evaluar(empresas);
 		}
 	}
 	
@@ -36,17 +61,17 @@ public class Metodologia {
 		
 		
 		Collections.sort(empresasFiltradas);
-		PrintEmpresas.mostrarEmpresas(empresasFiltradas);
+		PrintEmpresas.imprimirResultado(empresasFiltradas);
 		return empresasFiltradas;
 		
 	}
 	
 	public void agregarCondicionFiltro(CondicionFiltro condicion) {
-		condicionesFiltro.add(condicion);
+		condicionesFiltro.add(condicion.getNombreCondicion());
 	}
 	
 	public void agregarCondicionOrden(CondicionOrden condicion) {
-		condicionesOrden.add(condicion);
+		condicionesOrden.add(condicion.getNombreCondicion());
 	}
 	
 	public void setNombre(String _nombre) {

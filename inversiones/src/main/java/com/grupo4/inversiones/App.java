@@ -34,9 +34,9 @@ public static List<Metodologia> metodologias;
     	
     	empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
     	indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
-    	condicionesFiltro = new ArrayList<CondicionFiltro>();
-    	condicionesOrden = new ArrayList<CondicionOrden>();
-    	metodologias = new ArrayList<Metodologia>();
+    	condicionesFiltro = cargadorDeArchivos.cargarArchivoCondicionesFiltro("src/main/condicionesFiltro.txt");
+    	condicionesOrden = cargadorDeArchivos.cargarArchivoCondicionesOrden("src/main/condicionesOrden.txt");
+    	metodologias = cargadorDeArchivos.cargarArchivoMetodologias("src/main/metodologias.txt");
     	
     	empresaActual = empresas.get(0);
     	periodoActual = 2007;
@@ -100,12 +100,15 @@ public static List<Metodologia> metodologias;
         		break;
         	case 7:
         		CreadorCondicionesFiltro.crearCondicionFiltro(condicionesFiltro);
+        		cargadorDeArchivos.guardarCondicionesFiltro("src/main/condicionesFiltro.txt", condicionesFiltro);
         		break;
         	case 8:
         		CreadorCondicionesOrden.crearCondicionOrden(condicionesOrden);
+        		cargadorDeArchivos.guardarCondicionesOrden("src/main/condicionesOrden.txt", condicionesOrden);
         		break;
         	case 9:
         		CreadorMetodologias.crearMetodologia(metodologias);
+        		cargadorDeArchivos.guardarMetodologias("src/main/metodologias.txt", metodologias);
         		break;
         	case 10:
         		System.out.println("Seleccione una metodología.");

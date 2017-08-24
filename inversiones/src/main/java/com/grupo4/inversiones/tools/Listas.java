@@ -6,6 +6,9 @@ import java.util.Optional;
 
 import com.grupo4.inversiones.entidades.Balance;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.entidades.condiciones.Condicion;
+import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
+import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
 
 public class Listas {
 	
@@ -21,6 +24,20 @@ public class Listas {
 	        .filter(p -> p.getPeriodo() == periodo)
 	        .findFirst();
 	    return balance.isPresent() ? balance.get() : null;
+	}
+	
+	public static CondicionFiltro buscarCondicionFiltroEn(List<CondicionFiltro> condiciones,String nombre){
+	    Optional<CondicionFiltro> condicion = condiciones.stream()
+	        .filter(p -> p.getNombreCondicion() == nombre)
+	        .findFirst();
+	    return condicion.isPresent() ? condicion.get() : null;
+	}
+	
+	public static CondicionOrden buscarCondicionOrdenEn(List<CondicionOrden> condiciones,String nombre){
+	    Optional<CondicionOrden> condicion = condiciones.stream()
+	        .filter(p -> p.getNombreCondicion() == nombre)
+	        .findFirst();
+	    return condicion.isPresent() ? condicion.get() : null;
 	}
 	
 	public static void sacarDeLista(Object obj, List<Object> lista){

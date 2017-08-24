@@ -27,10 +27,11 @@ public class CreadorCondicionesFiltro {
     	String nombreCondicion = sc.nextLine();
     	
     	Indicador indicador = null;
+    	String nombreIndicador = null;
     	
     	while (indicador == null) {
         	System.out.println("Ingrese el indicador utilizado en la condición.");
-        	String nombreIndicador = sc.nextLine();
+        	nombreIndicador = sc.nextLine();
     		indicador = Listas.buscarIndicadorEn(App.indicadores,nombreIndicador);
     		if (indicador == null) {
     			System.out.println("Indicador no válido.");
@@ -50,28 +51,28 @@ public class CreadorCondicionesFiltro {
     		inicioIntervalo = Integer.parseInt(sc.nextLine());
     		System.out.println("Indique final del intervalo");
     		finalIntervalo = Integer.parseInt(sc.nextLine());
-    		nuevaCondicionFiltro = new ConsistenciaCreciente(nombreCondicion, inicioIntervalo, finalIntervalo, indicador);
+    		nuevaCondicionFiltro = new ConsistenciaCreciente(nombreCondicion, inicioIntervalo, finalIntervalo, nombreIndicador);
     		break;
     	case 2:
     		System.out.println("Indique inicio del intervalo.");
     		inicioIntervalo = Integer.parseInt(sc.nextLine());
     		System.out.println("Indique final del intervalo");
     		finalIntervalo = Integer.parseInt(sc.nextLine());
-    		nuevaCondicionFiltro = new ConsistenciaDecreciente(nombreCondicion, inicioIntervalo, finalIntervalo, indicador);
+    		nuevaCondicionFiltro = new ConsistenciaDecreciente(nombreCondicion, inicioIntervalo, finalIntervalo, nombreIndicador);
     		break;
     	case 3:
     		System.out.println("Indique el periodo.");
     		periodo = Integer.parseInt(sc.nextLine());
     		System.out.println("Ingrese a que numero desea comparar.");
     		comparador = Integer.parseInt(sc.nextLine());
-    		nuevaCondicionFiltro = new FiltroMayor(nombreCondicion, indicador, periodo, comparador);
+    		nuevaCondicionFiltro = new FiltroMayor(nombreCondicion, nombreIndicador, periodo, comparador);
     		break;
     	case 4:
     		System.out.println("Indique el periodo.");
     		periodo = Integer.parseInt(sc.nextLine());
     		System.out.println("Ingrese a que numero desea comparar.");
     		comparador = Integer.parseInt(sc.nextLine());
-    		nuevaCondicionFiltro = new FiltroMenor(nombreCondicion, indicador, periodo, comparador);
+    		nuevaCondicionFiltro = new FiltroMenor(nombreCondicion, nombreIndicador, periodo, comparador);
     		break;
     	default:
     		System.out.println("Opción no válida.");

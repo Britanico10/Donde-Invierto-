@@ -2,17 +2,22 @@ package com.grupo4.inversiones.entidades.condiciones;
 
 import java.util.List;
 
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.tools.Listas;
 
 public class OrdenMayor extends CondicionOrden {
 	
-	public OrdenMayor(String _nombreCondicion, Indicador _indicador, int _periodo, int _importancia) {
-		super(_nombreCondicion, 0, 0, _indicador, _periodo, _importancia);
+	public OrdenMayor(String _nombreCondicion, String _nombreIndicador, int _periodo, int _importancia) {
+		super(_nombreCondicion, 0, 0, _nombreIndicador, _periodo, _importancia);
 	}
 
 	@Override
 	public void ordenarPorIndicador(List<Empresa> empresas) {
+		
+		Indicador indicador = Listas.buscarIndicadorEn(App.indicadores,nombreIndicador);
+		
 		Empresa aux;
 		for(int i = 0; i < empresas.size(); i++) {
 			for(int j = 0; j < empresas.size(); j++) {
