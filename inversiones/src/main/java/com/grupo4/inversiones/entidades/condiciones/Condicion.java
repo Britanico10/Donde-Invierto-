@@ -7,6 +7,15 @@ public class Condicion {
 	int periodo;
 	int inicioIntervalo;
 	int finalIntervalo;
+	public String tipo;
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 	
 	public String getNombreCondicion() {
 		return nombreCondicion;

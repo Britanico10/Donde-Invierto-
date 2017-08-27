@@ -1,1 +1,30 @@
-[{"formula":"ingNetoOpCont + ingNetoOpDiscont","idIndicador":"ingresoNeto"},{"formula":"ingresoNeto \/ capitalPropio","idIndicador":"ROE"},{"formula":"4+ingresoNeto","idIndicador":"asd"},{"formula":"deuda\/capitalPropio","idIndicador":"proporcionDeuda"},{"formula":"ingresoNeto","idIndicador":"Margen"},{"formula":"inicioActividad","idIndicador":"a"}]
+[
+  {
+    "formula": "ingNetoOpCont + ingNetoOpDiscont",
+    "idIndicador": "ingresoNeto"
+  },
+  {
+    "formula": "ingresoNeto / capitalPropio",
+    "idIndicador": "ROE"
+  },
+  {
+    "formula": "4+ingresoNeto",
+    "idIndicador": "asd"
+  },
+  {
+    "formula": "deuda/capitalPropio",
+    "idIndicador": "proporcionDeuda"
+  },
+  {
+    "formula": "ingresoNeto",
+    "idIndicador": "Margen"
+  },
+  {
+    "formula": "inicioActividad",
+    "idIndicador": "a"
+  },
+  {
+    "formula": "4",
+    "idIndicador": "caca"
+  }
+]

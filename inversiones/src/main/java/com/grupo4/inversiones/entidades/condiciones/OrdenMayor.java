@@ -11,6 +11,7 @@ public class OrdenMayor extends CondicionOrden {
 	
 	public OrdenMayor(String _nombreCondicion, String _nombreIndicador, int _periodo, int _importancia) {
 		super(_nombreCondicion, 0, 0, _nombreIndicador, _periodo, _importancia);
+		tipo = "OrdenMayor";
 	}
 
 	@Override

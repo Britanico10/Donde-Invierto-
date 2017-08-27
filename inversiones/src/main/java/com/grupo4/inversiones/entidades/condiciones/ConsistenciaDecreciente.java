@@ -12,7 +12,8 @@ public class ConsistenciaDecreciente extends CondicionFiltro {
 	
 	public ConsistenciaDecreciente(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador) {
 		super(_nombreCondicion, _inicioIntervalo, _finalIntervalo, _nombreIndicador, 0, 0);
-	}
+		tipo = "ConsistenciaDecreciente";
+		}
 	
 	@Override
 	public List<Empresa> filtrar(List<Empresa> empresas){

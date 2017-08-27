@@ -1,1 +1,29 @@
-[{"nombreCondicion":"pruebacondorden","importancia":5,"periodo":10,"inicioIntervalo":0,"nombreIndicador":"ROE","finalIntervalo":0},{"nombreCondicion":"co","importancia":5,"periodo":2007,"inicioIntervalo":0,"nombreIndicador":"ROE","finalIntervalo":0}]
+[
+  {
+    "nombreCondicion": "asd",
+    "importancia": 4,
+    "tipo": "OrdenMayor",
+    "periodo": 2007,
+    "inicioIntervalo": 0,
+    "nombreIndicador": "ROE",
+    "finalIntervalo": 0
+  },
+  {
+    "nombreCondicion": "fp",
+    "importancia": 5,
+    "tipo": "OrdenMayor",
+    "periodo": 2007,
+    "inicioIntervalo": 0,
+    "nombreIndicador": "ROE",
+    "finalIntervalo": 0
+  },
+  {
+    "nombreCondicion": "lp2",
+    "importancia": 10,
+    "tipo": "OrdenMayor",
+    "periodo": 2007,
+    "inicioIntervalo": 0,
+    "nombreIndicador": "caca",
+    "finalIntervalo": 0
+  }
+]

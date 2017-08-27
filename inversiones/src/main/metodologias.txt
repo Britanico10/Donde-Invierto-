@@ -1,1 +1,29 @@
-[{"condicionesOrden":["pruebacondorden"],"condicionesFiltro":["condordenprueba"],"nombre":"pp"},{"condicionesOrden":["pruebacondorden"],"condicionesFiltro":["condordenprueba"],"nombre":"pp2"},{"condicionesOrden":["co"],"condicionesFiltro":["cf"],"nombre":"meto"}]
+[
+  {
+    "condicionesOrden": [
+      "fp"
+    ],
+    "condicionesFiltro": [
+      "asd"
+    ],
+    "nombre": "asd"
+  },
+  {
+    "condicionesOrden": [
+      "asd"
+    ],
+    "condicionesFiltro": [
+      "asd"
+    ],
+    "nombre": "asd"
+  },
+  {
+    "condicionesOrden": [
+      "asd"
+    ],
+    "condicionesFiltro": [
+      "asd"
+    ],
+    "nombre": "asd"
+  }
+]

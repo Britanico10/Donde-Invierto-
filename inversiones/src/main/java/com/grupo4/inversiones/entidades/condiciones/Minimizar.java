@@ -11,6 +11,7 @@ public class Minimizar extends CondicionOrden {
 	
 	public Minimizar(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador, int _importancia) {
 		super(_nombreCondicion, _inicioIntervalo, _finalIntervalo, _nombreIndicador, 0, _importancia);
+		tipo = "Minimizar";
 	}
 	
 	@Override

@@ -12,6 +12,7 @@ public class ConsistenciaCreciente extends CondicionFiltro {
 	
 	public ConsistenciaCreciente(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador) {
 		super(_nombreCondicion, _inicioIntervalo, _finalIntervalo, _nombreIndicador, 0, 0);
+		tipo = "ConsistenciaCreciente";
 	}
 	
 	@Override

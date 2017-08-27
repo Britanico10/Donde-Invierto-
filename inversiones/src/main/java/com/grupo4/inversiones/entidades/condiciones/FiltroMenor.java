@@ -10,11 +10,9 @@ import com.grupo4.inversiones.tools.Listas;
 
 public class FiltroMenor extends CondicionFiltro {
 	
-	int comparador;
-	
 	public FiltroMenor(String _nombreCondicion, String _nombreIndicador, int _periodo, int _comparador) {
 		super(_nombreCondicion, 0, 0, _nombreIndicador, _periodo, _comparador);
-		comparador = _comparador;
+		tipo = "FiltroMenor";
 	}
 	
 	@Override

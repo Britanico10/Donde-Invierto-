@@ -11,6 +11,7 @@ public class OrdenMenor extends CondicionOrden {
 	
 	public OrdenMenor(String _nombreCondicion, String _nombreIndicador, int _periodo, int _importancia) {
 		super(_nombreCondicion, 0, 0,_nombreIndicador, _periodo, _importancia);
+		tipo = "OrdenMenor";
 	}
 	
 	@Override

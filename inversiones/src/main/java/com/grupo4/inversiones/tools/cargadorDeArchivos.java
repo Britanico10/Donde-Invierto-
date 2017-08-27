@@ -11,14 +11,26 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.entidades.condiciones.Condicion;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
+import com.grupo4.inversiones.entidades.condiciones.ConsistenciaCreciente;
+import com.grupo4.inversiones.entidades.condiciones.ConsistenciaDecreciente;
+import com.grupo4.inversiones.entidades.condiciones.FiltroMayor;
+import com.grupo4.inversiones.entidades.condiciones.FiltroMenor;
+import com.grupo4.inversiones.entidades.condiciones.Maximizar;
+import com.grupo4.inversiones.entidades.condiciones.Minimizar;
+import com.grupo4.inversiones.entidades.condiciones.OrdenMayor;
+import com.grupo4.inversiones.entidades.condiciones.OrdenMenor;
 
 public class cargadorDeArchivos {
 	
@@ -53,29 +65,59 @@ public class cargadorDeArchivos {
 	}
 	
 	public static List<CondicionFiltro> cargarArchivoCondicionesFiltro(String path) throws FileNotFoundException {
+		
 		List<CondicionFiltro> condicionesFiltro = new ArrayList<CondicionFiltro>();
-		Type tipoListaCondicionFiltro = new TypeToken<ArrayList<CondicionFiltro>>() {
-		}.getType();
-		Gson gson = new Gson();
+		
+		RuntimeTypeAdapterFactory<CondicionFiltro> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+			    .of(CondicionFiltro.class, "tipo")
+			    .registerSubtype(ConsistenciaCreciente.class, "ConsistenciaCreciente")
+			    .registerSubtype(ConsistenciaDecreciente.class, "ConsistenciaDecreciente")
+			    .registerSubtype(FiltroMayor.class, "FiltroMayor")
+			    .registerSubtype(FiltroMenor.class, "FiltroMenor");
+		Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+		
+		Type tipoListaCondicionFiltro = new TypeToken<List<CondicionFiltro>>(){}.getType();
+		
 		JsonReader reader = new JsonReader(new FileReader(path));
+		
 		condicionesFiltro = gson.fromJson(reader, tipoListaCondicionFiltro);
+		
+		for (int i = 0; i < condicionesFiltro.size(); i++) {
+			condicionesFiltro.get(i).setTipo(condicionesFiltro.get(i).getClass().getSimpleName());
+		}
+		
 		return condicionesFiltro;
 	}
 	
 	public static List<CondicionOrden> cargarArchivoCondicionesOrden(String path) throws FileNotFoundException {
+
 		List<CondicionOrden> condicionesOrden = new ArrayList<CondicionOrden>();
-		Type tipoListaCondicionOrden = new TypeToken<ArrayList<CondicionOrden>>() {
-		}.getType();
-		Gson gson = new Gson();
+		
+		RuntimeTypeAdapterFactory<CondicionOrden> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+			    .of(CondicionOrden.class, "tipo")
+			    .registerSubtype(Maximizar.class, "Maximizar")
+			    .registerSubtype(Minimizar.class, "Minimizar")
+			    .registerSubtype(OrdenMayor.class, "OrdenMayor")
+			    .registerSubtype(OrdenMenor.class, "OrdenMenor");
+		Gson gson = new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
+		
+		Type tipoListaCondicionOrden = new TypeToken<List<CondicionOrden>>(){}.getType();
+		
 		JsonReader reader = new JsonReader(new FileReader(path));
+		
 		condicionesOrden = gson.fromJson(reader, tipoListaCondicionOrden);
+		
+		for (int i = 0; i < condicionesOrden.size(); i++) {
+			condicionesOrden.get(i).setTipo(condicionesOrden.get(i).getClass().getSimpleName());
+		}
+		
 		return condicionesOrden;
+		
 	}
 	
 	public static void guardarIndicadores(String path ,List<Indicador> indicadores) throws IOException {
 		
 		JSONArray array = new JSONArray();
-		FileWriter file = new FileWriter(path);
 		
 		for (int i = 0; i <= indicadores.size() - 1; i++){
 			JSONObject obj = new JSONObject();
@@ -84,17 +126,25 @@ public class cargadorDeArchivos {
 			array.add(obj);
 		}
 
-		array.writeJSONString(file);
-		
-		file.flush();
-		file.close();
+	    try (FileWriter file = new FileWriter(path)) {
+
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(array.toJSONString());
+            String prettyJsonString = gson.toJson(je);
+            System.out.println(prettyJsonString);                  
+
+            file.write(prettyJsonString);
+            file.flush();
+            file.close();
+}
 		
 	}
 	
 	public static void guardarMetodologias(String path ,List<Metodologia> metodologias) throws IOException {
 		
 		JSONArray array = new JSONArray();
-		FileWriter file = new FileWriter(path);
 		
 		for (int i = 0; i < metodologias.size(); i++){
 			
@@ -120,17 +170,25 @@ public class cargadorDeArchivos {
 			array.add(obj);
 		}
 
-		array.writeJSONString(file);
-		
-		file.flush();
-		file.close();
+	    try (FileWriter file = new FileWriter(path)) {
+
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(array.toJSONString());
+            String prettyJsonString = gson.toJson(je);
+            System.out.println(prettyJsonString);                  
+
+            file.write(prettyJsonString);
+            file.flush();
+            file.close();
+}
 		
 	}
 	
 	public static void guardarCondicionesFiltro(String path ,List<CondicionFiltro> condiciones) throws IOException {
 		
 		JSONArray array = new JSONArray();
-		FileWriter file = new FileWriter(path);
 		
 		for (int i = 0; i <= condiciones.size() - 1; i++){
 			JSONObject obj = new JSONObject();
@@ -140,20 +198,28 @@ public class cargadorDeArchivos {
 			obj.put("inicioIntervalo", condiciones.get(i).getInicioIntervalo());
 			obj.put("finalIntervalo", condiciones.get(i).getFinalIntervalo());
 			obj.put("comparador", condiciones.get(i).getComparador());
+			obj.put("tipo", condiciones.get(i).getTipo());
 			array.add(obj);
 		}
 
-		array.writeJSONString(file);
-		
-		file.flush();
-		file.close();
-		
+	    try (FileWriter file = new FileWriter(path)) {
+
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(array.toJSONString());
+            String prettyJsonString = gson.toJson(je);
+            System.out.println(prettyJsonString);                  
+
+            file.write(prettyJsonString);
+            file.flush();
+            file.close();
+}
 	}
 	
 	public static void guardarCondicionesOrden(String path ,List<CondicionOrden> condiciones) throws IOException {
 		
 		JSONArray array = new JSONArray();
-		FileWriter file = new FileWriter(path);
 		
 		for (int i = 0; i <= condiciones.size() - 1; i++){
 			JSONObject obj = new JSONObject();
@@ -163,13 +229,23 @@ public class cargadorDeArchivos {
 			obj.put("inicioIntervalo", condiciones.get(i).getInicioIntervalo());
 			obj.put("finalIntervalo", condiciones.get(i).getFinalIntervalo());
 			obj.put("importancia", condiciones.get(i).getImportancia());
+			obj.put("tipo", condiciones.get(i).getTipo());
 			array.add(obj);
 		}
 
-		array.writeJSONString(file);
-		
-		file.flush();
-		file.close();
+	    try (FileWriter file = new FileWriter(path)) {
+
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(array.toJSONString());
+            String prettyJsonString = gson.toJson(je);
+            System.out.println(prettyJsonString);                  
+
+            file.write(prettyJsonString);
+            file.flush();
+            file.close();
+}
 		
 	}
 	

@@ -41,7 +41,7 @@ public class Metodologia {
 		List<Empresa> empresasFiltradas = empresas;
 		for(int i = 0; i < condicionesFiltro.size(); i++) {
 			CondicionFiltro condicionBuscada = Listas.buscarCondicionFiltroEn(App.condicionesFiltro, condicionesFiltro.get(i));
-			empresasFiltradas = condicionBuscada.filtrar(empresas);
+			empresasFiltradas = condicionBuscada.filtrar(empresasFiltradas);
 		}
 		return empresasFiltradas;
 	}

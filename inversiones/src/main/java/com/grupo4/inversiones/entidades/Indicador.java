@@ -49,7 +49,7 @@ public class Indicador {
 	public Double promedioEnIntervalo(Empresa empresa, int inicio, int fin) {
 		List<Double> aplicados = this.aplicarEnIntervalo(empresa, inicio, fin);
 		double total = 0;
-		for(int i = 0; i <= aplicados.size(); i++) {
+		for(int i = 0; i < aplicados.size(); i++) {
 			total += aplicados.get(i);
 		}
 		return total / aplicados.size();

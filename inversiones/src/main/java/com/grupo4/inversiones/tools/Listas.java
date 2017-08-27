@@ -27,17 +27,17 @@ public class Listas {
 	}
 	
 	public static CondicionFiltro buscarCondicionFiltroEn(List<CondicionFiltro> condiciones,String nombre){
-	    Optional<CondicionFiltro> condicion = condiciones.stream()
-	        .filter(p -> p.getNombreCondicion() == nombre)
-	        .findFirst();
-	    return condicion.isPresent() ? condicion.get() : null;
+	    for(CondicionFiltro cond: condiciones) {
+	    	if(cond.getNombreCondicion().equals(nombre)) return cond;
+	    }
+	    return null;
 	}
 	
 	public static CondicionOrden buscarCondicionOrdenEn(List<CondicionOrden> condiciones,String nombre){
-	    Optional<CondicionOrden> condicion = condiciones.stream()
-	        .filter(p -> p.getNombreCondicion() == nombre)
-	        .findFirst();
-	    return condicion.isPresent() ? condicion.get() : null;
+		for(CondicionOrden cond: condiciones) {
+	    	if(cond.getNombreCondicion().equals(nombre)) return cond;
+	    }
+	    return null;
 	}
 	
 	public static void sacarDeLista(Object obj, List<Object> lista){

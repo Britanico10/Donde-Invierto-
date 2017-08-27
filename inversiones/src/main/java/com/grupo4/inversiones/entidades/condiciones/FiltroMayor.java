@@ -12,7 +12,7 @@ public class FiltroMayor extends CondicionFiltro {
 	
 	public FiltroMayor(String _nombreCondicion, String _nombreIndicador, int _periodo, int _comparador) {
 		super(_nombreCondicion, 0, 0, _nombreIndicador, _periodo, _comparador);
-		
+		tipo = "FiltroMayor";
 	}
 	
 	@Override
