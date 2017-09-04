@@ -1,22 +1,33 @@
 package com.grupo4.inversiones.entidades;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+import com.grupo4.inversiones.persistencia.Persistible;
 import com.grupo4.inversiones.tools.Listas;
 
-public class Empresa implements Comparable<Empresa>{
+@Entity
+@Table(name = "EMPRESA")
+public class Empresa extends Persistible implements Comparable<Empresa>{
 	
 	private String nombre;
 	private int inicioActividad;
+	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
 	private List<Balance> balances = new ArrayList<Balance>();
-	
 	private double rentabilidad= 0;
 	
+	public Empresa() {
+	}
 	
 	public Empresa(String _nombre) {
 		this.nombre = _nombre;
 	}
 	
+	@Column(name = "rentabilidad")
 	public double getRentabilidad() {
 		return rentabilidad;
 	}
@@ -25,6 +36,7 @@ public class Empresa implements Comparable<Empresa>{
 		this.rentabilidad = rentabilidad;
 	}
 	
+	@Column(name = "inicioActividad")
 	public int getInicioActividad() {
 		return inicioActividad;
 	}
@@ -37,9 +49,12 @@ public class Empresa implements Comparable<Empresa>{
 		balances.add(balance);
 	}
 	
+	@Column(name = "nombre")
 	public String getNombre() {
 		return nombre;
 	}
+	
+	@Column(name = "balances")
 	public List<Balance> getBalances(){
 		return balances;
 	}
