@@ -1,7 +1,21 @@
 package com.grupo4.inversiones.entidades;
 
-public class Balance{
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.grupo4.inversiones.persistencia.Persistible;
+
+@Entity
+@Table(name = "BALANCE")
+public class Balance extends Persistible{
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "empresa_id", referencedColumnName = "id") 
+	private Empresa empresa;
 	private int periodo = 0;
 	private int ebitda = 0;
 	private int fds = 0;
@@ -11,13 +25,24 @@ public class Balance{
 	private int deuda = 0;
 	private int capitalPropio = 0;
 	
+	public Balance() {
+		
+	}
+	
+	public Balance(int _periodo) {
+		periodo = _periodo;
+	}
+	
+	@Column(name = "deuda")
 	public int getDeuda() {
 		return deuda;
 	}
+	
 	public void setDeuda(int deuda) {
 		this.deuda = deuda;
 	}
 	
+	@Column(name = "capitalPropio")
 	public int getCapitalPropio() {
 		return capitalPropio;
 	}
@@ -25,46 +50,56 @@ public class Balance{
 	public void setCapitalPropio(int capitalPropio) {
 		this.capitalPropio = capitalPropio;
 	}
-
+	
+	@Column(name = "ebitda")
 	public int getEbitda() {
 		return ebitda;
 	}
+	
 	public void setEbitda(int ebitda) {
 		this.ebitda = ebitda;
 	}
+	
+	@Column(name = "fds")
 	public int getFds() {
 		return fds;
 	}
+	
 	public void setFds(int fds) {
 		this.fds = fds;
 	}
+	
+	@Column(name = "fCashFlow")
 	public int getfCashFlow() {
 		return fCashFlow;
 	}
+	
 	public void setfCashFlow(int fCashFlow) {
 		this.fCashFlow = fCashFlow;
 	}
+	
+	@Column(name = "ingNetoOpCont")
 	public int getIngNetoOpCont() {
 		return ingNetoOpCont;
 	}
+	
 	public void setIngNetoOpCont(int ingNetoOpCont) {
 		this.ingNetoOpCont = ingNetoOpCont;
 	}
+	
+	@Column(name = "ingNetoOpDiscont")
 	public int getIngNetoOpDiscont() {
 		return ingNetoOpDiscont;
 	}
+	
 	public void setIngNetoOpDiscont(int ingNetoOpDiscont) {
 		this.ingNetoOpDiscont = ingNetoOpDiscont;
 	}
 	
-	public Balance(int _periodo) {
-		periodo = _periodo;
-	}
-	
+	@Column(name = "periodo")
 	public int getPeriodo(){
 		return periodo;
 	}
-	
 	
 	public void setPeriodo(int _periodo){
 		periodo = _periodo;
