@@ -1,20 +1,11 @@
 [
   {
     "nombreCondicion": "asd",
-    "comparador": 5,
+    "comparador": 10,
     "tipo": "FiltroMenor",
     "periodo": 2007,
     "inicioIntervalo": 0,
     "nombreIndicador": "ROE",
-    "finalIntervalo": 0
-  },
-  {
-    "nombreCondicion": "lp",
-    "comparador": 3,
-    "tipo": "FiltroMayor",
-    "periodo": 2007,
-    "inicioIntervalo": 0,
-    "nombreIndicador": "caca",
     "finalIntervalo": 0
   }
 ]

@@ -30,7 +30,7 @@ public static List<CondicionOrden> condicionesOrden;
 public static List<Metodologia> metodologias;
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
     	
     	empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
     	indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");

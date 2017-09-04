@@ -37,24 +37,30 @@ public class Metodologia {
 		return nombre;
 	}
 	
-	public List<Empresa> aplicarCondicionesFiltro(List<Empresa> empresas) {
+	public List<Empresa> aplicarCondicionesFiltro(List<Empresa> empresas) throws Exception {
 		List<Empresa> empresasFiltradas = empresas;
 		for(int i = 0; i < condicionesFiltro.size(); i++) {
 			CondicionFiltro condicionBuscada = Listas.buscarCondicionFiltroEn(App.condicionesFiltro, condicionesFiltro.get(i));
+			if(condicionBuscada == null) {
+				throw new Exception("No se pudo encontrar la condición " + condicionesFiltro.get(i));
+			}
 			empresasFiltradas = condicionBuscada.filtrar(empresasFiltradas);
 		}
 		return empresasFiltradas;
 	}
 	
-	public void aplicarCondicionesDeOrden(List<Empresa> empresas) {
+	public void aplicarCondicionesDeOrden(List<Empresa> empresas) throws Exception {
 		Rentabilidad.inicializarRentabilidad(empresas);
 		for(int i = 0; i < condicionesOrden.size(); i++) {
 			CondicionOrden condicionBuscada = Listas.buscarCondicionOrdenEn(App.condicionesOrden, condicionesOrden.get(i));
+			if(condicionBuscada == null) {
+				throw new Exception("No se pudo encontrar la condición " + condicionesFiltro.get(i));
+			}
 			condicionBuscada.evaluar(empresas);
 		}
 	}
 	
-	public List<Empresa> aplicarMetodologiaATodas(List<Empresa> empresas){
+	public List<Empresa> aplicarMetodologiaATodas(List<Empresa> empresas) throws Exception{
 		
 		List<Empresa> empresasFiltradas = aplicarCondicionesFiltro(empresas);
 		aplicarCondicionesDeOrden(empresasFiltradas);

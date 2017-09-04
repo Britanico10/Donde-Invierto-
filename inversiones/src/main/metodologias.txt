@@ -25,5 +25,14 @@
       "asd"
     ],
     "nombre": "asd"
+  },
+  {
+    "condicionesOrden": [
+      "asd"
+    ],
+    "condicionesFiltro": [
+      "asd"
+    ],
+    "nombre": "asdasd"
   }
 ]
