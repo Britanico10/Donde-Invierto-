@@ -3,11 +3,18 @@ package com.grupo4.inversiones.entidades.condiciones;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.tools.Listas;
 
+@Entity
+@Table(name = "ConsistenciaCreciente")
 public class ConsistenciaCreciente extends CondicionFiltro {
 	
 	public ConsistenciaCreciente(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador) {

@@ -3,9 +3,15 @@ package com.grupo4.inversiones.entidades;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.tools.Analizador;
 
+@Entity
+@Table(name = "INDICADOR")
 public class Indicador {
 	private String formula;
 	private String idIndicador;
@@ -15,16 +21,18 @@ public class Indicador {
 		idIndicador = _idIndicador;
 	}
 	
+	@Column(name = "idIndicador")
 	public String getIdIndicador(){
 		return idIndicador;
 	}
 	
-	public String getformula(){
-		return formula;
-	}	
-	
 	public void setIdIndicador(String valor){
 		idIndicador = valor;
+	}
+	
+	@Column(name = "formula")
+	public String getformula(){
+		return formula;
 	}
 	
 	public void setformula(String valor){

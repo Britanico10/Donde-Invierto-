@@ -5,12 +5,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.grupo4.inversiones.persistencia.Persistible;
 
 @Entity
 @Table(name = "BALANCE")
+@NamedQuery(name="buscarBalance",query="SELECT b FROM Balance b WHERE b.nombre LIKE :nombre") 
 public class Balance extends Persistible{
 	
 	@ManyToOne(cascade = CascadeType.ALL)

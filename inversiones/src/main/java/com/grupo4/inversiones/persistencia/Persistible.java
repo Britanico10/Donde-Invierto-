@@ -6,13 +6,17 @@ import javax.persistence.Column; import javax.persistence.GeneratedValue; import
  
 @MappedSuperclass public class Persistible implements Serializable { 
  
-    @Id     @GeneratedValue(strategy=GenerationType.AUTO)     protected Long id;     protected String nombre; 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    protected Long id;
+    protected String name; 
  
     protected Persistible() {
     	
     } 
  
-    @Column(name = "id")     public Long getId() {
+    @Column(name = "id")
+    public Long getId() {
     	return id;
     	} 
  
@@ -20,16 +24,17 @@ import javax.persistence.Column; import javax.persistence.GeneratedValue; import
     	this.id = id;
     	} 
  
-    @Column(name = "nombre")     public String getNombre() {
-    	return nombre;
+    @Column(name = "name")
+    public String getName() {
+    	return name;
     	} 
  
-    public void setNombre(String nombre) {
-    	this.nombre = nombre;
+    public void setName(String name) {
+    	this.name = name;
     	} 
  
     public String toString() {
-    	return getId() + "-" + getNombre();
+    	return getId() + "-" + getName();
     	} 
  
 }

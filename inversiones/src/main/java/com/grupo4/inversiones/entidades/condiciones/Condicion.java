@@ -1,6 +1,15 @@
 package com.grupo4.inversiones.entidades.condiciones;
 
-public class Condicion {
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+
+import javax.persistence.InheritanceType;
+
+import com.grupo4.inversiones.persistencia.Persistible;
+
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class Condicion extends Persistible{
 	
 	String nombreCondicion;
 	String nombreIndicador;

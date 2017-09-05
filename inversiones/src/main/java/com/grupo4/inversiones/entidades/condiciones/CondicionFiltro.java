@@ -2,10 +2,16 @@ package com.grupo4.inversiones.entidades.condiciones;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 
-public class CondicionFiltro extends Condicion {
+@Entity
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class CondicionFiltro extends Condicion {
 	
 	int comparador;
 	
