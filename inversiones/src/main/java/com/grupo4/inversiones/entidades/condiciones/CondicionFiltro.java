@@ -9,8 +9,8 @@ import javax.persistence.InheritanceType;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 
-@Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+//@Entity
+//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class CondicionFiltro extends Condicion {
 	
 	int comparador;

@@ -8,13 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import com.grupo4.inversiones.App;
+import com.grupo4.inversiones.persistencia.Persistible;
 import com.grupo4.inversiones.tools.Analizador;
 
 @Entity
 @Table(name = "INDICADOR")
-public class Indicador {
+public class Indicador extends Persistible {
 	private String formula;
 	private String idIndicador;
+	
+	public Indicador() {
+		
+	}
 	
 	public Indicador(String _idIndicador, String _formula){
 		formula = _formula;

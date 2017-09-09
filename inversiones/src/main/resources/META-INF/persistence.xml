@@ -6,12 +6,12 @@
     version="2.0"> 
   
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
-    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     	
-    	<class>com.grupo4.inversiones.entidades.Empresa</class>
+        <class>com.grupo4.inversiones.entidades.Empresa</class>
     	<class>com.grupo4.inversiones.entidades.Indicador</class>
-    	<class>com.grupo4.inversiones.entidades.Balance</class>
-    	<class>com.grupo4.inversiones.entidades.Metodologia</class>
+     	<class>com.grupo4.inversiones.entidades.Balance</class>
+<!--     	<class>com.grupo4.inversiones.entidades.Metodologia</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.Condicion</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.CondicionFiltro</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.CondicionOrden</class>
@@ -22,7 +22,7 @@
     	<class>com.grupo4.inversiones.entidades.condiciones.Maximizar</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.Minimizar</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.ConsistenciaCreciente</class>
-    	<class>com.grupo4.inversiones.entidades.condiciones.ConsistenciaDecreciente</class>
+    	<class>com.grupo4.inversiones.entidades.condiciones.ConsistenciaDecreciente</class> -->
     	<class>com.grupo4.inversiones.persistencia.Persistible</class>
     	
     	 
@@ -34,7 +34,7 @@
             <property name="hibernate.connection.username" value="root" /> 
             <property name="hibernate.connection.password" value="mysql" /--> 
 
-            <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" /> 
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db" /> 
             <property name="hibernate.connection.username" value="root" /> 
             <property name="hibernate.connection.password" value="Norberto10" /> 

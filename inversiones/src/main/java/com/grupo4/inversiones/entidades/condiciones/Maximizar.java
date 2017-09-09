@@ -10,8 +10,8 @@ import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.tools.Listas;
 
-@Entity
-@Table(name = "Maximizar")
+//@Entity
+//@Table(name = "Maximizar")
 public class Maximizar extends CondicionOrden {
 	
 	public Maximizar(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador, int _importancia) {

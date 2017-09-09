@@ -12,11 +12,11 @@ import com.grupo4.inversiones.persistencia.Persistible;
 
 @Entity
 @Table(name = "BALANCE")
-@NamedQuery(name="buscarBalance",query="SELECT b FROM Balance b WHERE b.nombre LIKE :nombre") 
+@NamedQuery(name="buscarBalance",query="SELECT b FROM Balance b WHERE b.name LIKE :bname") 
 public class Balance extends Persistible{
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "empresa_id", referencedColumnName = "id") 
+	@JoinColumn(name = "empresa", referencedColumnName = "id") 
 	private Empresa empresa;
 	private int periodo = 0;
 	private int ebitda = 0;
@@ -29,6 +29,18 @@ public class Balance extends Persistible{
 	
 	public Balance() {
 		
+	}
+	
+	public Balance(Empresa _empresa, int _periodo, int _ebitda, int _fds, int _fCashFlow, int _ingNetoOpCont, int _ingNetoOpDiscont, int _deuda, int _capitalPropio) {
+		empresa = _empresa;
+		periodo = _periodo;
+		ebitda = _ebitda;
+		fds  = _fds;
+		fCashFlow = _fCashFlow;
+		ingNetoOpCont = _ingNetoOpCont;
+		ingNetoOpDiscont = _ingNetoOpDiscont;
+		deuda = _deuda;
+		capitalPropio = _capitalPropio;
 	}
 	
 	public Balance(int _periodo) {

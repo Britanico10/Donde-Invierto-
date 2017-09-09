@@ -27,6 +27,12 @@ public class Empresa extends Persistible implements Comparable<Empresa>{
 		this.nombre = _nombre;
 	}
 	
+	public Empresa(String _nombre,int _inicioActividad, double _rentabilidad) {
+		nombre = _nombre;
+		inicioActividad = _inicioActividad;
+		rentabilidad = _rentabilidad;
+	}
+	
 	@Column(name = "rentabilidad")
 	public double getRentabilidad() {
 		return rentabilidad;

@@ -11,8 +11,8 @@ import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.tools.Listas;
 
-@Entity
-@Table(name = "FiltroMayor")
+//@Entity
+//@Table(name = "FiltroMayor")
 public class FiltroMayor extends CondicionFiltro {
 	
 	public FiltroMayor(String _nombreCondicion, String _nombreIndicador, int _periodo, int _comparador) {

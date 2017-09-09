@@ -11,8 +11,8 @@ import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.tools.Listas;
 
-@Entity
-@Table(name = "ConsistenciaDecreciente")
+//@Entity
+//@Table(name = "ConsistenciaDecreciente")
 public class ConsistenciaDecreciente extends CondicionFiltro {
 	
 	public ConsistenciaDecreciente(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador) {

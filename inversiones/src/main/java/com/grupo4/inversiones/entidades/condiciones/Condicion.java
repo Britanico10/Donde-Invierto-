@@ -7,8 +7,8 @@ import javax.persistence.InheritanceType;
 
 import com.grupo4.inversiones.persistencia.Persistible;
 
-@Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+//@Entity
+//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public abstract class Condicion extends Persistible{
 	
 	String nombreCondicion;
