@@ -11,6 +11,7 @@ import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
 import com.grupo4.inversiones.tools.AplicarIndicadores;
+import com.grupo4.inversiones.tools.CargadorDeBaseDeDatos;
 import com.grupo4.inversiones.tools.CreadorCondicionesFiltro;
 import com.grupo4.inversiones.tools.CreadorCondicionesOrden;
 import com.grupo4.inversiones.tools.CreadorIndicadores;
@@ -55,6 +56,7 @@ public static List<Metodologia> metodologias;
         	switch(opcionElegida){
         	case 1: 
         		CreadorIndicadores.crearIndicador(indicadores);
+        		CargadorDeBaseDeDatos.guardarIndicador(indicadores);
         		cargadorDeArchivos.guardarIndicadores("src/main/indicadores.txt", indicadores);
         		break;
         	case 2: 

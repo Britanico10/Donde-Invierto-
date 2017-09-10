@@ -30,8 +30,7 @@ public class Balance extends Persistible{
 		
 	}
 	
-	public Balance(Empresa _empresa, int _periodo, int _ebitda, int _fds, int _fCashFlow, int _ingNetoOpCont, int _ingNetoOpDiscont, int _deuda, int _capitalPropio) {
-		idEmpresa = _empresa.getId();
+	public Balance(int _periodo, int _ebitda, int _fds, int _fCashFlow, int _ingNetoOpCont, int _ingNetoOpDiscont, int _deuda, int _capitalPropio) {
 		periodo = _periodo;
 		ebitda = _ebitda;
 		fds  = _fds;

@@ -31,7 +31,7 @@ public class PersistenciaIndicadoresTest {
 		Empresa e = new Empresa("prueba", 2000,0);
 		repositorio.indicadores().persistir(i);
 		repositorio.empresas().persistir(e);
-		Balance b = new Balance(e, 2007, 1,1,1,1,1,1,1);
+		Balance b = new Balance(2007,1,1,1,1,1,1,1);
 		e.agregarElemento(b);
 		repositorio.balances().persistir(b);
 	}
