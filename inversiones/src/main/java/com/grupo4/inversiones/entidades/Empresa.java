@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 import com.grupo4.inversiones.persistencia.Persistible;
 import com.grupo4.inversiones.tools.Listas;
@@ -16,7 +17,8 @@ public class Empresa extends Persistible implements Comparable<Empresa>{
 	
 	private String nombre;
 	private int inicioActividad;
-	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	@OneToMany( cascade = CascadeType.ALL)
+	@JoinColumn(name = "idEmpresa", referencedColumnName = "id") 
 	private List<Balance> balances = new ArrayList<Balance>();
 	private double rentabilidad= 0;
 	
@@ -60,7 +62,6 @@ public class Empresa extends Persistible implements Comparable<Empresa>{
 		return nombre;
 	}
 	
-	@Column(name = "balances")
 	public List<Balance> getBalances(){
 		return balances;
 	}

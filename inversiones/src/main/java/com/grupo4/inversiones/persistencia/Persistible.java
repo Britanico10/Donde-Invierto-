@@ -13,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
     @GenericGenerator(name="gen",strategy="increment")
     @GeneratedValue(generator="gen")
     protected Long id;
-    protected String name; 
+ 
  
     protected Persistible() {
     	
@@ -27,18 +27,6 @@ import org.hibernate.annotations.GenericGenerator;
     public void setId(Long id) {
     	this.id = id;
     	} 
- 
-    @Column(name = "name")
-    public String getName() {
-    	return name;
-    	} 
- 
-    public void setName(String name) {
-    	this.name = name;
-    	} 
- 
-    public String toString() {
-    	return getId() + "-" + getName();
-    	} 
+  
  
 }

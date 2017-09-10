@@ -8,10 +8,12 @@
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     	
-        <class>com.grupo4.inversiones.entidades.Empresa</class>
+       
     	<class>com.grupo4.inversiones.entidades.Indicador</class>
      	<class>com.grupo4.inversiones.entidades.Balance</class>
+    	<class>com.grupo4.inversiones.entidades.Empresa</class>
 <!--     	<class>com.grupo4.inversiones.entidades.Metodologia</class>
+    	
     	<class>com.grupo4.inversiones.entidades.condiciones.Condicion</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.CondicionFiltro</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.CondicionOrden</class>
@@ -37,7 +39,7 @@
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db" /> 
             <property name="hibernate.connection.username" value="root" /> 
-            <property name="hibernate.connection.password" value="Norberto10" /> 
+            <property name="hibernate.connection.password" value="facundo97" /> 
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
 
                             

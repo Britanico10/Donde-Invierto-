@@ -29,11 +29,10 @@ public class PersistenciaIndicadoresTest {
 	public void aPersistir(){
 		Indicador i = new Indicador("ROE","4+4+4");
 		Empresa e = new Empresa("prueba", 2000,0);
-		Balance b = new Balance(e, 2007, 1,1,1,1,1,1,1);
-		e.agregarElemento(b);
-		i.setName(i.getIdIndicador());
 		repositorio.indicadores().persistir(i);
 		repositorio.empresas().persistir(e);
+		Balance b = new Balance(e, 2007, 1,1,1,1,1,1,1);
+		e.agregarElemento(b);
 		repositorio.balances().persistir(b);
 	}
 	
@@ -48,7 +47,7 @@ public class PersistenciaIndicadoresTest {
 	 }
 	 
 	 @Test     public void buscarBalancePorId(){
-		 Balance balance = repositorio.balances().buscarPorId(1L);
+		 Balance balance = repositorio.balances().buscarPorId(3l);
 		 System.out.println("Balance encontrado");
 	 }
 	 
