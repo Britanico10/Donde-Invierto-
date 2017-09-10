@@ -133,7 +133,7 @@ public class cargadorDeArchivos {
             JsonParser jp = new JsonParser();
             JsonElement je = jp.parse(array.toJSONString());
             String prettyJsonString = gson.toJson(je);
-            System.out.println(prettyJsonString);                  
+            //System.out.println(prettyJsonString);                  
 
             file.write(prettyJsonString);
             file.flush();
@@ -177,7 +177,7 @@ public class cargadorDeArchivos {
             JsonParser jp = new JsonParser();
             JsonElement je = jp.parse(array.toJSONString());
             String prettyJsonString = gson.toJson(je);
-            System.out.println(prettyJsonString);                  
+            //System.out.println(prettyJsonString);                  
 
             file.write(prettyJsonString);
             file.flush();
@@ -209,7 +209,7 @@ public class cargadorDeArchivos {
             JsonParser jp = new JsonParser();
             JsonElement je = jp.parse(array.toJSONString());
             String prettyJsonString = gson.toJson(je);
-            System.out.println(prettyJsonString);                  
+            //System.out.println(prettyJsonString);                  
 
             file.write(prettyJsonString);
             file.flush();
@@ -240,7 +240,7 @@ public class cargadorDeArchivos {
             JsonParser jp = new JsonParser();
             JsonElement je = jp.parse(array.toJSONString());
             String prettyJsonString = gson.toJson(je);
-            System.out.println(prettyJsonString);                  
+            //System.out.println(prettyJsonString);                  
 
             file.write(prettyJsonString);
             file.flush();

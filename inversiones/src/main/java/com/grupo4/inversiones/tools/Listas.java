@@ -13,10 +13,10 @@ import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
 public class Listas {
 	
 	public static Indicador buscarIndicadorEn(List<Indicador> indicadores, String nombreIndicador){
-		    Optional<Indicador> indicador = indicadores.stream()
-		        .filter(p -> p.getIdIndicador().equals(nombreIndicador))
-		        .findFirst();
-		    return indicador.isPresent() ? indicador.get() : null;
+		for(Indicador indi: indicadores) {
+	    	if(indi.getIdIndicador().equals(nombreIndicador)) return indi;
+	    }
+	    return null;
 	}
 	
 	public static Balance buscarCuentaEn(List<Balance> balances,int periodo){

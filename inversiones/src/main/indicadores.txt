@@ -8,10 +8,6 @@
     "idIndicador": "ROE"
   },
   {
-    "formula": "4+ingresoNeto",
-    "idIndicador": "asd"
-  },
-  {
     "formula": "deuda/capitalPropio",
     "idIndicador": "proporcionDeuda"
   },
@@ -20,11 +16,7 @@
     "idIndicador": "Margen"
   },
   {
-    "formula": "inicioActividad",
-    "idIndicador": "a"
-  },
-  {
-    "formula": "4",
-    "idIndicador": "caca"
+    "formula": "2017-inicioActividad",
+    "idIndicador": "Longevidad"
   }
 ]

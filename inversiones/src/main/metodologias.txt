@@ -1,38 +1,22 @@
 [
   {
     "condicionesOrden": [
-      "fp"
+      "Maximizar ROE",
+      "Minimizar proporcion de deuda",
+      "Longevidad"
     ],
     "condicionesFiltro": [
-      "asd"
+      "Consistencia Creciente",
+      "Margenes crecientes",
+      "Longevidad"
     ],
-    "nombre": "asd"
+    "nombre": "Warren Buffett"
   },
   {
     "condicionesOrden": [
-      "asd"
+      "Maximizar ROE"
     ],
-    "condicionesFiltro": [
-      "asd"
-    ],
-    "nombre": "asd"
-  },
-  {
-    "condicionesOrden": [
-      "asd"
-    ],
-    "condicionesFiltro": [
-      "asd"
-    ],
-    "nombre": "asd"
-  },
-  {
-    "condicionesOrden": [
-      "asd"
-    ],
-    "condicionesFiltro": [
-      "asd"
-    ],
-    "nombre": "asdasd"
+    "condicionesFiltro": [],
+    "nombre": "prueba"
   }
 ]

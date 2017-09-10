@@ -18,6 +18,7 @@ import com.grupo4.inversiones.tools.CreadorMetodologias;
 import com.grupo4.inversiones.tools.EditarIndicador;
 import com.grupo4.inversiones.tools.PrintEmpresas;
 import com.grupo4.inversiones.tools.cargadorDeArchivos;
+import com.grupo4.inversiones.tools.inicializadorGlobal;
 
 public class App{
 
@@ -32,14 +33,7 @@ public static List<Metodologia> metodologias;
 
     public static void main(String[] args) throws Exception {
     	
-    	empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
-    	indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
-    	condicionesFiltro = cargadorDeArchivos.cargarArchivoCondicionesFiltro("src/main/condicionesFiltro.txt");
-    	condicionesOrden = cargadorDeArchivos.cargarArchivoCondicionesOrden("src/main/condicionesOrden.txt");
-    	metodologias = cargadorDeArchivos.cargarArchivoMetodologias("src/main/metodologias.txt");
-    	
-    	empresaActual = empresas.get(0);
-    	periodoActual = 2007;
+    	inicializadorGlobal.inicializar();
     	
     	while(true){
     		int opcionElegida;

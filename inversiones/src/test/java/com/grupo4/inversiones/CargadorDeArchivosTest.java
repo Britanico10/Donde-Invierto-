@@ -20,7 +20,7 @@ public class CargadorDeArchivosTest {
 		List<Empresa> empresas;
 		empresas = cargadorDeArchivos.cargarArchivoEmpresas("src/main/empresas.txt");
     	indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
-    	PrintEmpresas.mostrarEmpresas(empresas);
+    	//PrintEmpresas.mostrarEmpresas(empresas);
     	assertEquals(empresas.size(), 7);
     	
 	}

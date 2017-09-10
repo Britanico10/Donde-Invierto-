@@ -58,6 +58,7 @@ public class Metodologia {
 			}
 			condicionBuscada.evaluar(empresas);
 		}
+		Collections.sort(empresas);
 	}
 	
 	public List<Empresa> aplicarMetodologiaATodas(List<Empresa> empresas) throws Exception{
@@ -65,8 +66,6 @@ public class Metodologia {
 		List<Empresa> empresasFiltradas = aplicarCondicionesFiltro(empresas);
 		aplicarCondicionesDeOrden(empresasFiltradas);
 		
-		
-		Collections.sort(empresasFiltradas);
 		PrintEmpresas.imprimirResultado(empresasFiltradas);
 		return empresasFiltradas;
 		

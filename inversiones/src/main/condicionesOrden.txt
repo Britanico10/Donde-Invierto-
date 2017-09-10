@@ -1,29 +1,29 @@
 [
   {
-    "nombreCondicion": "asd",
-    "importancia": 4,
-    "tipo": "OrdenMayor",
-    "periodo": 2007,
-    "inicioIntervalo": 0,
+    "nombreCondicion": "Maximizar ROE",
+    "importancia": 1,
+    "tipo": "Maximizar",
+    "periodo": 0,
+    "inicioIntervalo": 2007,
     "nombreIndicador": "ROE",
-    "finalIntervalo": 0
+    "finalIntervalo": 2016
   },
   {
-    "nombreCondicion": "fp",
-    "importancia": 5,
-    "tipo": "OrdenMayor",
-    "periodo": 2007,
-    "inicioIntervalo": 0,
-    "nombreIndicador": "ROE",
-    "finalIntervalo": 0
+    "nombreCondicion": "Minimizar proporcion de deuda",
+    "importancia": 1,
+    "tipo": "Minimizar",
+    "periodo": 0,
+    "inicioIntervalo": 2007,
+    "nombreIndicador": "proporcionDeuda",
+    "finalIntervalo": 2016
   },
   {
-    "nombreCondicion": "lp2",
-    "importancia": 10,
+    "nombreCondicion": "Longevidad",
+    "importancia": 1,
     "tipo": "OrdenMayor",
     "periodo": 2007,
     "inicioIntervalo": 0,
-    "nombreIndicador": "caca",
+    "nombreIndicador": "Longevidad",
     "finalIntervalo": 0
   }
 ]
