@@ -25,19 +25,19 @@ public class PersistenciaTest {
     	repositorio = new Repositorio(emFactory.createEntityManager());
     }
 
-	@Test
-	public void aPersistir(){
-		Indicador i = new Indicador("ROE","4+4+4");
-		Empresa e = new Empresa("prueba", 2000);
-		repositorio.indicadores().persistir(i);
-		repositorio.empresas().persistir(e);
-		Balance b = new Balance(2007,1,1,1,1,1,1,1);
-		e.agregarElemento(b);
-		repositorio.balances().persistir(b);
-	}
+//	@Test
+//	public void aPersistir(){
+//		Indicador i = new Indicador("ROE","4+4+4");
+//		Empresa e = new Empresa("prueba", 2000);
+//		repositorio.indicadores().persistir(i);
+//		repositorio.empresas().persistir(e);
+//		Balance b = new Balance(2007,1,1,1,1,1,1,1);
+//		e.agregarElemento(b);
+//		repositorio.balances().persistir(b);
+//	}
 	
 	 @Test     public void buscarIndicadorPorId(){
-		 Indicador indicador = repositorio.indicadores().buscarPorId(22L);
+		 Indicador indicador = repositorio.indicadores().buscarPorId(1L);
 		 System.out.println("Indicador encontrada por ID: " + indicador.getIdIndicador());
 	 }
 	 
@@ -47,7 +47,7 @@ public class PersistenciaTest {
 	 }
 	 
 	 @Test     public void buscarBalancePorId(){
-		 Balance balance = repositorio.balances().buscarPorId(3l);
+		 Balance balance = repositorio.balances().buscarPorId(1l);
 		 System.out.println("Balance encontrado");
 	 }
 	 
