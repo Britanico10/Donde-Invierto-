@@ -22,7 +22,10 @@ una condición de orden, el analista deberá indicar que importancia tiene esa c
 
 Persistencia.
 
+Para persistir utilizamos la herramienta Hibernate ORM.
+
 En la carpeta inversiones se encuentra la base de datos (llamada "db") que deberá ser cargada para que la aplicación funcione.
 
 Los datos que se persisten en la base de datos son los indicadores y las empresas con sus respectivos balances. (Quedan por hacer
 las metodologías y sus condiciones).
+
