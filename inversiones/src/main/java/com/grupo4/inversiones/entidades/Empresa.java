@@ -62,6 +62,10 @@ public class Empresa extends Persistible implements Comparable<Empresa>{
 		return balances;
 	}
 	
+	public void setBalances(List<Balance> balances){
+		this.balances = balances;
+	}
+	
 	public void mostrarBalances(int periodo){
 		Balance balance = Listas.buscarCuentaEn(balances,periodo);
 		System.out.println("BALANCES PARA EL PERIODO " + periodo + ":");

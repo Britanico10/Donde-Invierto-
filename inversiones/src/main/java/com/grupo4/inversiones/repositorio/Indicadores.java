@@ -1,7 +1,11 @@
 package com.grupo4.inversiones.repositorio;
 
-import javax.persistence.EntityManager;
+import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 
 public class Indicadores extends Repositorio {
@@ -12,6 +16,13 @@ public class Indicadores extends Repositorio {
 	   public Indicador buscarPorId(Long id){   
 		   return em.find(Indicador.class, id);
 	   }
+	   
+	   public List<Indicador> buscarTodas(){
+		   Query query = em.createQuery("SELECT i FROM Indicador i");
+		   List<Indicador> indicadores = query.getResultList();
+		   return indicadores;
+	   }
+	   
 	   public void persistir(Indicador indicador){
 		   em.getTransaction().begin();
 		   em.persist(indicador);

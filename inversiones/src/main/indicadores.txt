@@ -18,17 +18,5 @@
   {
     "formula": "2017-inicioActividad",
     "idIndicador": "Longevidad"
-  },
-  {
-    "formula": "4",
-    "idIndicador": "a"
-  },
-  {
-    "formula": "4",
-    "idIndicador": "a"
-  },
-  {
-    "formula": "4545",
-    "idIndicador": "asd"
   }
 ]
