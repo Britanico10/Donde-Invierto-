@@ -14,7 +14,7 @@ import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.repositorio.Repositorio;
 
-public class PersistenciaIndicadoresTest {
+public class PersistenciaTest {
 	
 	private static final String PERSISTENCE_UNIT_NAME = "db";
 	private EntityManagerFactory emFactory;
@@ -28,7 +28,7 @@ public class PersistenciaIndicadoresTest {
 	@Test
 	public void aPersistir(){
 		Indicador i = new Indicador("ROE","4+4+4");
-		Empresa e = new Empresa("prueba", 2000,0);
+		Empresa e = new Empresa("prueba", 2000);
 		repositorio.indicadores().persistir(i);
 		repositorio.empresas().persistir(e);
 		Balance b = new Balance(2007,1,1,1,1,1,1,1);
@@ -37,7 +37,7 @@ public class PersistenciaIndicadoresTest {
 	}
 	
 	 @Test     public void buscarIndicadorPorId(){
-		 Indicador indicador = repositorio.indicadores().buscarPorId(1L);
+		 Indicador indicador = repositorio.indicadores().buscarPorId(22L);
 		 System.out.println("Indicador encontrada por ID: " + indicador.getIdIndicador());
 	 }
 	 

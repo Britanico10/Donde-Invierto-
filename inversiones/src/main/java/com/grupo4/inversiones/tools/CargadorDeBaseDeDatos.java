@@ -8,9 +8,11 @@ import javax.persistence.Persistence;
 import com.grupo4.inversiones.entidades.Indicador;
 
 public class CargadorDeBaseDeDatos {
+	
+	static EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("db");
+	static Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+	
 	public static void guardarIndicador(List<Indicador> indicadores){
-		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("db");
-    	Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
 		repositorio.indicadores().persistir(indicadores.get(indicadores.size()-1));
-}
+	}
 }

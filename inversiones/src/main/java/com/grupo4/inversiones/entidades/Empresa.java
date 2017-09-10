@@ -16,10 +16,12 @@ import com.grupo4.inversiones.tools.Listas;
 public class Empresa extends Persistible implements Comparable<Empresa>{
 	
 	private String nombre;
+
 	private int inicioActividad;
-	@OneToMany( cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idEmpresa", referencedColumnName = "id") 
 	private List<Balance> balances = new ArrayList<Balance>();
+	
 	private double rentabilidad= 0;
 	
 	public Empresa() {
@@ -29,19 +31,9 @@ public class Empresa extends Persistible implements Comparable<Empresa>{
 		this.nombre = _nombre;
 	}
 	
-	public Empresa(String _nombre,int _inicioActividad, double _rentabilidad) {
+	public Empresa(String _nombre,int _inicioActividad) {
 		nombre = _nombre;
 		inicioActividad = _inicioActividad;
-		rentabilidad = _rentabilidad;
-	}
-	
-	@Column(name = "rentabilidad")
-	public double getRentabilidad() {
-		return rentabilidad;
-	}
-
-	public void setRentabilidad(double rentabilidad) {
-		this.rentabilidad = rentabilidad;
 	}
 	
 	@Column(name = "inicioActividad")
@@ -60,6 +52,10 @@ public class Empresa extends Persistible implements Comparable<Empresa>{
 	@Column(name = "nombre")
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 	
 	public List<Balance> getBalances(){
@@ -83,6 +79,15 @@ public class Empresa extends Persistible implements Comparable<Empresa>{
 			
 			System.out.println(" ");
 		}
+	}
+	
+	@Column(name = "rentabilidad")
+	public double getRentabilidad() {
+		return rentabilidad;
+	}
+
+	public void setRentabilidad(double rentabilidad) {
+		this.rentabilidad = rentabilidad;
 	}
 	
 	public void mostrarse(){

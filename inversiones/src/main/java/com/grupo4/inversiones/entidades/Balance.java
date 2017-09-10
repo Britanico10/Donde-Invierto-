@@ -12,7 +12,7 @@ import com.grupo4.inversiones.persistencia.Persistible;
 
 @Entity
 @Table(name = "BALANCE")
-//@NamedQuery(name="buscarBalance",query="SELECT b FROM Balance b WHERE b.name LIKE :bname") 
+//@NamedQuery(name="buscarBalance",query="SELECT b FROM Balance b WHERE b.idEmpresa LIKE :bname") 
 public class Balance extends Persistible{
 	
 	
