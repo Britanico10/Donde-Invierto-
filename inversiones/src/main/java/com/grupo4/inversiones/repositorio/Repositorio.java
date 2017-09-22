@@ -2,10 +2,13 @@ package com.grupo4.inversiones.repositorio;
 
 import javax.persistence.EntityManager;
 
+
 public class Repositorio {
 	private Indicadores indicadores;
 	private Balances balances;
 	private Empresas empresas;
+	private CondicionesOrden condicionesOrden;
+	private CondicionesFiltro condicionesFiltro;
 	protected EntityManager em; 
 	  
 	    public Repositorio(EntityManager em){
@@ -32,6 +35,20 @@ public class Repositorio {
 	    		empresas = new Empresas(em);
 	    	}
 	    	return empresas;
+	    }
+	    
+	    public CondicionesFiltro condicionesFiltro() {
+	    	if (condicionesFiltro == null) {
+	    		condicionesFiltro = new CondicionesFiltro(em);
+	    	}
+	    	return condicionesFiltro;
+	    }
+	    
+	    public CondicionesOrden condicionesOrden() {
+	    	if (condicionesOrden == null) {
+	    		condicionesOrden = new CondicionesOrden(em);
+	    	}
+	    	return condicionesOrden;
 	    }
 	    
 	    public void cerrar() {

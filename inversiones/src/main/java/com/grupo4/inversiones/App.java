@@ -97,10 +97,12 @@ public static List<Metodologia> metodologias;
         	case 7:
         		CreadorCondicionesFiltro.crearCondicionFiltro(condicionesFiltro);
         		cargadorDeArchivos.guardarCondicionesFiltro("src/main/condicionesFiltro.txt", condicionesFiltro);
+        		CargadorDeBaseDeDatos.guardarCondicionFiltro(condicionesFiltro);
         		break;
         	case 8:
         		CreadorCondicionesOrden.crearCondicionOrden(condicionesOrden);
         		cargadorDeArchivos.guardarCondicionesOrden("src/main/condicionesOrden.txt", condicionesOrden);
+        		CargadorDeBaseDeDatos.guardarCondicionOrden(condicionesOrden);
         		break;
         	case 9:
         		CreadorMetodologias.crearMetodologia(metodologias);

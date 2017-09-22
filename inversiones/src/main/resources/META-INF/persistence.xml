@@ -12,7 +12,7 @@
     	<class>com.grupo4.inversiones.entidades.Indicador</class>
      	<class>com.grupo4.inversiones.entidades.Balance</class>
     	<class>com.grupo4.inversiones.entidades.Empresa</class>
-<!--     	<class>com.grupo4.inversiones.entidades.Metodologia</class>
+<!--     	<class>com.grupo4.inversiones.entidades.Metodologia</class> -->
     	
     	<class>com.grupo4.inversiones.entidades.condiciones.Condicion</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.CondicionFiltro</class>
@@ -24,7 +24,7 @@
     	<class>com.grupo4.inversiones.entidades.condiciones.Maximizar</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.Minimizar</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.ConsistenciaCreciente</class>
-    	<class>com.grupo4.inversiones.entidades.condiciones.ConsistenciaDecreciente</class> -->
+    	<class>com.grupo4.inversiones.entidades.condiciones.ConsistenciaDecreciente</class>
     	<class>com.grupo4.inversiones.persistencia.Persistible</class>
     	
     	 
@@ -46,7 +46,8 @@
             <property name="hibernate.show_sql" value="true" /> 
             <property name="hibernate.format_sql" value="true" /> 
             <property name="use_sql_comments" value="true" /> 
-            <property name="hibernate.hbm2ddl.auto" value="update" /> 
+            <!-- <property name="hibernate.hbm2ddl.auto" value="update" />  -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
           
     </persistence-unit> 

@@ -1,14 +1,10 @@
 package com.grupo4.inversiones.entidades.condiciones;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-
-import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
 import com.grupo4.inversiones.persistencia.Persistible;
 
-//@Entity
-//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public abstract class Condicion extends Persistible{
 	
 	String nombreCondicion;
@@ -16,15 +12,11 @@ public abstract class Condicion extends Persistible{
 	int periodo;
 	int inicioIntervalo;
 	int finalIntervalo;
-	public String tipo;
+	String tipo;
 	
-	public String getTipo() {
-		return tipo;
+	public Condicion() {
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
 	
 	public String getNombreCondicion() {
 		return nombreCondicion;
@@ -33,6 +25,15 @@ public abstract class Condicion extends Persistible{
 	public void setNombreCondicion(String nombreCondicion) {
 		this.nombreCondicion = nombreCondicion;
 	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 
 	public String getNombreIndicador() {
 		return nombreIndicador;
@@ -73,5 +74,4 @@ public abstract class Condicion extends Persistible{
 		nombreIndicador = _nombreIndicador;
 		periodo = _periodo;
 	}
-
 }

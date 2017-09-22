@@ -2,7 +2,10 @@ package com.grupo4.inversiones.entidades.condiciones;
 
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
 import javax.persistence.Table;
 
 import com.grupo4.inversiones.App;
@@ -10,13 +13,15 @@ import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.tools.Listas;
 
-//@Entity
-//@Table(name = "Maximizar")
+@Entity
 public class Maximizar extends CondicionOrden {
 	
 	public Maximizar(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador, int _importancia) {
 		super(_nombreCondicion, _inicioIntervalo, _finalIntervalo, _nombreIndicador, 0, _importancia);
 		tipo = "Maximizar";
+	}
+	
+	public Maximizar() {
 	}
 	
 	@Override

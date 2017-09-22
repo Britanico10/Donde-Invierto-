@@ -2,18 +2,28 @@ package com.grupo4.inversiones.entidades.condiciones;
 
 import java.util.List;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 import com.grupo4.inversiones.entidades.Empresa;
-import com.grupo4.inversiones.entidades.Indicador;
 
-//@Entity
-//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+
+@Entity
+@Table(name="CONDICION_ORDEN")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="tipo",discriminatorType=DiscriminatorType.STRING)
+@AttributeOverride(name = "tipo", column = @javax.persistence.Column(name="tipo", nullable=false, insertable = false, updatable = false))
 public abstract class CondicionOrden extends Condicion {
 	
 	int importancia;
+	
+	public CondicionOrden() {
+	}
 	
 	public int getImportancia() {
 		return importancia;

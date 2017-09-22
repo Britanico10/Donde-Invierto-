@@ -28,9 +28,9 @@ public class inicializadorGlobal {
 		
 		cargarIndicadores(); //App.indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
 		cargarEmpresas(); //App.empresas = cargadorDeArchivos.cargarEmpresas("src/main/empresas.txt");
+		cargarCondicionesOrden(); //App.condicionesOrden = cargadorDeArchivos.cargarArchivoCondicionesOrden("src/main/condicionesOrden.txt");
+		cargarCondicionesFiltro(); //App.condicionesFiltro = cargadorDeArchivos.cargarArchivoCondicionesFiltro("src/main/condicionesFiltro.txt");
 		
-		App.condicionesFiltro = cargadorDeArchivos.cargarArchivoCondicionesFiltro("src/main/condicionesFiltro.txt");
-		App.condicionesOrden = cargadorDeArchivos.cargarArchivoCondicionesOrden("src/main/condicionesOrden.txt");
 		App.metodologias = cargadorDeArchivos.cargarArchivoMetodologias("src/main/metodologias.txt");
 		App.empresaActual = App.empresas.get(0);
 		App.periodoActual = 2007;
@@ -43,6 +43,14 @@ public class inicializadorGlobal {
 	
 	public static void cargarEmpresas() {
 		App.empresas = repositorio.empresas().buscarTodas();
+	}
+	
+	public static void cargarCondicionesOrden() {
+		App.condicionesOrden = repositorio.condicionesOrden().buscarTodas();
+	}
+	
+	public static void cargarCondicionesFiltro() {
+		App.condicionesFiltro= repositorio.condicionesFiltro().buscarTodas();
 	}
 	
 }
