@@ -12,7 +12,7 @@
     	<class>com.grupo4.inversiones.entidades.Indicador</class>
      	<class>com.grupo4.inversiones.entidades.Balance</class>
     	<class>com.grupo4.inversiones.entidades.Empresa</class>
-<!--     	<class>com.grupo4.inversiones.entidades.Metodologia</class> -->
+    	<class>com.grupo4.inversiones.entidades.Metodologia</class>
     	
     	<class>com.grupo4.inversiones.entidades.condiciones.Condicion</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.CondicionFiltro</class>

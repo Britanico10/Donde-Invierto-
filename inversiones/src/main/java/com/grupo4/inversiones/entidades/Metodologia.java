@@ -3,18 +3,38 @@ package com.grupo4.inversiones.entidades;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
+import com.grupo4.inversiones.persistencia.Persistible;
 import com.grupo4.inversiones.tools.Listas;
 import com.grupo4.inversiones.tools.PrintEmpresas;
 import com.grupo4.inversiones.tools.Rentabilidad;
 import edu.emory.mathcs.backport.java.util.Collections;
 
-public class Metodologia {
+@Entity
+@Table(name = "METODOLOGIA")
+public class Metodologia extends Persistible{
 	
-	private String nombre;
+	private String nombre; 
+	
+	@ElementCollection
+	@CollectionTable(name="condicionesOrden", joinColumns=@JoinColumn(name = "idMetodologia", referencedColumnName = "id"))
+	@Column(name="condicionOrden")
 	private List<String> condicionesOrden = new ArrayList<String>();
+	
+	@ElementCollection
+	@CollectionTable(name="condicionesFiltro", joinColumns=@JoinColumn(name = "idMetodologia", referencedColumnName = "id"))
+	@Column(name="condicionFiltro")
 	private List<String> condicionesFiltro = new ArrayList<String>();
 	
 	public List<String> getCondicionesOrden() {

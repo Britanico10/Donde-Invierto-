@@ -6,6 +6,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
 
@@ -24,5 +25,9 @@ public class CargadorDeBaseDeDatos {
 	
 	public static void guardarCondicionFiltro(List<CondicionFiltro> condiciones){
 		repositorio.condicionesFiltro().persistir(condiciones.get(condiciones.size()-1));
+	}
+	
+	public static void guardarMetodologia(List<Metodologia> metodologias){
+		repositorio.metodologias().persistir(metodologias.get(metodologias.size()-1));
 	}
 }

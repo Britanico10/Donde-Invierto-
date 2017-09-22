@@ -13,6 +13,7 @@ public abstract class Condicion extends Persistible{
 	int inicioIntervalo;
 	int finalIntervalo;
 	String tipo;
+	long idMetodologia;
 	
 	public Condicion() {
 	}

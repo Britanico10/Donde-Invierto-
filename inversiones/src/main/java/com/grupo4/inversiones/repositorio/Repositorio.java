@@ -9,6 +9,7 @@ public class Repositorio {
 	private Empresas empresas;
 	private CondicionesOrden condicionesOrden;
 	private CondicionesFiltro condicionesFiltro;
+	private Metodologias metodologias;
 	protected EntityManager em; 
 	  
 	    public Repositorio(EntityManager em){
@@ -21,6 +22,13 @@ public class Repositorio {
 	    		indicadores = new Indicadores(em);
 	    	}
 	    	return indicadores;
+	    }
+	    
+	    public Metodologias metodologias() {
+	    	if (metodologias == null) {
+	    		metodologias = new Metodologias(em);
+	    	}
+	    	return metodologias;
 	    }
 	    
 	    public Balances balances() {

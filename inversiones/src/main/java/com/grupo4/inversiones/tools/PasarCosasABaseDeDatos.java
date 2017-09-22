@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
 
 import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
+import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
 import com.grupo4.inversiones.repositorio.Repositorio;
@@ -35,6 +36,15 @@ public class PasarCosasABaseDeDatos {
 		
 		for(CondicionOrden cond: App.condicionesOrden) {
 			repositorio.condicionesOrden().persistir(cond);
+		}
+	}
+	
+	public static void pasarMetodologiasDeTxtABase() throws FileNotFoundException {
+		
+		App.metodologias = cargadorDeArchivos.cargarArchivoMetodologias("src/main/metodologias.txt");
+		
+		for(Metodologia cond: App.metodologias) {
+			repositorio.metodologias().persistir(cond);
 		}
 	}
 	
