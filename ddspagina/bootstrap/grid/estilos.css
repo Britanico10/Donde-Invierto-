@@ -1,17 +1,8 @@
 nav{
     /*Bordes redondeados*/
-    -webkit-border-radius:10px;/*Para chrome y Safari*/
-    -moz-border-radius:10px;/*Para Firefox*/
-    -o-border-radius:10px;/*Para Opera*/
-    border-radius:10px;/*El estandar por defecto*/
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#CCC));/*Para chrome y Safari*/
-    /*Degradados*/
-    background-image: -moz-linear-gradient(top center, #FFF, #CCC);/*Para Firefox*/
-    background-image: -o-linear-gradient(top, #FFF, #CCC);/*Para Opera*/
-    background-image: linear-gradient(top, #FFF, #CCC);/*El estandar por defecto*/
     overflow:hidden;
     padding:10px;
-    width:950px;
+    background:#358A2A;
 }
 
 nav ul{
@@ -21,11 +12,6 @@ nav ul{
 }
 
 nav ul li{
-    /*Bordes redondeados*/
-    -webkit-border-radius:5px;/*Chrome y Safari*/
-    -moz-border-radius:5px;/*Firefox*/
-    -o-border-radius:5px;/*Opera*/
-    border-radius:5px;/*Estandar por defecto*/
     float:left;
     font-family:Arial, Helvetica, sans-serif;
     font-size:16px;
@@ -33,9 +19,52 @@ nav ul li{
     margin-right:10px;
     text-align:center;
     /*Sombras para texto, los mismos parametros que box-shadow*/
-    text-shadow: 0px 1px 0px #FFF;
+    text-shadow: 0px 1px 0px #000;
+    color: #fff;
+}
+
+nav ul li a:link {
+    color:#fff;
+}
+
+nav ul li a:visited {
+    color:#fff;
+}
+
+nav ul li a:active {
+    color:#fff;
 }
 
 nav ul li a:hover {
     color:#000;
+}
+
+aside {     
+    background: #2c3250;     
+    color:#fff; 
+}
+
+header {    
+    background: #2c3250;    
+    color:#fff; 
+}
+
+body {
+    background: #fff;    
+    color:#fff; 
+}
+
+article {
+    background: #ff7f27;    
+    color:#fff; 
+
+}
+
+.resultados article {
+    background: #EE1126;
+    text-shadow: 0px 1px 0px #000;
+}
+
+article h3 {
+    text-shadow: 0px 1px 0px #000;
 }
