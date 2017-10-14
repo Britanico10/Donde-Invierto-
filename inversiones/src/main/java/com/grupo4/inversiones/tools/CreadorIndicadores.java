@@ -1,5 +1,6 @@
 package com.grupo4.inversiones.tools;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import com.grupo4.inversiones.entidades.Indicador;
@@ -7,7 +8,7 @@ import com.grupo4.inversiones.tools.Analizador;
 
 public class CreadorIndicadores {
 	
-	public static void crearIndicador(List<Indicador> indicadores){
+	public static void crearIndicador(List<Indicador> indicadores) throws IOException{
 		
 		Indicador nuevoIndicador;
 		
@@ -26,6 +27,9 @@ public class CreadorIndicadores {
     		//System.out.println(Analizador.evaluar(formula));
     		Analizador.evaluar(formula);
     	}
+    	
+    	CargadorDeBaseDeDatos.guardarIndicador(indicadores);
+		//cargadorDeArchivos.guardarIndicadores("src/main/indicadores.txt", indicadores);
 
 	}
 

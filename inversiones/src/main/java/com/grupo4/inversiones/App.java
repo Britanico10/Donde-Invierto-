@@ -56,8 +56,6 @@ public static List<Metodologia> metodologias;
         	switch(opcionElegida){
         	case 1: 
         		CreadorIndicadores.crearIndicador(indicadores);
-        		CargadorDeBaseDeDatos.guardarIndicador(indicadores);
-        		cargadorDeArchivos.guardarIndicadores("src/main/indicadores.txt", indicadores);
         		break;
         	case 2: 
         		System.out.println("Seleccione una empresa");
@@ -120,4 +118,5 @@ public static List<Metodologia> metodologias;
     	
     	
     }
+    
 }

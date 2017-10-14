@@ -40,7 +40,7 @@ nav ul li a:hover {
 }
 
 aside {     
-    background: #2c3250;     
+    background: #424242;     
     color:#fff; 
 }
 
@@ -50,7 +50,7 @@ header {
 }
 
 body {
-    background: #fff;    
+    background: #2c3250;    
     color:#fff; 
 }
 
@@ -61,10 +61,14 @@ article {
 }
 
 .resultados article {
-    background: #EE1126;
+    background: #ff7f27;
     text-shadow: 0px 1px 0px #000;
 }
 
 article h3 {
     text-shadow: 0px 1px 0px #000;
+}
+
+.asd {
+    background: #ff7f27;
 }
