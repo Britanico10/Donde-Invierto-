@@ -55,14 +55,14 @@ public static List<Metodologia> metodologias;
         	opcionElegida = Integer.parseInt(sc.nextLine());
         	switch(opcionElegida){
         	case 1: 
-        		CreadorIndicadores.crearIndicador(indicadores);
+        		CreadorIndicadores.crearIndicadorPasoAPaso(indicadores);
         		break;
         	case 2: 
         		System.out.println("Seleccione una empresa");
         		Empresa empresa = empresas.get(Integer.parseInt(sc.nextLine()));
         		System.out.println("Seleccione un periodo");
         		int periodo = Integer.parseInt(sc.nextLine());
-        		AplicarIndicadores.aplicarIndicadores(empresa, periodo, indicadores);
+        		AplicarIndicadores.aplicarIndicadoresVoid(empresa, periodo, indicadores);
         		break;
         	case 3: 
         		PrintEmpresas.mostrarEmpresas(empresas);
@@ -95,12 +95,10 @@ public static List<Metodologia> metodologias;
         	case 7:
         		CreadorCondicionesFiltro.crearCondicionFiltro(condicionesFiltro);
         		cargadorDeArchivos.guardarCondicionesFiltro("src/main/condicionesFiltro.txt", condicionesFiltro);
-        		CargadorDeBaseDeDatos.guardarCondicionFiltro(condicionesFiltro);
         		break;
         	case 8:
         		CreadorCondicionesOrden.crearCondicionOrden(condicionesOrden);
         		cargadorDeArchivos.guardarCondicionesOrden("src/main/condicionesOrden.txt", condicionesOrden);
-        		CargadorDeBaseDeDatos.guardarCondicionOrden(condicionesOrden);
         		break;
         	case 9:
         		CreadorMetodologias.crearMetodologia(metodologias);
@@ -114,6 +112,8 @@ public static List<Metodologia> metodologias;
         	case 11: System.exit(0);
         		break;
         	}
+        	
+        	//EditarIndicador.eliminarIndicador(indicadores, "asd");
     	}
     	
     	

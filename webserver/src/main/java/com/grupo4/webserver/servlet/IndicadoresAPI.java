@@ -1,14 +1,19 @@
 package com.grupo4.webserver.servlet;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.servicios.Servicios;
+import com.grupo4.inversiones.tools.EditarIndicador;
 
 @RestController
 @RequestMapping("/api/indicadores")
@@ -19,6 +24,35 @@ Servicios servicios = Servicios.getInstance();
 	@RequestMapping(method = GET)
 	public List<Indicador> retornarIndicadores(){
 		return servicios.getIndicadorServicio().getIndicadores();
+	}
+	
+	@RequestMapping(method = DELETE)
+	public void borrarIndicador(@RequestParam(value = "id", defaultValue = "", required = false) long id){
+		servicios.getIndicadorServicio().eliminarIndicador(id);
+	}
+	
+	@RequestMapping(method = POST)
+	public void crearIndicador(
+			@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
+			@RequestParam(value = "formula", defaultValue = "", required = false) String formula){
+		
+		servicios.getIndicadorServicio().agregarIndicador(nombre, formula);
+	}
+	
+	@RequestMapping(method = PUT)
+	public void editarIndicador(
+			@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
+			@RequestParam(value = "formula", defaultValue = "", required = false) String formula){
+		
+		servicios.getIndicadorServicio().editarIndicador(nombre, formula);
+	}
+	
+	@RequestMapping("/aplicar")
+	public String aplicarIndicadoresA(
+			@RequestParam(value = "empresa", defaultValue = "", required = false) String nombreEmpresa,
+			@RequestParam(value = "periodo", defaultValue = "", required = false) int periodo){
+		
+		return servicios.getIndicadorServicio().aplicarIndicadoresA(nombreEmpresa, periodo);
 	}
 
 }

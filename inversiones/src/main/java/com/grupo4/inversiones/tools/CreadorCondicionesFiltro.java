@@ -81,6 +81,7 @@ public class CreadorCondicionesFiltro {
     	}
     	
     	condiciones.add(nuevaCondicionFiltro);
+    	CargadorDeBaseDeDatos.guardarCondicionFiltro(nuevaCondicionFiltro);
     	
 	}
 

@@ -12,7 +12,22 @@ public class AplicarIndicadores {
 	static Calendar cal = Calendar.getInstance(); 
 	static int anio = cal.get(Calendar.YEAR);
 	
-	public static void aplicarIndicadores(Empresa empresa, int periodo, List<Indicador> indicadores){
+	public static String aplicarIndicadores(Empresa empresa, int periodo, List<Indicador> indicadores){
+		final String nuevalinea = System.getProperty("line.separator");
+		String resultado = "";
+		for (int i = 0; i <= indicadores.size() - 1; i++){
+			resultado = resultado + indicadores.get(i).getIdIndicador()
+					+": "
+					+ indicadores.get(i).getformula()
+					+ " = "
+					+ indicadores.get(i).aplicarA(empresa, periodo)
+					+ nuevalinea;
+		}
+		return resultado;
+	
+	}
+	
+	public static void aplicarIndicadoresVoid(Empresa empresa, int periodo, List<Indicador> indicadores){
 		for (int i = 0; i <= indicadores.size() - 1; i++){
 			System.out.println(indicadores.get(i).getIdIndicador()
 					+": "

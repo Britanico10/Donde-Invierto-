@@ -80,6 +80,7 @@ public class CreadorCondicionesOrden {
 	    	}
 	    	
 	    	condiciones.add(nuevaCondicionOrden);
+	    	CargadorDeBaseDeDatos.guardarCondicionOrden(nuevaCondicionOrden);
 	    	
 		}
 

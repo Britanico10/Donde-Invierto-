@@ -38,6 +38,7 @@ public class CreadorMetodologias {
     	}
     	
     	metodologias.add(metodologia);
+    	CargadorDeBaseDeDatos.guardarMetodologia(metodologia);
     	System.out.println("Metodología creada.");
     	
 	}

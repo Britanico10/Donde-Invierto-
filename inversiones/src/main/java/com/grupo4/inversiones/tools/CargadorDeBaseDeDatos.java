@@ -15,19 +15,19 @@ public class CargadorDeBaseDeDatos {
 	static EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("db");
 	static Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
 	
-	public static void guardarIndicador(List<Indicador> indicadores){
-		repositorio.indicadores().persistir(indicadores.get(indicadores.size()-1));
+	public static void guardarIndicador(Indicador indicador){
+		repositorio.indicadores().persistir(indicador);
 	}
 	
-	public static void guardarCondicionOrden(List<CondicionOrden> condiciones){
-		repositorio.condicionesOrden().persistir(condiciones.get(condiciones.size()-1));
+	public static void guardarCondicionOrden(CondicionOrden condicion){
+		repositorio.condicionesOrden().persistir(condicion);
 	}
 	
-	public static void guardarCondicionFiltro(List<CondicionFiltro> condiciones){
-		repositorio.condicionesFiltro().persistir(condiciones.get(condiciones.size()-1));
+	public static void guardarCondicionFiltro(CondicionFiltro condicion){
+		repositorio.condicionesFiltro().persistir(condicion);
 	}
 	
-	public static void guardarMetodologia(List<Metodologia> metodologias){
-		repositorio.metodologias().persistir(metodologias.get(metodologias.size()-1));
+	public static void guardarMetodologia(Metodologia metodologia){
+		repositorio.metodologias().persistir(metodologia);
 	}
 }

@@ -9,12 +9,20 @@ import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.entidades.condiciones.Condicion;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
+import com.grupo4.inversiones.entidades.Empresa;
 
 public class Listas {
 	
 	public static Indicador buscarIndicadorEn(List<Indicador> indicadores, String nombreIndicador){
 		for(Indicador indi: indicadores) {
 	    	if(indi.getIdIndicador().equals(nombreIndicador)) return indi;
+	    }
+	    return null;
+	}
+	
+	public static Indicador buscarIndicadorPorId(List<Indicador> indicadores, long id){
+		for(Indicador indi: indicadores) {
+	    	if(indi.getId().equals(id)) return indi;
 	    }
 	    return null;
 	}
@@ -51,6 +59,14 @@ public class Listas {
 			nuevaLista.add(lista.get(i));
 		}
 		return nuevaLista;
+	}
+
+	public static Empresa buscarEmpresaEn(String nombreEmpresa,
+			List<com.grupo4.inversiones.entidades.Empresa> empresas) {
+	    for(Empresa emp: empresas) {
+	    	if(emp.getNombre().equals(nombreEmpresa)) return emp;
+	    }
+	    return null;
 	}
 
 }

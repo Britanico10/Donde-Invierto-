@@ -17,6 +17,19 @@ public class Indicadores extends Repositorio {
 		   return em.find(Indicador.class, id);
 	   }
 	   
+	   public void borrarPorId(Long id){   
+		   em.getTransaction().begin();
+		   em.remove(buscarPorId(id));
+		   em.getTransaction().commit();
+	   }
+	   
+	   public void modificarPorId(Long id, String nuevaFormula) {
+		   em.getTransaction().begin();
+		   Indicador indicador = buscarPorId(id);
+		   indicador.setformula(nuevaFormula);
+		   em.getTransaction().commit();
+	   }
+	   
 	   public List<Indicador> buscarTodas(){
 		   Query query = em.createQuery("SELECT i FROM Indicador i");
 		   List<Indicador> indicadores = query.getResultList();
