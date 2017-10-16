@@ -18,25 +18,26 @@ public class IndicadorServicio {
 		return repositorio.indicadores().buscarTodas(idUsuario);
 	}
 	
-	public Boolean eliminarIndicador(long idIndi, long idUsuario) {
+	public List<Indicador> eliminarIndicador(long idIndi, long idUsuario) {
 		if (VerificadorUsuario.verificarUsuarioParaIndicador(idIndi, idUsuario)) {
 			GestionIndicadores.eliminarIndicadorPorId(idIndi);
-			return true;
+			return getIndicadores(idUsuario);
 		}
-		return false;
+		return null;
 	}
 	
-	public void agregarIndicador(String nombre, String formula) {
-		GestionIndicadores.crearIndicador(nombre, formula);
+	public List<Indicador> agregarIndicador(String nombre, String formula, long idUsuario) {
+		GestionIndicadores.crearIndicador(nombre, formula, idUsuario);
+		return getIndicadores(idUsuario);
 	}
 	
-	public Boolean editarIndicador(String nombre, String formula, long idUsuario) {
+	public List<Indicador> editarIndicador(String nombre, String formula, long idUsuario) {
 		long idIndi = repositorio.indicadores().buscarPorNombre(nombre).getId();
 		if (VerificadorUsuario.verificarUsuarioParaIndicador(idIndi, idUsuario)) {
 			GestionIndicadores.editarIndicador(idIndi, formula);
-			return true;
+			return getIndicadores(idUsuario);
 		}
-		return false;
+		return null;
 	}
 	
 	public String aplicarIndicadoresA(String nombreEmpresa, int periodo, long idUsuario) {

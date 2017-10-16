@@ -30,12 +30,12 @@ public class GestionIndicadores {
 		repositorio.indicadores().borrarPorId(id);
 	}
 	
-	public static void crearIndicador(String nombre, String formula) {
+	public static void crearIndicador(String nombre, String formula, long idUsuario) {
 		
 		Empresa empresa = new Empresa("nombre",1990);
 		
 		if (Analizador.evaluar(formula,empresa,2007) != null){
-    		Indicador nuevoIndicador = new Indicador(nombre,formula);
+    		Indicador nuevoIndicador = new Indicador(nombre,formula, idUsuario);
     		CargadorDeBaseDeDatos.guardarIndicador(nuevoIndicador);
     	}
 	}

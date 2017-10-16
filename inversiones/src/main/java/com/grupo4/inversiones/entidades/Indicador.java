@@ -22,9 +22,10 @@ public class Indicador extends Persistible {
 	public Indicador() {
 	}
 	
-	public Indicador(String _idIndicador, String _formula){
+	public Indicador(String _idIndicador, String _formula, long idUsuario){
 		formula = _formula;
 		idIndicador = _idIndicador;
+		duenio = idUsuario;
 	}
 	
 	@Column(name = "idIndicador")

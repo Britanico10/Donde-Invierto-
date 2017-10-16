@@ -33,43 +33,43 @@ Servicios servicios = Servicios.getInstance();
 	}
 	
 	@RequestMapping(method = DELETE)
-	public void borrarIndicador(@RequestParam(value = "id", defaultValue = "", required = false) long id,
+	public List<Indicador> borrarIndicador(@RequestParam(value = "id", defaultValue = "", required = false) long id,
 			@RequestParam(value = "token", defaultValue = "", required = false) String token){
 		
 		long userId = AuthUtils.validarToken(token);
-//		if (userId == -1L) {
-//			return null;
-//		}
+		if (userId == -1L) {
+			return null;
+		}
 		
-		servicios.getIndicadorServicio().eliminarIndicador(id, userId);
+		return servicios.getIndicadorServicio().eliminarIndicador(id, userId);
 	}
 	
 	@RequestMapping(method = POST)
-	public void crearIndicador(
+	public List<Indicador> crearIndicador(
 			@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
 			@RequestParam(value = "formula", defaultValue = "", required = false) String formula,
 			@RequestParam(value = "token", defaultValue = "", required = false) String token){
 		
 		long userId = AuthUtils.validarToken(token);
-//		if (userId == -1L) {
-//			return null;
-//		}
+		if (userId == -1L) {
+			return null;
+		}
 		
-		servicios.getIndicadorServicio().agregarIndicador(nombre, formula);
+		return servicios.getIndicadorServicio().agregarIndicador(nombre, formula, userId);
 	}
 	
 	@RequestMapping(method = PUT)
-	public void editarIndicador(
+	public List<Indicador> editarIndicador(
 			@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
 			@RequestParam(value = "formula", defaultValue = "", required = false) String formula,
 			@RequestParam(value = "token", defaultValue = "", required = false) String token){
 		
 		long userId = AuthUtils.validarToken(token);
-//		if (userId == -1L) {
-//			return null;
-//		}
+		if (userId == -1L) {
+			return null;
+		}
 		
-		servicios.getIndicadorServicio().editarIndicador(nombre, formula, userId);
+		return servicios.getIndicadorServicio().editarIndicador(nombre, formula, userId);
 	}
 	
 	@RequestMapping("/aplicar")

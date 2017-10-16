@@ -15,12 +15,12 @@ public class CondicionFiltroServicio {
 			return repositorio.condicionesFiltro().buscarTodas(idUsuario);
 	}
 	
-	public Boolean borrarCondicion(long idCond, long idUsuario) {
+	public List<CondicionFiltro> borrarCondicion(long idCond, long idUsuario) {
 		if (VerificadorUsuario.verificarUsuarioParaCondicionFiltro(idCond, idUsuario)) {
 			repositorio.condicionesFiltro().borrarPorId(idCond);
-			return true;
+			return getCondicionesFiltro(idUsuario);
 		}
-		return false;
+		return null;
 	}
 
 }

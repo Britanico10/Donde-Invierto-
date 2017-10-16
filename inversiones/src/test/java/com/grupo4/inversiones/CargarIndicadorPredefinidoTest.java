@@ -18,7 +18,7 @@ public class CargarIndicadorPredefinidoTest {
 		List<Indicador> indicadores = new ArrayList<Indicador>();
 		indicadores = CargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
 		Indicador ingresoNetoCargado = indicadores.get(0);
-		Indicador ingresoNetoEsperado = new Indicador("ingresoNeto","ingNetoOpCont + ingNetoOpDiscont");
+		Indicador ingresoNetoEsperado = new Indicador("ingresoNeto","ingNetoOpCont + ingNetoOpDiscont", 0);
 		assertEquals(ingresoNetoCargado.getformula(), ingresoNetoEsperado.getformula());
 		assertEquals(ingresoNetoCargado.getIdIndicador(), ingresoNetoEsperado.getIdIndicador());
 	}

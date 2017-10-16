@@ -1,5 +1,6 @@
 package com.grupo4.webserver.servlet;
 
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 import java.util.List;
@@ -27,5 +28,18 @@ public class CondicionesFiltroAPI {
 		}
 		
 		return servicios.getCondicionFiltroServicio().getCondicionesFiltro(userId);
+	}
+	
+	@RequestMapping(method = DELETE)
+	public List<CondicionFiltro> borrarCondicionFiltro(@RequestParam(value = "idCond", defaultValue = "", required = false) long idCond,
+			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+		
+		long userId = AuthUtils.validarToken(token);
+		if (userId == -1L) {
+			return null;
+		}
+		
+		return servicios.getCondicionFiltroServicio().borrarCondicion(idCond, userId);
+		
 	}
 }

@@ -25,24 +25,25 @@ public class MetodologiaServicio {
 		return null;
 	}
 	
-	public Boolean eliminarMetodologia(long idMeto, long idUsuario) {
+	public List<Metodologia> eliminarMetodologia(long idMeto, long idUsuario) {
 		if (VerificadorUsuario.verificarUsuarioParaMetodologias(idMeto, idUsuario)) {
 			GestionMetodologias.eliminarMetodologiaPorId(idMeto);
-			return true;
+			return getMetodologias(idUsuario);
 		}
-		return false;
+		return null;
 	}
 	
-	public void agregarMetodologia(long idUsuario, String nombre, List<String> condicionesFiltro, List<String> condicionesOrden) {
+	public List<Metodologia> agregarMetodologia(long idUsuario, String nombre, List<String> condicionesFiltro, List<String> condicionesOrden) {
 		GestionMetodologias.agregarMetodologia(idUsuario, nombre, condicionesFiltro, condicionesOrden);
+		return getMetodologias(idUsuario);
 	}
 	
-	public Boolean editarNombreMetodologia(long idMetodologia, String nuevoNombre, long idUsuario) {
+	public List<Metodologia> editarNombreMetodologia(long idMetodologia, String nuevoNombre, long idUsuario) {
 		if (VerificadorUsuario.verificarUsuarioParaMetodologias(idMetodologia, idUsuario)) {
 			GestionMetodologias.editarNombre(idMetodologia, nuevoNombre);
-			return true;
+			return getMetodologias(idUsuario);
 		}
-		return false;
+		return null;
 	}
 
 }
