@@ -25,7 +25,8 @@ public class MetodologiaServicio {
 		return null;
 	}
 	
-	public List<Metodologia> eliminarMetodologia(long idMeto, long idUsuario) {
+	public List<Metodologia> eliminarMetodologia(String nombreMetodologia, long idUsuario) {
+		long idMeto = repositorio.metodologias().buscarPorNombre(nombreMetodologia).getId();
 		if (VerificadorUsuario.verificarUsuarioParaMetodologias(idMeto, idUsuario)) {
 			GestionMetodologias.eliminarMetodologiaPorId(idMeto);
 			return getMetodologias(idUsuario);
@@ -38,7 +39,8 @@ public class MetodologiaServicio {
 		return getMetodologias(idUsuario);
 	}
 	
-	public List<Metodologia> editarNombreMetodologia(long idMetodologia, String nuevoNombre, long idUsuario) {
+	public List<Metodologia> editarNombreMetodologia(String nombreMetodologia, String nuevoNombre, long idUsuario) {
+		long idMetodologia = repositorio.metodologias().buscarPorNombre(nombreMetodologia).getId();
 		if (VerificadorUsuario.verificarUsuarioParaMetodologias(idMetodologia, idUsuario)) {
 			GestionMetodologias.editarNombre(idMetodologia, nuevoNombre);
 			return getMetodologias(idUsuario);

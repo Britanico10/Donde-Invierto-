@@ -31,7 +31,7 @@ public class CondicionesOrdenAPI {
 	}
 	
 	@RequestMapping(method = DELETE)
-	public List<CondicionOrden> borrarCondicionOrden(@RequestParam(value = "idCond", defaultValue = "", required = false) long idCond,
+	public List<CondicionOrden> borrarCondicionOrden(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
 			@RequestParam(value = "token", defaultValue = "", required = false) String token){
 		
 		long userId = AuthUtils.validarToken(token);
@@ -39,7 +39,7 @@ public class CondicionesOrdenAPI {
 			return null;
 		}
 		
-		return servicios.getCondicionOrdenServicio().borrarCondicion(idCond, userId);
+		return servicios.getCondicionOrdenServicio().borrarCondicion(nombre, userId);
 		
 	}
 

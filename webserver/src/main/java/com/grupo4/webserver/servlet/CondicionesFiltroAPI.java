@@ -31,7 +31,7 @@ public class CondicionesFiltroAPI {
 	}
 	
 	@RequestMapping(method = DELETE)
-	public List<CondicionFiltro> borrarCondicionFiltro(@RequestParam(value = "idCond", defaultValue = "", required = false) long idCond,
+	public List<CondicionFiltro> borrarCondicionFiltro(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
 			@RequestParam(value = "token", defaultValue = "", required = false) String token){
 		
 		long userId = AuthUtils.validarToken(token);
@@ -39,7 +39,7 @@ public class CondicionesFiltroAPI {
 			return null;
 		}
 		
-		return servicios.getCondicionFiltroServicio().borrarCondicion(idCond, userId);
+		return servicios.getCondicionFiltroServicio().borrarCondicion(nombre, userId);
 		
 	}
 }

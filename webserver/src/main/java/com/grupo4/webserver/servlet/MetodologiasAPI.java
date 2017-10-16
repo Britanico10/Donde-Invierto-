@@ -49,19 +49,18 @@ public class MetodologiasAPI {
 	}
 	
 	@RequestMapping(method = DELETE)
-	public List<Metodologia> eliminarMetodologia(@RequestParam(value = "idMetodologia", defaultValue = "", required = false) long idMetodologia,
+	public List<Metodologia> eliminarMetodologia(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
 			@RequestParam(value = "token", defaultValue = "", required = false) String token){
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
 			return null;
 		}
-		return servicios.getMetodologiaServicio().eliminarMetodologia(idMetodologia, userId);
+		return servicios.getMetodologiaServicio().eliminarMetodologia(nombre, userId);
 	}
 	
 	@RequestMapping(method = POST)
-	public List<Metodologia> agregarMetodologia(@RequestParam(value = "idMetodologia", defaultValue = "", required = false) long idMetodologia,
-			@RequestParam(value = "nombreMetodologia", defaultValue = "", required = false) String nombreMetodologia,
+	public List<Metodologia> agregarMetodologia(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombreMetodologia,
 			@RequestParam(value = "condicionesFiltro", defaultValue = "", required = false) List<String> condicionesFiltro,
 			@RequestParam(value = "condicionesOrden", defaultValue = "", required = false) List<String> condicionesOrden,
 			@RequestParam(value = "token", defaultValue = "", required = false) String token){
@@ -75,8 +74,8 @@ public class MetodologiasAPI {
 	}
 	
 	@RequestMapping(method = PUT)
-	public List<Metodologia> editarNombre(@RequestParam(value = "idMetodologia", defaultValue = "", required = false) long idMetodologia,
-			@RequestParam(value = "nombreMetodologia", defaultValue = "", required = false) String nombreMetodologia,
+	public List<Metodologia> editarNombre(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
+			@RequestParam(value = "nuevoNombre", defaultValue = "", required = false) String nuevoNombre,
 			@RequestParam(value = "token", defaultValue = "", required = false) String token){
 		
 		long userId = AuthUtils.validarToken(token);
@@ -84,7 +83,7 @@ public class MetodologiasAPI {
 			return null;
 		}
 		
-		return servicios.getMetodologiaServicio().editarNombreMetodologia(idMetodologia, nombreMetodologia, userId);
+		return servicios.getMetodologiaServicio().editarNombreMetodologia(nombre, nuevoNombre, userId);
 	}
 		
 

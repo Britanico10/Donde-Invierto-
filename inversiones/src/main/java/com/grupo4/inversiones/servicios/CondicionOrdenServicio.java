@@ -15,7 +15,16 @@ public class CondicionOrdenServicio {
 		return repositorio.condicionesOrden().buscarTodas(idUsuario);
 	}
 	
-	public List<CondicionOrden> borrarCondicion(long idCond, long idUsuario) {
+	public List<CondicionOrden> borrarCondicionPorId(long idCond, long idUsuario) {
+		if (VerificadorUsuario.verificarUsuarioParaCondicionOrden(idCond, idUsuario)) {
+			repositorio.condicionesFiltro().borrarPorId(idCond);
+			return getCondicionesOrden(idUsuario);
+		}
+		return null;
+	}
+	
+	public List<CondicionOrden> borrarCondicion(String nombre, long idUsuario) {
+		long idCond = repositorio.condicionesOrden().buscarPorNombre(nombre).getId();
 		if (VerificadorUsuario.verificarUsuarioParaCondicionOrden(idCond, idUsuario)) {
 			repositorio.condicionesFiltro().borrarPorId(idCond);
 			return getCondicionesOrden(idUsuario);
