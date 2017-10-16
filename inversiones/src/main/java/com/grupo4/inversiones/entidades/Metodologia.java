@@ -28,12 +28,6 @@ public class Metodologia extends Persistible{
 
 	@Transient
 	private static final long serialVersionUID = 1L;
-	@Transient
-	private String PERSISTENCE_UNIT_NAME = "db";
-	@Transient
-	private EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-	@Transient
-	private Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
 	
 	private String nombre; 
 	private long duenio;
@@ -88,6 +82,11 @@ public class Metodologia extends Persistible{
 	}
 
 	public List<Empresa> aplicarCondicionesFiltro(List<Empresa> empresas) throws Exception {
+		
+		String PERSISTENCE_UNIT_NAME = "db";
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+		Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+		
 		List<Empresa> empresasFiltradas = empresas;
 		for(int i = 0; i < condicionesFiltro.size(); i++) {
 			CondicionFiltro condicionBuscada = repositorio.condicionesFiltro().buscarPorNombre(condicionesFiltro.get(i));
@@ -100,6 +99,11 @@ public class Metodologia extends Persistible{
 	}
 	
 	public void aplicarCondicionesDeOrden(List<Empresa> empresas) throws Exception {
+		
+		String PERSISTENCE_UNIT_NAME = "db";
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+		Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+		
 		Rentabilidad.inicializarRentabilidad(empresas);
 		for(int i = 0; i < condicionesOrden.size(); i++) {
 			CondicionOrden condicionBuscada = repositorio.condicionesOrden().buscarPorNombre(condicionesOrden.get(i));
