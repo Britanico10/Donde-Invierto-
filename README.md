@@ -150,3 +150,9 @@ Condiciones de ordenamiento
           -nombre (de condición)
           -token (de sesión)
           
+          
+          
+Para el inicio de sesión de los usuarios se utilizó la libreria JWT, que genera un token para cada sesión, el cuál esta encriptado y permite seguridad a la hora de hacer peticiones al servidor web. En cada petición al servidor, se enviará el token, que será desencriptado en el mismo y permitirá a este saber que usuario es el que solicita el servicio.
+
+El token es seguro, ya que es generado por un algoritmo utilizando una clave secreta conocida solo por el servidor.
+          
