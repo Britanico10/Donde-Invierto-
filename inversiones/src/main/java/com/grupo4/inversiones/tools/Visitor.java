@@ -1,6 +1,10 @@
 package com.grupo4.inversiones.tools;
 
 import java.util.List;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import com.grupo4.FormulasBaseVisitor;
 import com.grupo4.FormulasParser;
 import com.grupo4.FormulasParser.CuentaContext;
@@ -10,11 +14,24 @@ import com.grupo4.FormulasParser.MuldivContext;
 import com.grupo4.FormulasParser.ParenContext;
 import com.grupo4.FormulasParser.PrintExprContext;
 import com.grupo4.FormulasParser.SumresContext;
-import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Balance;
+import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.repositorio.Repositorio;
 
 public class Visitor extends FormulasBaseVisitor<Double> {
+	
+	private Empresa empresa;
+	private int periodo;
+	
+	private String PERSISTENCE_UNIT_NAME = "db";
+	private EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+	private Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+	
+	public Visitor(Empresa empresa, int periodo) {
+		this.empresa = empresa;
+		this.periodo = periodo;
+	}
 	
 	@Override
 	public Double visitPrintExpr(PrintExprContext ctx){
@@ -53,16 +70,16 @@ public class Visitor extends FormulasBaseVisitor<Double> {
 	
 	@Override
 	public Double visitIndi(IndiContext ctx){
-		Indicador indicador = Listas.buscarIndicadorEn(App.indicadores,ctx.getText());
+		Indicador indicador = repositorio.indicadores().buscarPorNombre(ctx.getText());
 		if (indicador == null) throw new IllegalArgumentException("Indicador no válido.");
-		return indicador.aplicarA(App.empresaActual, App.periodoActual);
+		return indicador.aplicarA(empresa, periodo);
 	}
 	
 	@Override
 	public Double visitCuenta(CuentaContext ctx){
 		Balance balance;
-		List<Balance> balancesActuales = App.empresaActual.getBalances();
-		balance = Listas.buscarCuentaEn(balancesActuales,App.periodoActual);
+		List<Balance> balancesActuales = empresa.getBalances();
+		balance = Listas.buscarCuentaEn(balancesActuales,periodo);
 		if (balance != null){
 			switch(ctx.getText()){
 			case "ebitda": return 1.0*balance.getEbitda(); //1.0* para pasar a double
@@ -72,7 +89,7 @@ public class Visitor extends FormulasBaseVisitor<Double> {
 			case "ingNetoOpDiscont": return 1.0*balance.getIngNetoOpDiscont();
 			case "deuda": return 1.0*balance.getDeuda();
 			case "capitalPropio": return 1.0*balance.getCapitalPropio();
-			case "inicioActividad": return 1.0*App.empresaActual.getInicioActividad();
+			case "inicioActividad": return 1.0*empresa.getInicioActividad();
 			default: throw new IllegalArgumentException("Cuenta no válida");
 			}
 		} 

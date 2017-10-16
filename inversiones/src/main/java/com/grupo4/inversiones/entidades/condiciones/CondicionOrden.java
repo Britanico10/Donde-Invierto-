@@ -20,6 +20,7 @@ import com.grupo4.inversiones.entidades.Empresa;
 @AttributeOverride(name = "tipo", column = @javax.persistence.Column(name="tipo", nullable=false, insertable = false, updatable = false))
 public abstract class CondicionOrden extends Condicion {
 	
+	private static final long serialVersionUID = 1L;
 	int importancia;
 	
 	public CondicionOrden() {

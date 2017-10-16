@@ -7,18 +7,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.persistencia.Persistible;
 import com.grupo4.inversiones.tools.Analizador;
 
 @Entity
 @Table(name = "INDICADOR")
 public class Indicador extends Persistible {
+
+	private static final long serialVersionUID = 1L;
 	private String formula;
 	private String idIndicador;
+	private long duenio;
 	
 	public Indicador() {
-		
 	}
 	
 	public Indicador(String _idIndicador, String _formula){
@@ -44,10 +45,17 @@ public class Indicador extends Persistible {
 		formula = valor;
 	}
 	
+	@Column(name = "duenio")
+	public long getDuenio() {
+		return duenio;
+	}
+
+	public void setDuenio(long duenio) {
+		this.duenio = duenio;
+	}
+	
 	public double aplicarA(Empresa empresa, int periodo){
-		App.empresaActual = empresa;
-		App.periodoActual = periodo;
-		return Analizador.evaluar(formula);
+		return Analizador.evaluar(formula, empresa, periodo);
 	}
 	
 	public List<Double> aplicarEnIntervalo(Empresa empresa, int inicio, int fin) {

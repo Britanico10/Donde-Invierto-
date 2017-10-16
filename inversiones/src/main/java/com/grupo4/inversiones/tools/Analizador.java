@@ -7,9 +7,10 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 import com.grupo4.FormulasLexer;
 import com.grupo4.FormulasParser;
+import com.grupo4.inversiones.entidades.Empresa;
 
 public class Analizador {
-	public static Double evaluar(String formula){
+	public static Double evaluar(String formula, Empresa empresa, int periodo){
 		
     	CharStream charStream = new ANTLRInputStream(formula);
 		FormulasLexer lexer = new FormulasLexer(charStream);
@@ -19,7 +20,7 @@ public class Analizador {
     	
     	//System.out.println(tree.toStringTree(parser));
     	
-    	Visitor visitor = new Visitor();
+    	Visitor visitor = new Visitor(empresa,periodo);
     	return visitor.visit(tree);
 		
 	}

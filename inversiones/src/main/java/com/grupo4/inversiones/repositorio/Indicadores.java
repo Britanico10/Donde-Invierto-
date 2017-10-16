@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 
 public class Indicadores extends Repositorio {
@@ -15,6 +14,11 @@ public class Indicadores extends Repositorio {
 	
 	   public Indicador buscarPorId(Long id){   
 		   return em.find(Indicador.class, id);
+	   }
+	   
+	   public Indicador buscarPorNombre(String nombre){
+		   Query query = em.createQuery("SELECT i FROM Indicador i WHERE i.idIndicador = :nombre").setParameter("nombre", nombre);
+		   return (Indicador) query.getResultList().get(0);
 	   }
 	   
 	   public void borrarPorId(Long id){   
@@ -30,8 +34,8 @@ public class Indicadores extends Repositorio {
 		   em.getTransaction().commit();
 	   }
 	   
-	   public List<Indicador> buscarTodas(){
-		   Query query = em.createQuery("SELECT i FROM Indicador i");
+	   public List<Indicador> buscarTodas(long idUsuario){
+		   Query query = em.createQuery("SELECT i FROM Indicador i WHERE i.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
 		   List<Indicador> indicadores = query.getResultList();
 		   return indicadores;
 	   }

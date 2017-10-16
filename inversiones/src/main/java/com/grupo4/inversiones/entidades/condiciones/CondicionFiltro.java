@@ -19,6 +19,7 @@ import com.grupo4.inversiones.entidades.Empresa;
 @AttributeOverride(name = "tipo", column = @javax.persistence.Column(name="tipo", nullable=false, insertable = false, updatable = false))
 public abstract class CondicionFiltro extends Condicion {
 	
+	private static final long serialVersionUID = 1L;
 	int comparador;
 	
 	public CondicionFiltro(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _indicador, int _periodo, int _comparador) {

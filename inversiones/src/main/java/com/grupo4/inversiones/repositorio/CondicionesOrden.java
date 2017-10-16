@@ -17,8 +17,19 @@ public class CondicionesOrden extends Repositorio {
 		   return em.find(CondicionOrden.class, id);
 	   }
 	   
-	   public List<CondicionOrden> buscarTodas(){
-		   Query query = em.createQuery("SELECT c FROM CondicionOrden c");
+	   public void borrarPorId(Long id){   
+		   em.getTransaction().begin();
+		   em.remove(buscarPorId(id));
+		   em.getTransaction().commit();
+	   }
+	   
+	   public CondicionOrden buscarPorNombre(String nombre){
+		   Query query = em.createQuery("SELECT c FROM CondicionOrden c WHERE c.nombreCondicion = :nombre").setParameter("nombre", nombre);
+		   return (CondicionOrden) query.getResultList().get(0);
+	   }
+	   
+	   public List<CondicionOrden> buscarTodas(long idUsuario){
+		   Query query = em.createQuery("SELECT c FROM CondicionOrden c WHERE c.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
 		   List<CondicionOrden> condiciones = query.getResultList();
 		   return condiciones;
 	   }

@@ -3,11 +3,18 @@ package com.grupo4.inversiones.tools;
 import java.util.Calendar;
 import java.util.List;
 
-import com.grupo4.inversiones.App;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.repositorio.Repositorio;
 
 public class AplicarIndicadores {
+	
+	private static String PERSISTENCE_UNIT_NAME = "db";
+	private static EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+	private static Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
 	
 	static Calendar cal = Calendar.getInstance(); 
 	static int anio = cal.get(Calendar.YEAR);
@@ -39,7 +46,7 @@ public class AplicarIndicadores {
 	}
 	
 	public static double aplicarIndicador(String nombre, Empresa empresa, int periodo){
-		return Listas.buscarIndicadorEn(App.indicadores, nombre).aplicarA(empresa,periodo);
+		return repositorio.indicadores().buscarPorNombre(nombre).aplicarA(empresa,periodo);
 	}
 	
 	public static double promedioIndicadorEnLapso(String nombre, Empresa empresa, int lapso){

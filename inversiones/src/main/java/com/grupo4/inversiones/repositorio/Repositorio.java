@@ -10,6 +10,7 @@ public class Repositorio {
 	private CondicionesOrden condicionesOrden;
 	private CondicionesFiltro condicionesFiltro;
 	private Metodologias metodologias;
+	private Usuarios usuarios;
 	protected EntityManager em; 
 	  
 	    public Repositorio(EntityManager em){
@@ -57,6 +58,14 @@ public class Repositorio {
 	    		condicionesOrden = new CondicionesOrden(em);
 	    	}
 	    	return condicionesOrden;
+	    }
+	    
+	    public Usuarios usuarios() {
+	    	if (usuarios == null) {
+	    		usuarios = new Usuarios(em);
+	    	}
+	    	return usuarios;
+	    	
 	    }
 	    
 	    public void cerrar() {

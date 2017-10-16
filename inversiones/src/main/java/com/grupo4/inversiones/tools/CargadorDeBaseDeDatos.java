@@ -1,7 +1,4 @@
 package com.grupo4.inversiones.tools;
-import com.grupo4.inversiones.repositorio.Repositorio;
-import java.util.List;
-
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -9,6 +6,7 @@ import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
+import com.grupo4.inversiones.repositorio.Repositorio;
 
 public class CargadorDeBaseDeDatos {
 	

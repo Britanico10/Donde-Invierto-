@@ -7,6 +7,7 @@ import com.grupo4.inversiones.persistencia.Persistible;
 @MappedSuperclass
 public abstract class Condicion extends Persistible{
 	
+	private static final long serialVersionUID = 1L;
 	String nombreCondicion;
 	String nombreIndicador;
 	int periodo;
@@ -14,7 +15,8 @@ public abstract class Condicion extends Persistible{
 	int finalIntervalo;
 	String tipo;
 	long idMetodologia;
-	
+	long duenio;
+
 	public Condicion() {
 	}
 
@@ -34,7 +36,14 @@ public abstract class Condicion extends Persistible{
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	
+	public long getDuenio() {
+		return duenio;
+	}
 
+	public void setDuenio(long duenio) {
+		this.duenio = duenio;
+	}
 
 	public String getNombreIndicador() {
 		return nombreIndicador;

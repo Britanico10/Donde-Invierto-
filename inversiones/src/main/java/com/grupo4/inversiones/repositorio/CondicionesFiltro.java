@@ -17,8 +17,19 @@ public class CondicionesFiltro extends Repositorio {
 		   return em.find(CondicionesFiltro.class, id);
 	   }
 	   
-	   public List<CondicionFiltro> buscarTodas(){
-		   Query query = em.createQuery("SELECT c FROM CondicionFiltro c");
+	   public void borrarPorId(Long id){   
+		   em.getTransaction().begin();
+		   em.remove(buscarPorId(id));
+		   em.getTransaction().commit();
+	   }
+	   
+	   public CondicionFiltro buscarPorNombre(String nombre){
+		   Query query = em.createQuery("SELECT c FROM CondicionFiltro c WHERE c.nombreCondicion = :nombre").setParameter("nombre", nombre);
+		   return (CondicionFiltro) query.getResultList().get(0);
+	   }
+	   
+	   public List<CondicionFiltro> buscarTodas(long idUsuario){
+		   Query query = em.createQuery("SELECT c FROM CondicionFiltro c WHERE c.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
 		   List<CondicionFiltro> condiciones = query.getResultList();
 		   return condiciones;
 	   }

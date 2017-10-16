@@ -13,6 +13,7 @@ public class Servicios {
 	private MetodologiaServicio metodologiaServicio;
 	private CondicionOrdenServicio condicionOrdenServicio;
 	private CondicionFiltroServicio condicionFiltroServicio;
+	private IniciarSesionServicio iniciarSesionServicio;
 	
 	private Servicios() {
 	}
@@ -20,7 +21,7 @@ public class Servicios {
 	public static Servicios getInstance(){
 		if (instancia == null) {
 			instancia = new Servicios();
-			
+
 			try {
 				inicializadorGlobal.inicializar();
 			} catch (FileNotFoundException e) {
@@ -96,6 +97,19 @@ public class Servicios {
 		}
 		
 		return condicionFiltroServicio;
+	}
+	
+	public void crearIniciarSesionServicio() {
+		iniciarSesionServicio = new IniciarSesionServicio();
+	}
+	
+	public IniciarSesionServicio getIniciarSesionServicio() {
+		
+		if (iniciarSesionServicio == null) {
+			crearIniciarSesionServicio();
+		}
+		
+		return iniciarSesionServicio;
 	}
 	
 	

@@ -7,7 +7,6 @@
   
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    	
        
     	<class>com.grupo4.inversiones.entidades.Indicador</class>
      	<class>com.grupo4.inversiones.entidades.Balance</class>
@@ -25,11 +24,13 @@
     	<class>com.grupo4.inversiones.entidades.condiciones.Minimizar</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.ConsistenciaCreciente</class>
     	<class>com.grupo4.inversiones.entidades.condiciones.ConsistenciaDecreciente</class>
+    	
+    	<class>com.grupo4.inversiones.Usuario</class>
     	<class>com.grupo4.inversiones.persistencia.Persistible</class>
     	
     	 
         <properties> 
-	    <property name="hibernate.archive.autodetection" value="class"/>        
+	    	<property name="hibernate.archive.autodetection" value="class"/>        
         
             <!--property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/prueba" /> 
@@ -38,16 +39,22 @@
 
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db" /> 
-            <property name="hibernate.connection.username" value="root" /> 
+            <property name="hibernate.connection.username" value="root" />
             <property name="hibernate.connection.password" value="Norberto10" /> 
-            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 
                             
             <property name="hibernate.show_sql" value="true" /> 
             <property name="hibernate.format_sql" value="true" /> 
-            <property name="use_sql_comments" value="true" /> 
-            <!-- <property name="hibernate.hbm2ddl.auto" value="update" />  -->
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="use_sql_comments" value="true" />
+            <!-- 
+            validate: validate the schema, makes no changes to the database.
+			update: update the schema.
+			create: creates the schema, destroying previous data.
+			create-drop: drop the schema at the end of the session. 
+			-->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <!--<property name="hibernate.hbm2ddl.auto" value="create" /> -->
         </properties>
           
     </persistence-unit> 

@@ -145,18 +145,19 @@ CREATE TABLE IF NOT EXISTS `condicion_filtro` (
   `nombreIndicador` varchar(255) DEFAULT NULL,
   `periodo` int(11) NOT NULL,
   `comparador` int(11) NOT NULL,
+  `duenio` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla db.condicion_filtro: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `condicion_filtro` DISABLE KEYS */;
-INSERT INTO `condicion_filtro` (`tipo`, `id`, `finalIntervalo`, `idMetodologia`, `inicioIntervalo`, `nombreCondicion`, `nombreIndicador`, `periodo`, `comparador`) VALUES
-	('ConsistenciaCreciente', 1, 2016, 0, 2007, 'Consistencia Creciente', 'ROE', 0, 0),
-	('ConsistenciaCreciente', 2, 2016, 0, 2007, 'Margenes crecientes', 'Margen', 0, 0),
-	('FiltroMayor', 3, 0, 0, 0, 'Longevidad', 'Longevidad', 2014, 10),
-	('ConsistenciaCreciente', 4, 2016, 0, 2007, 'Consistencia Creciente', 'ROE', 0, 0),
-	('ConsistenciaCreciente', 5, 2016, 0, 2007, 'Margenes crecientes', 'Margen', 0, 0),
-	('FiltroMayor', 6, 0, 0, 0, 'Longevidad', 'Longevidad', 2014, 10);
+INSERT INTO `condicion_filtro` (`tipo`, `id`, `finalIntervalo`, `idMetodologia`, `inicioIntervalo`, `nombreCondicion`, `nombreIndicador`, `periodo`, `comparador`, `duenio`) VALUES
+	('ConsistenciaCreciente', 1, 2016, 0, 2007, 'Consistencia Creciente', 'ROE', 0, 0, 0),
+	('ConsistenciaCreciente', 2, 2016, 0, 2007, 'Margenes crecientes', 'Margen', 0, 0, 0),
+	('FiltroMayor', 3, 0, 0, 0, 'Longevidad', 'Longevidad', 2014, 10, 0),
+	('ConsistenciaCreciente', 4, 2016, 0, 2007, 'Consistencia Creciente', 'ROE', 0, 0, 0),
+	('ConsistenciaCreciente', 5, 2016, 0, 2007, 'Margenes crecientes', 'Margen', 0, 0, 0),
+	('FiltroMayor', 6, 0, 0, 0, 'Longevidad', 'Longevidad', 2014, 10, 0);
 /*!40000 ALTER TABLE `condicion_filtro` ENABLE KEYS */;
 
 -- Volcando estructura para tabla db.condicion_orden
@@ -170,18 +171,19 @@ CREATE TABLE IF NOT EXISTS `condicion_orden` (
   `nombreIndicador` varchar(255) DEFAULT NULL,
   `periodo` int(11) NOT NULL,
   `importancia` int(11) NOT NULL,
+  `duenio` bigint(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla db.condicion_orden: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `condicion_orden` DISABLE KEYS */;
-INSERT INTO `condicion_orden` (`tipo`, `id`, `finalIntervalo`, `idMetodologia`, `inicioIntervalo`, `nombreCondicion`, `nombreIndicador`, `periodo`, `importancia`) VALUES
-	('Maximizar', 1, 2016, 0, 2007, 'Maximizar ROE', 'ROE', 0, 1),
-	('Minimizar', 2, 2016, 0, 2007, 'Minimizar proporcion de deuda', 'proporcionDeuda', 0, 1),
-	('OrdenMayor', 3, 0, 0, 0, 'Longevidad', 'Longevidad', 2007, 1),
-	('Maximizar', 4, 2016, 0, 2007, 'Maximizar ROE', 'ROE', 0, 1),
-	('Minimizar', 5, 2016, 0, 2007, 'Minimizar proporcion de deuda', 'proporcionDeuda', 0, 1),
-	('OrdenMayor', 6, 0, 0, 0, 'Longevidad', 'Longevidad', 2007, 1);
+INSERT INTO `condicion_orden` (`tipo`, `id`, `finalIntervalo`, `idMetodologia`, `inicioIntervalo`, `nombreCondicion`, `nombreIndicador`, `periodo`, `importancia`, `duenio`) VALUES
+	('Maximizar', 1, 2016, 0, 2007, 'Maximizar ROE', 'ROE', 0, 1, 0),
+	('Minimizar', 2, 2016, 0, 2007, 'Minimizar proporcion de deuda', 'proporcionDeuda', 0, 1, 0),
+	('OrdenMayor', 3, 0, 0, 0, 'Longevidad', 'Longevidad', 2007, 1, 0),
+	('Maximizar', 4, 2016, 0, 2007, 'Maximizar ROE', 'ROE', 0, 1, 0),
+	('Minimizar', 5, 2016, 0, 2007, 'Minimizar proporcion de deuda', 'proporcionDeuda', 0, 1, 0),
+	('OrdenMayor', 6, 0, 0, 0, 'Longevidad', 'Longevidad', 2007, 1, 0);
 /*!40000 ALTER TABLE `condicion_orden` ENABLE KEYS */;
 
 -- Volcando estructura para tabla db.empresa
@@ -207,34 +209,50 @@ INSERT INTO `empresa` (`id`, `inicioActividad`, `nombre`, `rentabilidad`) VALUES
 -- Volcando estructura para tabla db.indicador
 CREATE TABLE IF NOT EXISTS `indicador` (
   `id` bigint(20) DEFAULT NULL,
+  `duenio` bigint(20) DEFAULT NULL,
   `idIndicador` varchar(50) DEFAULT NULL,
   `formula` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla db.indicador: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `indicador` DISABLE KEYS */;
-INSERT INTO `indicador` (`id`, `idIndicador`, `formula`) VALUES
-	(1, 'ingresoNeto', 'ingNetoOpCont + ingNetoOpDiscont'),
-	(2, 'ROE', 'ingresoNeto / capitalPropio'),
-	(3, 'proporcionDeuda', 'deuda/capitalPropio'),
-	(4, 'Margen', 'ingresoNeto'),
-	(5, 'Longevidad', '2017-inicioActividad'),
-	(6, 'ROE', '4+4+4'),
-	(7, 'ROE', '4+4+4');
+INSERT INTO `indicador` (`id`, `duenio`, `idIndicador`, `formula`) VALUES
+	(1, 0, 'ingresoNeto', 'ingNetoOpCont + ingNetoOpDiscont'),
+	(2, 0, 'ROE', 'ingresoNeto / capitalPropio'),
+	(3, 0, 'proporcionDeuda', 'deuda/capitalPropio'),
+	(4, 0, 'Margen', 'ingresoNeto'),
+	(5, 0, 'Longevidad', '2017-inicioActividad'),
+	(6, 0, 'ROE', '4+4+4'),
+	(7, 0, 'ROE', '4+4+4');
 /*!40000 ALTER TABLE `indicador` ENABLE KEYS */;
 
 -- Volcando estructura para tabla db.metodologia
 CREATE TABLE IF NOT EXISTS `metodologia` (
   `id` bigint(20) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
+  `duenio` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla db.metodologia: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `metodologia` DISABLE KEYS */;
-INSERT INTO `metodologia` (`id`, `nombre`) VALUES
-	(1, 'Warren Buffett');
+INSERT INTO `metodologia` (`id`, `nombre`, `duenio`) VALUES
+	(1, 'Warren Buffett', 0);
 /*!40000 ALTER TABLE `metodologia` ENABLE KEYS */;
+
+-- Volcando estructura para tabla db.usuario
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id` bigint(20) DEFAULT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Volcando datos para la tabla db.usuario: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` (`id`, `nombre`, `email`, `password`) VALUES
+	(0, 'benja', 'benjamenriquez@gmail.com', 'Norberto10');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

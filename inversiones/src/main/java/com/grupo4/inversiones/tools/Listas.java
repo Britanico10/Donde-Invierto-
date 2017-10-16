@@ -5,11 +5,10 @@ import java.util.List;
 import java.util.Optional;
 
 import com.grupo4.inversiones.entidades.Balance;
+import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
-import com.grupo4.inversiones.entidades.condiciones.Condicion;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
-import com.grupo4.inversiones.entidades.Empresa;
 
 public class Listas {
 	

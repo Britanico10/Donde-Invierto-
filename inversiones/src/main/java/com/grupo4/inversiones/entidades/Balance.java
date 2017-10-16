@@ -1,21 +1,19 @@
 package com.grupo4.inversiones.entidades;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.grupo4.inversiones.persistencia.Persistible;
 
 @Entity
+//@Table(name = "BALANCE", indexes = { @Index(columnList = "idEmpresa") })
 @Table(name = "BALANCE")
-@NamedQuery(name="buscarBalances",query="SELECT b FROM Balance b WHERE b.idEmpresa = :empresaID") 
+@NamedQuery(name="buscarBalances", query="SELECT b FROM Balance b WHERE b.idEmpresa = :empresaID") 
 public class Balance extends Persistible{
-	
-	
+
+	private static final long serialVersionUID = 1L;
 	private long idEmpresa;
 	private int periodo = 0;
 	private int ebitda = 0;

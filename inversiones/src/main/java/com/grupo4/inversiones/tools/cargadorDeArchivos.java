@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -20,7 +21,6 @@ import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.entidades.Metodologia;
-import com.grupo4.inversiones.entidades.condiciones.Condicion;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
 import com.grupo4.inversiones.entidades.condiciones.ConsistenciaCreciente;

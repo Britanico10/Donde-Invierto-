@@ -1,14 +1,18 @@
 package com.grupo4.inversiones.persistencia;
 
-import java.io.Serializable; 
- 
-import javax.persistence.Column; import javax.persistence.GeneratedValue; import javax.persistence.GenerationType; import javax.persistence.Id; import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 import org.hibernate.annotations.GenericGenerator; 
  
 @MappedSuperclass public class Persistible implements Serializable { 
- 
-    @Id
+
+	private static final long serialVersionUID = 1L;
+	@Id
     //@GeneratedValue(strategy=GenerationType.AUTO)
     @GenericGenerator(name="gen",strategy="increment")
     @GeneratedValue(generator="gen")

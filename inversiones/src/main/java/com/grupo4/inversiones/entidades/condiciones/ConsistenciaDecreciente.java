@@ -3,20 +3,19 @@ package com.grupo4.inversiones.entidades.condiciones;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.SecondaryTable;
-import javax.persistence.Table;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
-import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
-import com.grupo4.inversiones.tools.Listas;
+import com.grupo4.inversiones.repositorio.Repositorio;
 
 @Entity
 public class ConsistenciaDecreciente extends CondicionFiltro {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public ConsistenciaDecreciente(String _nombreCondicion, int _inicioIntervalo, int _finalIntervalo, String _nombreIndicador) {
 		super(_nombreCondicion, _inicioIntervalo, _finalIntervalo, _nombreIndicador, 0, 0);
 		tipo = "ConsistenciaDecreciente";
@@ -28,7 +27,11 @@ public class ConsistenciaDecreciente extends CondicionFiltro {
 	@Override
 	public List<Empresa> filtrar(List<Empresa> empresas){
 		
-		Indicador indicador = Listas.buscarIndicadorEn(App.indicadores,nombreIndicador);
+		String PERSISTENCE_UNIT_NAME = "db";
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+		Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+		
+		Indicador indicador = repositorio.indicadores().buscarPorNombre(nombreIndicador);
 		
 		List<Empresa> filtradas = new ArrayList<Empresa>();
 		Boolean tieneDesnivel = false;

@@ -39,4 +39,14 @@ public class Empresas extends Repositorio {
 		   em.persist(empresa);
 		   em.getTransaction().commit();
 	   }
+
+		public Empresa buscarPorNombre(String nombre) {
+			Query query = em.createQuery("SELECT e FROM Empresa e WHERE e.nombre = :nombre").setParameter("nombre", nombre);
+			Empresa empresa = (Empresa) query.getResultList().get(0);
+			long empresaID = empresa.getId();
+			Query queryBalance = em.createNamedQuery("buscarBalances").setParameter("empresaID", empresaID);
+			List<Balance> balances = queryBalance.getResultList();
+			empresa.setBalances(balances);
+			return empresa;
+		}
 }

@@ -12,15 +12,18 @@ public class PrintEmpresas {
 		}
 	}
 	
-	public static void imprimirResultado(List<Empresa> empresas){
+	public static String imprimirResultado(List<Empresa> empresas){
+		
+		final String nuevalinea = System.getProperty("line.separator");
+		String resultado = "";
+		
 		   for (int i = 0; i < empresas.size(); i++){
-		    	System.out.println("Empresa: ");
-		    	System.out.println(empresas.get(i).getNombre());
-		    	System.out.println("Rentabilidad de inversión: ");
-			    System.out.println(empresas.get(i).getRentabilidad());
-			    System.out.println( " " );
+		    	resultado = resultado +
+		    			"Empresa: " + empresas.get(i).getNombre() + nuevalinea +
+		    			"Rentabilidad de inversión: " + empresas.get(i).getRentabilidad() + nuevalinea +
+		   				nuevalinea;
 		    }
-	     
+	     return resultado;
 	}
 	
 }

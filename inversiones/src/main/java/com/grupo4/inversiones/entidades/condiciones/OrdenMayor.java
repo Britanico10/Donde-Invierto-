@@ -2,20 +2,19 @@ package com.grupo4.inversiones.entidades.condiciones;
 
 import java.util.List;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.SecondaryTable;
-import javax.persistence.Table;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
-import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
-import com.grupo4.inversiones.tools.Listas;
+import com.grupo4.inversiones.repositorio.Repositorio;
 
 @Entity
 public class OrdenMayor extends CondicionOrden {
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public OrdenMayor(String _nombreCondicion, String _nombreIndicador, int _periodo, int _importancia) {
 		super(_nombreCondicion, 0, 0, _nombreIndicador, _periodo, _importancia);
 		tipo = "OrdenMayor";
@@ -27,7 +26,11 @@ public class OrdenMayor extends CondicionOrden {
 	@Override
 	public void ordenarPorIndicador(List<Empresa> empresas) {
 		
-		Indicador indicador = Listas.buscarIndicadorEn(App.indicadores,nombreIndicador);
+		String PERSISTENCE_UNIT_NAME = "db";
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+		Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+		
+		Indicador indicador = repositorio.indicadores().buscarPorNombre(nombreIndicador);
 		
 		Empresa aux;
 		for(int i = 0; i < empresas.size(); i++) {
