@@ -2,9 +2,6 @@ package com.grupo4.inversiones.tools;
 
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import com.grupo4.FormulasBaseVisitor;
 import com.grupo4.FormulasParser;
 import com.grupo4.FormulasParser.CuentaContext;
@@ -14,6 +11,7 @@ import com.grupo4.FormulasParser.MuldivContext;
 import com.grupo4.FormulasParser.ParenContext;
 import com.grupo4.FormulasParser.PrintExprContext;
 import com.grupo4.FormulasParser.SumresContext;
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Balance;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
@@ -24,9 +22,7 @@ public class Visitor extends FormulasBaseVisitor<Double> {
 	private Empresa empresa;
 	private int periodo;
 	
-	private String PERSISTENCE_UNIT_NAME = "db";
-	private EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-	private Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+	private Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 	
 	public Visitor(Empresa empresa, int periodo) {
 		this.empresa = empresa;

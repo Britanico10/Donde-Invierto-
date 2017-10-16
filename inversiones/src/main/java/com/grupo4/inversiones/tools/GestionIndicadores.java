@@ -1,19 +1,16 @@
 package com.grupo4.inversiones.tools;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.repositorio.Repositorio;
 
 public class GestionIndicadores {
+
+	static Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 	
-	static EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("db");
-	static Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
-	
-	public static void editarIndicador(String nombre, String nuevaFormula){
-		Indicador indicador = repositorio.indicadores().buscarPorNombre(nombre);
+	public static void editarIndicador(long idIndi, String nuevaFormula){
+		Indicador indicador = repositorio.indicadores().buscarPorId(idIndi);
 		if (Analizador.evaluar(nuevaFormula, new Empresa("nombre",1990),2007) != null){
 			indicador.setformula(nuevaFormula);
 			repositorio.indicadores().modificarPorId(indicador.getId(), nuevaFormula);

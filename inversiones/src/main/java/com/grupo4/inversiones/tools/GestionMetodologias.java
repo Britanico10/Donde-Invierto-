@@ -2,16 +2,13 @@ package com.grupo4.inversiones.tools;
 
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.repositorio.Repositorio;
 
 public class GestionMetodologias {
 	
-	static EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("db");
-	static Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+	static Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 	
 	public static void eliminarMetodologiaPorId(long id) {
 		repositorio.metodologias().borrarPorId(id);

@@ -7,12 +7,11 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.JoinColumn;
-import javax.persistence.Persistence;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
 import com.grupo4.inversiones.persistencia.Persistible;
@@ -83,9 +82,7 @@ public class Metodologia extends Persistible{
 
 	public List<Empresa> aplicarCondicionesFiltro(List<Empresa> empresas) throws Exception {
 		
-		String PERSISTENCE_UNIT_NAME = "db";
-		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		
 		List<Empresa> empresasFiltradas = empresas;
 		for(int i = 0; i < condicionesFiltro.size(); i++) {
@@ -95,14 +92,13 @@ public class Metodologia extends Persistible{
 			}
 			empresasFiltradas = condicionBuscada.filtrar(empresasFiltradas);
 		}
+		repositorio.cerrar();
 		return empresasFiltradas;
 	}
 	
 	public void aplicarCondicionesDeOrden(List<Empresa> empresas) throws Exception {
 		
-		String PERSISTENCE_UNIT_NAME = "db";
-		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		
 		Rentabilidad.inicializarRentabilidad(empresas);
 		for(int i = 0; i < condicionesOrden.size(); i++) {

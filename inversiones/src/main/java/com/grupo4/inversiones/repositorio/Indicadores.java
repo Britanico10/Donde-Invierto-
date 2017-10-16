@@ -45,4 +45,8 @@ public class Indicadores extends Repositorio {
 		   em.persist(indicador);
 		   em.getTransaction().commit();
 	   }
+
+	   public long buscarDuenio(long id) {
+		   return em.find(Indicador.class, id).getDuenio();
+	   }
 }

@@ -1,7 +1,5 @@
 package com.grupo4.inversiones.tools;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.entidades.Metodologia;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
@@ -10,8 +8,7 @@ import com.grupo4.inversiones.repositorio.Repositorio;
 
 public class CargadorDeBaseDeDatos {
 	
-	static EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("db");
-	static Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+	static Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 	
 	public static void guardarIndicador(Indicador indicador){
 		repositorio.indicadores().persistir(indicador);

@@ -15,7 +15,6 @@ public class Repositorio {
 	  
 	    public Repositorio(EntityManager em){
 	    	this.em = em;
-	    
 	    }
 	    
 	    public Indicadores indicadores() {

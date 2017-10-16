@@ -3,16 +3,12 @@ package com.grupo4.inversiones.tools;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.repositorio.Repositorio;
 
-public class inicializadorGlobal {
+public class InicializadorGlobal {
 	
-	private static final String PERSISTENCE_UNIT_NAME = "db";
-	static EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-	static Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+	static Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 	
 	
 	public static void inicializar() throws FileNotFoundException, SQLException {	

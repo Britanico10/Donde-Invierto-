@@ -3,9 +3,8 @@ package com.grupo4.inversiones.entidades.condiciones;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.repositorio.Repositorio;
@@ -26,11 +25,11 @@ public class Maximizar extends CondicionOrden {
 	@Override
 	public void ordenarPorIndicador(List<Empresa> empresas) {
 		
-		String PERSISTENCE_UNIT_NAME = "db";
-		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		
 		Indicador indicador = repositorio.indicadores().buscarPorNombre(nombreIndicador);
+		
+		repositorio.cerrar();
 		
 		Empresa aux;
 		for(int i = 0; i < empresas.size(); i++) {

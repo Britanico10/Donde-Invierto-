@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.repositorio.Repositorio;
@@ -26,12 +25,12 @@ public class FiltroMayor extends CondicionFiltro {
 	
 	@Override
 	public List<Empresa> filtrar(List<Empresa> empresas){
-		
-		String PERSISTENCE_UNIT_NAME = "db";
-		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		
 		Indicador indicador = repositorio.indicadores().buscarPorNombre(nombreIndicador);
+		
+		repositorio.cerrar();
 		
 		List<Empresa> filtradas = new ArrayList<Empresa>();
 		

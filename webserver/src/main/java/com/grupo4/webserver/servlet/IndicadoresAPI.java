@@ -41,7 +41,7 @@ Servicios servicios = Servicios.getInstance();
 //			return null;
 //		}
 		
-		servicios.getIndicadorServicio().eliminarIndicador(id);
+		servicios.getIndicadorServicio().eliminarIndicador(id, userId);
 	}
 	
 	@RequestMapping(method = POST)
@@ -69,7 +69,7 @@ Servicios servicios = Servicios.getInstance();
 //			return null;
 //		}
 		
-		servicios.getIndicadorServicio().editarIndicador(nombre, formula);
+		servicios.getIndicadorServicio().editarIndicador(nombre, formula, userId);
 	}
 	
 	@RequestMapping("/aplicar")

@@ -23,6 +23,10 @@ public class Metodologias extends Repositorio{
 		   em.getTransaction().commit();
 	   }
 	   
+	   public long buscarDuenio(long id) {
+		   return em.find(Metodologia.class, id).getDuenio();
+	   }
+	   
 	   public Metodologia buscarPorNombre(String nombre){   
 		   Query query = em.createQuery("SELECT m FROM Metodologia m WHERE m.nombre = :nombre").setParameter("nombre", nombre);
 		   return (Metodologia) query.getResultList().get(0);

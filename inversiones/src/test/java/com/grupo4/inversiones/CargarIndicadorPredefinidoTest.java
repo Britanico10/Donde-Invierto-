@@ -9,14 +9,14 @@ import java.util.List;
 import org.junit.Test;
 
 import com.grupo4.inversiones.entidades.Indicador;
-import com.grupo4.inversiones.tools.cargadorDeArchivos;
+import com.grupo4.inversiones.tools.CargadorDeArchivos;
 
 public class CargarIndicadorPredefinidoTest {
 
 	@Test
 	public void test() throws FileNotFoundException {
 		List<Indicador> indicadores = new ArrayList<Indicador>();
-		indicadores = cargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
+		indicadores = CargadorDeArchivos.cargarArchivoIndicadores("src/main/indicadores.txt");
 		Indicador ingresoNetoCargado = indicadores.get(0);
 		Indicador ingresoNetoEsperado = new Indicador("ingresoNeto","ingNetoOpCont + ingNetoOpDiscont");
 		assertEquals(ingresoNetoCargado.getformula(), ingresoNetoEsperado.getformula());

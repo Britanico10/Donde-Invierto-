@@ -1,5 +1,8 @@
 package com.grupo4.inversiones;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 public class App{
 
 //public static Empresa empresaActual;
@@ -9,6 +12,8 @@ public class App{
 //public static List<CondicionFiltro> condicionesFiltro;
 //public static List<CondicionOrden> condicionesOrden;
 //public static List<Metodologia> metodologias;
+public static String PERSISTENCE_UNIT_NAME = "db";
+public static EntityManagerFactory EM_FACTORY = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 
 
     public static void main(String[] args) throws Exception {

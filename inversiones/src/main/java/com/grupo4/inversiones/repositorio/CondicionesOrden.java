@@ -23,6 +23,10 @@ public class CondicionesOrden extends Repositorio {
 		   em.getTransaction().commit();
 	   }
 	   
+	   public long buscarDuenio(long id) {
+		   return em.find(CondicionOrden.class, id).getDuenio();
+	   }
+	   
 	   public CondicionOrden buscarPorNombre(String nombre){
 		   Query query = em.createQuery("SELECT c FROM CondicionOrden c WHERE c.nombreCondicion = :nombre").setParameter("nombre", nombre);
 		   return (CondicionOrden) query.getResultList().get(0);

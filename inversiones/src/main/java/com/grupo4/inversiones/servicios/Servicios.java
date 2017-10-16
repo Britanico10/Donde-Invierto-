@@ -3,7 +3,7 @@ package com.grupo4.inversiones.servicios;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
-import com.grupo4.inversiones.tools.inicializadorGlobal;
+import com.grupo4.inversiones.tools.InicializadorGlobal;
 
 public class Servicios {
 	
@@ -23,7 +23,7 @@ public class Servicios {
 			instancia = new Servicios();
 
 			try {
-				inicializadorGlobal.inicializar();
+				InicializadorGlobal.inicializar();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {

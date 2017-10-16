@@ -23,6 +23,10 @@ public class CondicionesFiltro extends Repositorio {
 		   em.getTransaction().commit();
 	   }
 	   
+	   public long buscarDuenio(long id) {
+		   return em.find(CondicionFiltro.class, id).getDuenio();
+	   }
+	   
 	   public CondicionFiltro buscarPorNombre(String nombre){
 		   Query query = em.createQuery("SELECT c FROM CondicionFiltro c WHERE c.nombreCondicion = :nombre").setParameter("nombre", nombre);
 		   return (CondicionFiltro) query.getResultList().get(0);

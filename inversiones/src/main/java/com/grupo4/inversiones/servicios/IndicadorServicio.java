@@ -2,35 +2,41 @@ package com.grupo4.inversiones.servicios;
 
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.repositorio.Repositorio;
 import com.grupo4.inversiones.tools.AplicarIndicadores;
 import com.grupo4.inversiones.tools.GestionIndicadores;
+import com.grupo4.inversiones.tools.VerificadorUsuario;
 
 public class IndicadorServicio {
 	
-	String PERSISTENCE_UNIT_NAME = "db";
-	EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-	Repositorio repositorio = new Repositorio(emFactory.createEntityManager());
+	Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 	
 	public List<Indicador> getIndicadores(long idUsuario){
 		return repositorio.indicadores().buscarTodas(idUsuario);
 	}
 	
-	public void eliminarIndicador(long id) {
-		GestionIndicadores.eliminarIndicadorPorId(id);
+	public Boolean eliminarIndicador(long idIndi, long idUsuario) {
+		if (VerificadorUsuario.verificarUsuarioParaIndicador(idIndi, idUsuario)) {
+			GestionIndicadores.eliminarIndicadorPorId(idIndi);
+			return true;
+		}
+		return false;
 	}
 	
 	public void agregarIndicador(String nombre, String formula) {
 		GestionIndicadores.crearIndicador(nombre, formula);
 	}
 	
-	public void editarIndicador(String nombre, String formula) {
-		GestionIndicadores.editarIndicador(nombre, formula);
+	public Boolean editarIndicador(String nombre, String formula, long idUsuario) {
+		long idIndi = repositorio.indicadores().buscarPorNombre(nombre).getId();
+		if (VerificadorUsuario.verificarUsuarioParaIndicador(idIndi, idUsuario)) {
+			GestionIndicadores.editarIndicador(idIndi, formula);
+			return true;
+		}
+		return false;
 	}
 	
 	public String aplicarIndicadoresA(String nombreEmpresa, int periodo, long idUsuario) {
