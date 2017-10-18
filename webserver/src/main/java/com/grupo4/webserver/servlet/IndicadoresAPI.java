@@ -7,6 +7,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ public class IndicadoresAPI {
 	
 Servicios servicios = Servicios.getInstance();
 	
+	@CrossOrigin
 	@RequestMapping(method = GET)
 	public List<Indicador> retornarIndicadores(@RequestParam(value = "token", defaultValue = "", required = false) String token){
 		
@@ -32,6 +34,7 @@ Servicios servicios = Servicios.getInstance();
 		return servicios.getIndicadorServicio().getIndicadores(userId);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(method = DELETE)
 	public List<Indicador> borrarIndicador(@RequestParam(value = "id", defaultValue = "", required = false) long id,
 			@RequestParam(value = "token", defaultValue = "", required = false) String token){
@@ -44,6 +47,7 @@ Servicios servicios = Servicios.getInstance();
 		return servicios.getIndicadorServicio().eliminarIndicador(id, userId);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(method = POST)
 	public List<Indicador> crearIndicador(
 			@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
@@ -58,6 +62,7 @@ Servicios servicios = Servicios.getInstance();
 		return servicios.getIndicadorServicio().agregarIndicador(nombre, formula, userId);
 	}
 	
+	@CrossOrigin
 	@RequestMapping(method = PUT)
 	public List<Indicador> editarIndicador(
 			@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
@@ -72,6 +77,7 @@ Servicios servicios = Servicios.getInstance();
 		return servicios.getIndicadorServicio().editarIndicador(nombre, formula, userId);
 	}
 	
+	@CrossOrigin
 	@RequestMapping("/aplicar")
 	public String aplicarIndicadoresA(
 			@RequestParam(value = "empresa", defaultValue = "", required = false) String nombreEmpresa,

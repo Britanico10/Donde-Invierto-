@@ -2,6 +2,7 @@ package com.grupo4.webserver.servlet;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +20,7 @@ public class IniciarSesionAPI {
 	
 	Servicios servicios = Servicios.getInstance();
 	
+	@CrossOrigin
 	@RequestMapping(method = GET)
 	public @ResponseBody Sesion iniciarSesion(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
 								 @RequestParam(value = "password", defaultValue = "", required = false) String password){

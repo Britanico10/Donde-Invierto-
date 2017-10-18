@@ -4,6 +4,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ public class EmpresasAPI {
 	
 	Servicios servicios = Servicios.getInstance();
 	
+	@CrossOrigin
 	@RequestMapping(method = GET)
 	public List<Empresa> retornarEmpresas(@RequestParam(value = "token", defaultValue = "", required = false) String token){
 		
