@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name"viewport" content="width=device-width, user-scalable=no, initial-scale = 1.0, maximun scale=1.0, minimun scale=1.0">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/estilosIndicadores.css">
+	</head>
+	<body>
+		<header class="container">
+			<div id="headindicadores">
+				<h1> Indicadores </h1>
+			</div>
+			<div class="row">
+				<div class="nav col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<ul class="menu">
+						<li><a href="index.html" title="Inicio" >Inicio</a></li>
+						<li><a href="#" title="Indicadores">Indicadores</a></li>
+						<li><a href="#" title="Metodologias">Metodologias</a></li>
+						<br>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<section class="wrapper container">
+			<section class="main row">
+			    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="MI"> 
+				    <h2> Lista de Indicadores </h2>
+                    <div class="table-responsive">          
+				    <table id="lista_productos" class="table table-hover"> 
+					    <thead>
+						    <tr>
+							    <th> Id </th>
+							    <th> Nombre </th>
+							    <th> Formula </th> 
+							    <th>  </th> 
+							    <th>  </th> 
+						    </tr> 
+					    </thead> 
+					    <tbody> 
+						    <tr>
+							    <td> 
+								    <input type="number" name="id[]" class="id" placeholder="Id" />  
+							    </td> 
+							    <td>
+								    <input type="text" name="nombre[]" class="nombre" placeholder="Nombre" />
+							    </td> 
+							    <td> 
+								    <input type="text" name="formula[]" class="formula" placeholder="Formula" width="100%"></input> 
+							    </td> 
+
+							    <td>  
+								    <button type="button" class="btn btn-warning"> Editar </button>
+							    </td> 
+							    <td>  
+								    <button type="button" class="btn btn-danger">  Eliminar  </button>
+							    </td> 
+						    </tr> 
+					    </tbody>
+					    <tfoot> 
+						    <tr> 
+							    <td colspan="1"> </td>
+							    <td>
+								    <input type="text" name="nombre[]" class="nombre" placeholder="Nombre" width="100%" id="formula"></input>
+							    </td>
+							    <td>
+								    <input type="text" name="formula[]" class="formula" placeholder="Formula" width="100%" id="formula"></input>
+							    </td> 
+							    <td></td>
+							    <td> 	
+								    <button type="button" class="btn btn-success"> Agregar </button> 
+							    </td> 
+						    </tr> 
+					    </tfoot> 
+				    </table> 
+				    </div>
+				</div>
+            </section>   
+		</section>
+				
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstap.js"></script>
+	</body>
+</html>

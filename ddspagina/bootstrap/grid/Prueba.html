@@ -1,0 +1,14 @@
+<html> 
+<head> 		
+<title> Prueba </title> 		
+<script type"text/javascript" src="js/jquery-3.2.1.min.js"></script> 		
+<script> 			
+    &(document).on("ready",function(){
+     				$get("Localhost:8080/api/empresas",function(data),
+     				 $("#empresas").html(data);                
+     				  )} 			
+     				}); 		
+</script> 	
+</head> 	
+<body> 		
+    <textarea id="empresas"></textarea> 	</body> </html>
