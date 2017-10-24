@@ -18,7 +18,9 @@ public class Indicadores extends Repositorio {
 	   
 	   public Indicador buscarPorNombre(String nombre){
 		   Query query = em.createQuery("SELECT i FROM Indicador i WHERE i.idIndicador = :nombre").setParameter("nombre", nombre);
-		   return (Indicador) query.getResultList().get(0);
+		   List<Indicador> resultados = query.getResultList();
+		   if (resultados.size() == 0) return null;
+		   return (Indicador) resultados.get(0);
 	   }
 	   
 	   public void borrarPorId(Long id){   

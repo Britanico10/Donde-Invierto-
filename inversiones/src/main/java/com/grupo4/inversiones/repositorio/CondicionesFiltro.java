@@ -29,7 +29,9 @@ public class CondicionesFiltro extends Repositorio {
 	   
 	   public CondicionFiltro buscarPorNombre(String nombre){
 		   Query query = em.createQuery("SELECT c FROM CondicionFiltro c WHERE c.nombreCondicion = :nombre").setParameter("nombre", nombre);
-		   return (CondicionFiltro) query.getResultList().get(0);
+		   List<CondicionFiltro> resultados = query.getResultList();
+		   if (resultados.size() == 0) return null;
+		   return (CondicionFiltro) resultados.get(0);
 	   }
 	   
 	   public List<CondicionFiltro> buscarTodas(long idUsuario){

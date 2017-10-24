@@ -1,5 +1,7 @@
 package com.grupo4.inversiones.repositorio;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -17,7 +19,9 @@ public class Usuarios extends Repositorio {
 	
 	public Usuario buscarPorNombre(String nombre) {
 		Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.nombre = :nombre").setParameter("nombre", nombre);
-		return (Usuario) query.getResultList().get(0);
+		List<Usuario> resultados = query.getResultList();
+		if (resultados.size() == 0) return null;
+		return (Usuario) resultados.get(0);
 	}
 	
 	public void persistir(Usuario usuario){

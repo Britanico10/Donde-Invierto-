@@ -29,7 +29,9 @@ public class CondicionesOrden extends Repositorio {
 	   
 	   public CondicionOrden buscarPorNombre(String nombre){
 		   Query query = em.createQuery("SELECT c FROM CondicionOrden c WHERE c.nombreCondicion = :nombre").setParameter("nombre", nombre);
-		   return (CondicionOrden) query.getResultList().get(0);
+		   List<CondicionOrden> resultados = query.getResultList();
+		   if (resultados.size() == 0) return null;
+		   return (CondicionOrden) resultados.get(0);
 	   }
 	   
 	   public List<CondicionOrden> buscarTodas(long idUsuario){

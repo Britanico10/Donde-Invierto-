@@ -29,11 +29,14 @@ public class Metodologias extends Repositorio{
 	   
 	   public Metodologia buscarPorNombre(String nombre){   
 		   Query query = em.createQuery("SELECT m FROM Metodologia m WHERE m.nombre = :nombre").setParameter("nombre", nombre);
-		   return (Metodologia) query.getResultList().get(0);
+		   List<Metodologia> resultados = query.getResultList();
+		   if (resultados.size() == 0) return null;
+		   return (Metodologia) resultados.get(0);
 	   }
 	   
 	   public List<Metodologia> buscarTodas(long idUsuario){
 		   Query query = em.createQuery("SELECT m FROM Metodologia m WHERE m.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
+		   
 		   List<Metodologia> metodologias = query.getResultList();
 		   return metodologias;
 	   }
