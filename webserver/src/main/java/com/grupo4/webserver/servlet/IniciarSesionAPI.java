@@ -2,6 +2,12 @@ package com.grupo4.webserver.servlet;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +28,7 @@ public class IniciarSesionAPI {
 	
 	@RequestMapping(method = GET)
 	public @ResponseBody Sesion iniciarSesion(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
-								 @RequestParam(value = "password", defaultValue = "", required = false) String password){
+								 @RequestParam(value = "password", defaultValue = "", required = false) String password) throws Exception{
 		
 		
 		Usuario usuario = servicios.getIniciarSesionServicio().iniciarSesion(nombre, password);
@@ -30,8 +36,12 @@ public class IniciarSesionAPI {
 			return new Sesion(AuthUtils.generarToken(usuario));
 		}
 		else {
-			return new Sesion("");
+			throw new Exception("Usuario o contraseña incorrectos.");
 		}
+	}
+	@ExceptionHandler(Exception.class)
+	void handleBadRequests(HttpServletResponse response) throws IOException {
+	    response.sendError(HttpStatus.BAD_REQUEST.value(), "Usuario o contraseña incorrectos.");
 	}
 	
 }
