@@ -11,35 +11,20 @@
 </head>
 <body>
 <form class="form" name="form" id="formularioSesion">
-<h2>Iniciar Sesion</h2>
+<h2>Iniciar Sesión</h2>
 <form id="datosFormulario">
 <input type ="text" placeholder= "&#128187;Usuario" maxlength="10" name="usuario" id="usuario">
 <input type ="password" placeholder= "&#128272; Contraseña"; name="contrasena" id="contrasena" >
-<input type ="submit" name="Iniciar Sesion" value="Iniciar Sesion" id="InicioSesion" onclick="login()">
+<input type ="submit" id="InicioSesion" onclick="login()">
 <input type ="submit" name="Crear usuario" value="Crear Usuario">
 </form>
 
 </form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<!--  es la librería nueva de jquery con esa librería el success va dentro del $.ajax
-<script>
-    $.ajax({
-        type: "GET",
-        url: "/api/rooms",
-        success: function (rooms) {
-
-        }
-    });
-</script>
-	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
--->
+<script type="text/javascript" src="js/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
-
-
 
 </body>
 </html>
