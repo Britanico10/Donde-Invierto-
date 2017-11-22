@@ -13,16 +13,17 @@ function login(){
             async: false
              })
           .done(function(data) {
-            alert( "success" );
-            alert(data.token);
-            window.location.href = "index.html"; 
+            var token= data.token;
+            localStorage.setItem("Token", token);
+            alert(localStorage.getItem("Token"));
+            window.location.href= "index.html"
           })
           .fail(function() {
             alert( "error" );
           })
-          //.always(function() {
-          //  alert( "complete" );
-          //});
+          .always(function() {
+            //alert( "complete" );
+          });
 	}
 }
 
