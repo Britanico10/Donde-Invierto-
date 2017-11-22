@@ -37,8 +37,10 @@ public class Indicadores extends Repositorio {
 	   }
 	   
 	   public List<Indicador> buscarTodas(long idUsuario){
+		   em.getTransaction().begin();
 		   Query query = em.createQuery("SELECT i FROM Indicador i WHERE i.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
 		   List<Indicador> indicadores = query.getResultList();
+		   em.getTransaction().commit();
 		   return indicadores;
 	   }
 	   

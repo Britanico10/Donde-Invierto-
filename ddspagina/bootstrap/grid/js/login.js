@@ -15,11 +15,11 @@ function login(){
           .done(function(data) {
             alert( "success" );
             alert(data.token);
-            window.location.href = 'index.html'; 
+            window.location.href = "index.html"; 
           })
           .fail(function() {
             alert( "error" );
-          });
+          })
           //.always(function() {
           //  alert( "complete" );
           //});
