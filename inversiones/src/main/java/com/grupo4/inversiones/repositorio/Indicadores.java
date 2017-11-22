@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Indicador;
 
 public class Indicadores extends Repositorio {
@@ -37,10 +38,13 @@ public class Indicadores extends Repositorio {
 	   }
 	   
 	   public List<Indicador> buscarTodas(long idUsuario){
-		   em.getTransaction().begin();
-		   Query query = em.createQuery("SELECT i FROM Indicador i WHERE i.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
+//		   em.getTransaction().begin();
+//		   Query query = em.createQuery("SELECT i FROM Indicador i WHERE i.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
+//		   List<Indicador> indicadores = query.getResultList();
+//		   em.getTransaction().commit();
+		   EntityManager em2 = App.EM_FACTORY.createEntityManager();
+		   Query query = em2.createQuery("SELECT i FROM Indicador i WHERE i.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
 		   List<Indicador> indicadores = query.getResultList();
-		   em.getTransaction().commit();
 		   return indicadores;
 	   }
 	   
