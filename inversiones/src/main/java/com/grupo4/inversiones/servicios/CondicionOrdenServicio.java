@@ -31,7 +31,7 @@ public class CondicionOrdenServicio {
 	public List<CondicionOrden> borrarCondicion(String nombre, long idUsuario) {
 		long idCond = repositorio.condicionesOrden().buscarPorNombre(nombre).getId();
 		if (VerificadorUsuario.verificarUsuarioParaCondicionOrden(idCond, idUsuario)) {
-			repositorio.condicionesFiltro().borrarPorId(idCond);
+			repositorio.condicionesOrden().borrarPorId(idCond);
 			return getCondicionesOrden(idUsuario);
 		}
 		return null;
