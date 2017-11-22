@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 
 public class CondicionesFiltro extends Repositorio {
@@ -35,7 +36,8 @@ public class CondicionesFiltro extends Repositorio {
 	   }
 	   
 	   public List<CondicionFiltro> buscarTodas(long idUsuario){
-		   Query query = em.createQuery("SELECT c FROM CondicionFiltro c WHERE c.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
+		   EntityManager em2 = App.EM_FACTORY.createEntityManager();
+		   Query query = em2.createQuery("SELECT c FROM CondicionFiltro c WHERE c.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
 		   List<CondicionFiltro> condiciones = query.getResultList();
 		   return condiciones;
 	   }

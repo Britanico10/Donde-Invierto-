@@ -2,6 +2,7 @@ package com.grupo4.webserver.servlet;
 
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.util.List;
 
@@ -40,6 +41,26 @@ public class CondicionesFiltroAPI {
 		}
 		
 		return servicios.getCondicionFiltroServicio().borrarCondicion(nombre, userId);
+		
+	}
+	
+	@RequestMapping(method = POST)
+	public List<CondicionFiltro> crearCondicionFiltro(
+			@RequestParam(value = "tipo", defaultValue = "", required = false) String tipo,
+			@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
+			@RequestParam(value = "inicioIntervalo", defaultValue = "", required = false) int inicioIntervalo,
+			@RequestParam(value = "finIntervalo", defaultValue = "", required = false) int finIntervalo,
+			@RequestParam(value = "nombreIndicador", defaultValue = "", required = false) String nombreIndicador,
+			@RequestParam(value = "periodo", defaultValue = "", required = false) int periodo,
+			@RequestParam(value = "comparador", defaultValue = "", required = false) int comparador,
+			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+		
+		long userId = AuthUtils.validarToken(token);
+		if (userId == -1L) {
+			return null;
+		}
+		
+		return servicios.getCondicionFiltroServicio().crearCondicion(tipo, nombre, inicioIntervalo, finIntervalo, nombreIndicador, periodo, comparador, userId);
 		
 	}
 }
