@@ -26,11 +26,10 @@ public class VerificadorUsuario {
 		return idUsuario.equals(duenio);
 	}
 	
-	public static Boolean verificarUsuarioParaMetodologias(Long idMetodologia, Long idUsuario) {
+	public static Boolean verificarUsuarioParaMetodologias(Long idDuenioMetodologia, Long idUsuario) {
 		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
-		long duenio = repositorio.metodologias().buscarDuenio(idMetodologia);
 		repositorio.cerrar();
-		return idUsuario.equals(duenio);
+		return idUsuario.equals(idDuenioMetodologia);
 	}
 	
 	

@@ -22,7 +22,7 @@ public class Visitor extends FormulasBaseVisitor<Double> {
 	private Empresa empresa;
 	private int periodo;
 	
-	private Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
+	private Repositorio repositorio;
 	
 	public Visitor(Empresa empresa, int periodo) {
 		this.empresa = empresa;
@@ -66,7 +66,9 @@ public class Visitor extends FormulasBaseVisitor<Double> {
 	
 	@Override
 	public Double visitIndi(IndiContext ctx){
+		repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		Indicador indicador = repositorio.indicadores().buscarPorNombre(ctx.getText());
+		repositorio.cerrar();
 		if (indicador == null) throw new IllegalArgumentException("Indicador no válido.");
 		return indicador.aplicarA(empresa, periodo);
 	}

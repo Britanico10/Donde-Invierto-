@@ -18,8 +18,8 @@ public class MetodologiaServicio {
 	
 	public String aplicarMetodologia(String nombreMetodologia, long idUsuario) throws Exception {
 		Metodologia metodologia = repositorio.metodologias().buscarPorNombre(nombreMetodologia);
-		long idMetodologia = metodologia.getDuenio();
-		if (VerificadorUsuario.verificarUsuarioParaMetodologias(idMetodologia, idUsuario)) {
+		long idDuenioMetodologia = metodologia.getDuenio();
+		if (VerificadorUsuario.verificarUsuarioParaMetodologias(idDuenioMetodologia, idUsuario)) {
 			return metodologia.aplicarMetodologiaATodas(repositorio.empresas().buscarTodas());
 		}
 		return null;
