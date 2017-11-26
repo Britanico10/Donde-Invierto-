@@ -14,6 +14,7 @@ public class App{
 //public static List<Metodologia> metodologias;
 public static String PERSISTENCE_UNIT_NAME = "db";
 public static EntityManagerFactory EM_FACTORY = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+public static String DIR_EMPRESAS = "src/main/empresas.txt";
 
 
     public static void main(String[] args) throws Exception {

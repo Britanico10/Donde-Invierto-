@@ -1,7 +1,9 @@
 package com.grupo4.webserver.servlet;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +28,16 @@ public class EmpresasAPI {
 			return null;
 		}
 		return servicios.getEmpresaServicio().getEmpresas();
+	}
+	
+	@RequestMapping(method = PUT)
+	public List<Empresa> actualizarEmpresas(@RequestParam(value = "token", defaultValue = "", required = false) String token) throws FileNotFoundException{
+		
+		long userId = AuthUtils.validarToken(token);
+		if (userId == -1L) {
+			return null;
+		}
+		return servicios.getEmpresaServicio().actualizarEmpresas();
 	}
 	
 }

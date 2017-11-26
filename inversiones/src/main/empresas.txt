@@ -2,11 +2,13 @@
 
         {
             "nombre":"Am�rica M�vil",
+            "id": 1,
             "inicioActividad":2000,
             "balances":
              [
 
             {"periodo": 2006,
+             "idEmpresa": 1,
              "ebitda": 44591,
               "fds": 0,
               "fCashFlow":955,
@@ -17,6 +19,7 @@
               },
 
             {"periodo": 2007,
+             "idEmpresa": 1,
              "ebitda": 77691,
               "fds": 0,
               "fCashFlow":1096,
@@ -26,6 +29,7 @@
               "capitalPropio": 30000
 		},
             {"periodo": 2008,
+             "idEmpresa": 1,
              "ebitda": 85291,
               "fds": 1,
               "fCashFlow":1198,
@@ -35,6 +39,7 @@
               "capitalPropio": 70000
 		},
             {"periodo": 2009,
+             "idEmpresa": 1,
              "ebitda": 79463,
               "fds": 2,
               "fCashFlow":1234,
@@ -44,6 +49,7 @@
               "capitalPropio": 80000
 		},
             {"periodo": 2010,
+             "idEmpresa": 1,
              "ebitda": 74961,
               "fds": 3,
               "fCashFlow":1078,
@@ -53,6 +59,7 @@
               "capitalPropio": 40000
 		},
             {"periodo": 2011,
+             "idEmpresa": 1,
              "ebitda": 86431,
               "fds": 4,
               "fCashFlow":2468,
@@ -63,6 +70,7 @@
 		},
          
             {"periodo": 2012,
+             "idEmpresa": 1,
              "ebitda": 86431,
               "fds": 4,
               "fCashFlow":3468,
@@ -73,6 +81,7 @@
 		},
 
             {"periodo": 2013,
+             "idEmpresa": 1,
              "ebitda": 88888,
               "fds": 5,
               "fCashFlow":4468,
@@ -83,6 +92,7 @@
 		},
 
             {"periodo": 2014,
+             "idEmpresa": 1,
              "ebitda": 89765,
               "fds": 6,
               "fCashFlow":2468,
@@ -93,6 +103,7 @@
 		},
 
             {"periodo": 2015,
+             "idEmpresa": 1,
              "ebitda": 86431,
               "fds": 5,
               "fCashFlow":2468,
@@ -102,6 +113,7 @@
               "capitalPropio": 5450000
 		},
             {"periodo": 2016,
+             "idEmpresa": 1,
              "ebitda": 91234,
               "fds": 5,
               "fCashFlow":2468,
@@ -118,11 +130,13 @@
 
         {
             "nombre":"Berkshire Hathaway",
+            "id": 2,
             "inicioActividad":1955,
             "balances":
             [
 
             {"periodo": 2006,
+             "idEmpresa": 2,
              "ebitda": 12345,
               "fds": 1,
               "fCashFlow":789,
@@ -133,6 +147,7 @@
              },
 
             {"periodo": 2007,
+             "idEmpresa": 2,
              "ebitda": 23456,
               "fds": 3,
               "fCashFlow":978,
@@ -142,6 +157,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2008,
+             "idEmpresa": 2,
              "ebitda": 34567,
               "fds": 5,
               "fCashFlow":1012,
@@ -151,6 +167,7 @@
               "capitalPropio": 150000
 		},
             {"periodo": 2009,
+             "idEmpresa": 2,
              "ebitda": 29291,
               "fds": 7,
               "fCashFlow":999,
@@ -160,6 +177,7 @@
               "capitalPropio": 250000
 		},
             {"periodo": 2010,
+             "idEmpresa": 2,
              "ebitda": 54961,
               "fds": 9,
               "fCashFlow":3078,
@@ -169,6 +187,7 @@
               "capitalPropio": 52000
 		},
             {"periodo": 2011,
+             "idEmpresa": 2,
              "ebitda": 66431,
               "fds": 9,
               "fCashFlow":5468,
@@ -179,6 +198,7 @@
 		},
          
           {"periodo": 2012,
+           "idEmpresa": 2,
              "ebitda": 66531,
               "fds": 9,
               "fCashFlow":5368,
@@ -189,6 +209,7 @@
 		},
           
             {"periodo": 2013,
+             "idEmpresa": 2,
              "ebitda": 67431,
               "fds": 11,
               "fCashFlow":6468,
@@ -199,6 +220,7 @@
 		},
          
           {"periodo": 2014,
+           "idEmpresa": 2,
              "ebitda": 66866,
               "fds": 10,
               "fCashFlow":5468,
@@ -208,6 +230,7 @@
               "capitalPropio": 30000
 		},
          {"periodo": 2015,
+          "idEmpresa": 2,
              "ebitda": 66866,
               "fds": 12,
               "fCashFlow":5658,
@@ -217,6 +240,7 @@
               "capitalPropio": 57000
 		},
           {"periodo": 2016,
+           "idEmpresa": 2,
              "ebitda": 71866,
               "fds": 13,
               "fCashFlow":7468,
@@ -228,13 +252,16 @@
        
 	]
         },
+        
         {
             "nombre":"General Electric",
+            "id": 3,
             "inicioActividad":1892,
             "balances":            
             [
 
             {"periodo": 2006,
+             "idEmpresa": 3,
              "ebitda": 44591,
               "fds": 2,
               "fCashFlow":955,
@@ -245,6 +272,7 @@
               },
 
             {"periodo": 2007,
+             "idEmpresa": 3,
              "ebitda": 77691,
               "fds": 4,
               "fCashFlow":1096,
@@ -254,6 +282,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2008,
+             "idEmpresa": 3,
              "ebitda": 85291,
               "fds": 6,
               "fCashFlow":1198,
@@ -263,6 +292,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2009,
+             "idEmpresa": 3,
              "ebitda": 79463,
               "fds": 5,
               "fCashFlow":1234,
@@ -272,6 +302,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2010,
+             "idEmpresa": 3,
              "ebitda": 74961,
               "fds": 6,
               "fCashFlow":1078,
@@ -282,6 +313,7 @@
 		},
 
             {"periodo": 2011,
+             "idEmpresa": 3,
              "ebitda": 85291,
               "fds": 7,
               "fCashFlow":2298,
@@ -291,6 +323,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2012,
+             "idEmpresa": 3,
              "ebitda": 79463,
               "fds": 8,
               "fCashFlow":2934,
@@ -300,6 +333,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2013,
+             "idEmpresa": 3,
              "ebitda": 74961,
               "fds": 6,
               "fCashFlow":2078,
@@ -310,6 +344,7 @@
 		},
 
             {"periodo": 2014,
+             "idEmpresa": 3,
              "ebitda": 86444,
               "fds": 7,
               "fCashFlow":3468,
@@ -319,6 +354,7 @@
               "capitalPropio": 250000
 		},
             {"periodo": 2015,
+             "idEmpresa": 3,
              "ebitda": 79555,
               "fds": 8,
               "fCashFlow":2934,
@@ -328,6 +364,7 @@
               "capitalPropio": 150000
 		},
             {"periodo": 2016,
+             "idEmpresa": 3,
              "ebitda": 74961,
               "fds": 9,
               "fCashFlow":3078,
@@ -342,11 +379,13 @@
         },
         
 	{   "nombre":"Hewlett-Packard",
+		"id": 4,
             "inicioActividad":1939,
             "balances":
             [
 
             {"periodo": 2006,
+             "idEmpresa": 4,
              "ebitda": 33333,
               "fds": 6,
               "fCashFlow":1234,
@@ -357,6 +396,7 @@
               },
 
             {"periodo": 2007,
+             "idEmpresa": 4,
              "ebitda": 44444,
               "fds": 7,
               "fCashFlow":2222,
@@ -366,6 +406,7 @@
               "capitalPropio": 20000
 		},
             {"periodo": 2008,
+             "idEmpresa": 4,
              "ebitda": 55555,
               "fds": 8,
               "fCashFlow":1198,
@@ -375,6 +416,7 @@
               "capitalPropio": 850000
 		},
             {"periodo": 2009,
+             "idEmpresa": 4,
              "ebitda": 66666,
               "fds": 8,
               "fCashFlow":3333,
@@ -384,6 +426,7 @@
               "capitalPropio": 750000
 		},
             {"periodo": 2010,
+             "idEmpresa": 4,
              "ebitda": 69696,
               "fds": 10,
               "fCashFlow":3939,
@@ -393,6 +436,7 @@
               "capitalPropio": 10000
 		},
             {"periodo": 2011,
+             "idEmpresa": 4,
              "ebitda": 77777,
               "fds": 14,
               "fCashFlow":6545,
@@ -404,6 +448,7 @@
        
 
             {"periodo": 2012,
+             "idEmpresa": 4,
              "ebitda": 64444,
               "fds": 12,
               "fCashFlow":5222,
@@ -413,6 +458,7 @@
               "capitalPropio": 750000
 		},
             {"periodo": 2013,
+             "idEmpresa": 4,
              "ebitda": 55555,
               "fds": 10,
               "fCashFlow":3198,
@@ -422,6 +468,7 @@
               "capitalPropio": 850000
 		},
             {"periodo": 2014,
+             "idEmpresa": 4,
              "ebitda": 46666,
               "fds": 9,
               "fCashFlow":3333,
@@ -431,6 +478,7 @@
               "capitalPropio": 780000
 		},
             {"periodo": 2015,
+             "idEmpresa": 4,
              "ebitda": 79696,
               "fds": 10,
               "fCashFlow":4939,
@@ -440,6 +488,7 @@
               "capitalPropio": 50007
 		},
             {"periodo": 2016,
+             "idEmpresa": 4,
              "ebitda": 79977,
               "fds": 11,
               "fCashFlow":6545,
@@ -453,11 +502,13 @@
         },
         {
             "nombre":"IBM",
+            "id": 5,
             "inicioActividad":1911,
             "balances":
             [
 
             {"periodo": 2006,
+             "idEmpresa": 5,
              "ebitda": 55555,
               "fds": 11,
               "fCashFlow":1000,
@@ -468,6 +519,7 @@
               },
 
             {"periodo": 2007,
+             "idEmpresa": 5,
              "ebitda": 66766,
               "fds": 12,
               "fCashFlow":2000,
@@ -477,6 +529,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2008,
+             "idEmpresa": 5,
              "ebitda": 77677,
               "fds": 13,
               "fCashFlow":4000,
@@ -486,6 +539,7 @@
               "capitalPropio": 505000
 		},
             {"periodo": 2009,
+             "idEmpresa": 5,
              "ebitda": 79463,
               "fds": 12,
               "fCashFlow":3333,
@@ -495,6 +549,7 @@
               "capitalPropio": 570000
 		},
             {"periodo": 2010,
+             "idEmpresa": 5,
              "ebitda": 74961,
               "fds": 9,
               "fCashFlow":1111,
@@ -504,6 +559,7 @@
               "capitalPropio": 40000
 		},
             {"periodo": 2011,
+             "idEmpresa": 5,
              "ebitda": 72723,
               "fds": 10,
               "fCashFlow":3453,
@@ -514,6 +570,7 @@
 		},
          
             {"periodo": 2012,
+             "idEmpresa": 5,
              "ebitda": 77877,
               "fds": 14,
               "fCashFlow":4478,
@@ -524,6 +581,7 @@
 		},
 
             {"periodo": 2013,
+             "idEmpresa": 5,
              "ebitda": 88888,
               "fds": 12,
               "fCashFlow":4949,
@@ -534,6 +592,7 @@
 		},
 
             {"periodo": 2014,
+             "idEmpresa": 5,
              "ebitda": 89777,
               "fds": 13,
               "fCashFlow":5468,
@@ -544,6 +603,7 @@
 		},
 
             {"periodo": 2015,
+             "idEmpresa": 5,
              "ebitda": 90431,
               "fds": 13,
               "fCashFlow":5566,
@@ -553,6 +613,7 @@
               "capitalPropio": 50007
 		},
             {"periodo": 2016,
+             "idEmpresa": 5,
              "ebitda": 91234,
               "fds": 14,
               "fCashFlow":5968,
@@ -568,11 +629,13 @@
         },
         {
 	    "nombre":"Netflix",
+	    "id": 6,
             "inicioActividad":1997,       
             "balances":
             [
 
             {"periodo": 2006,
+             "idEmpresa": 6,
              "ebitda": 55555,
               "fds": 11,
               "fCashFlow":1000,
@@ -583,6 +646,7 @@
               },
 
             {"periodo": 2007,
+             "idEmpresa": 6,
              "ebitda": 66766,
               "fds": 12,
               "fCashFlow":2000,
@@ -592,6 +656,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2008,
+             "idEmpresa": 6,
              "ebitda": 77677,
               "fds": 13,
               "fCashFlow":4000,
@@ -601,6 +666,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2009,
+             "idEmpresa": 6,
              "ebitda": 79463,
               "fds": 12,
               "fCashFlow":3333,
@@ -610,6 +676,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2010,
+             "idEmpresa": 6,
              "ebitda": 74961,
               "fds": 9,
               "fCashFlow":1111,
@@ -619,6 +686,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2011,
+             "idEmpresa": 6,
              "ebitda": 72723,
               "fds": 10,
               "fCashFlow":3453,
@@ -629,6 +697,7 @@
 		},
          
             {"periodo": 2012,
+             "idEmpresa": 6,
              "ebitda": 77877,
               "fds": 14,
               "fCashFlow":4478,
@@ -639,6 +708,7 @@
 		},
 
             {"periodo": 2013,
+             "idEmpresa": 6,
              "ebitda": 88888,
               "fds": 12,
               "fCashFlow":4949,
@@ -649,6 +719,7 @@
 		},
 
             {"periodo": 2014,
+             "idEmpresa": 6,
              "ebitda": 89777,
               "fds": 13,
               "fCashFlow":5468,
@@ -659,6 +730,7 @@
 		},
 
             {"periodo": 2015,
+             "idEmpresa": 6,
              "ebitda": 90431,
               "fds": 13,
               "fCashFlow":5566,
@@ -668,6 +740,7 @@
               "capitalPropio": 50000
 		},
             {"periodo": 2016,
+             "idEmpresa": 6,
              "ebitda": 91234,
               "fds": 14,
               "fCashFlow":5968,
@@ -684,11 +757,13 @@
 
 	{
             "nombre":"LATAM Airlines Group",
+            "id": 7,
             "inicioActividad":2012,
              "balances":
             [
 
             {"periodo": 2012,
+             "idEmpresa": 7,
              "ebitda": 986,
               "fds": 0,
               "fCashFlow":78,
@@ -699,6 +774,7 @@
               },
 
             {"periodo": 2013,
+             "idEmpresa": 7, 
              "ebitda": 2113,
               "fds": 0,
               "fCashFlow":135,
@@ -708,6 +784,7 @@
               "capitalPropio": 60000
 		},
             {"periodo": 2014,
+             "idEmpresa": 7,
              "ebitda": 3729,
               "fds": 0,
               "fCashFlow":1597,
@@ -717,6 +794,7 @@
               "capitalPropio": 60000
 		},
             {"periodo": 2015,
+             "idEmpresa": 7,
              "ebitda": 10463,
               "fds": 0,
               "fCashFlow":3456,
@@ -726,6 +804,7 @@
               "capitalPropio": 60000
 		},
             {"periodo": 2016,
+             "idEmpresa": 7,
              "ebitda": 24961,
               "fds": 0,
               "fCashFlow":6543,
