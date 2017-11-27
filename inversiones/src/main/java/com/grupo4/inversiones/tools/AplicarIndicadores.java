@@ -30,7 +30,7 @@ public class AplicarIndicadores {
 					+": "
 					+ indicadores.get(i).getformula()
 					+ " = "
-					+ indicadores.get(i).aplicarA(empresa, periodo)
+					+ getIndicadorPrecalculado(indicadores.get(i).getId(),empresa.getId(),periodo)
 					+ nuevalinea;
 		}
 		return resultado;
