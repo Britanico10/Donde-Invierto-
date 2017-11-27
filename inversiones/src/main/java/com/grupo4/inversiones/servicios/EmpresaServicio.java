@@ -1,11 +1,13 @@
 package com.grupo4.inversiones.servicios;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.repositorio.Repositorio;
+import com.grupo4.inversiones.tools.AplicarIndicadores;
 import com.grupo4.inversiones.tools.CargadorDeArchivos;
 
 public class EmpresaServicio {
@@ -25,6 +27,11 @@ public class EmpresaServicio {
 		List<Empresa> empresas = cargarEmpresas();
 		repositorio.empresas().borrarTodas();
 		repositorio.empresas().persistirLista(empresas);
+		try {
+			AplicarIndicadores.precalculo();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return getEmpresas();
 		
 	}

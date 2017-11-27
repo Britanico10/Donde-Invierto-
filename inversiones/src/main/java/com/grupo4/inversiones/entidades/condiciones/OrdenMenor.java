@@ -8,6 +8,7 @@ import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.repositorio.Repositorio;
+import com.grupo4.inversiones.tools.AplicarIndicadores;
 
 @Entity
 public class OrdenMenor extends CondicionOrden {
@@ -34,8 +35,8 @@ public class OrdenMenor extends CondicionOrden {
 		Empresa aux;
 		for(int i = 0; i < empresas.size(); i++) {
 			for(int j = 0; j < empresas.size(); j++) {
-				if (indicador.aplicarA(empresas.get(i), periodo) >
-						indicador.aplicarA(empresas.get(j), periodo)) {
+				if (AplicarIndicadores.getIndicadorPrecalculado(indicador.getId(),empresas.get(i).getId(),periodo) >
+					AplicarIndicadores.getIndicadorPrecalculado(indicador.getId(),empresas.get(j).getId(),periodo)) {
 					aux = empresas.get(i);
 					empresas.set(i, empresas.get(j));
 					empresas.set(j, aux);

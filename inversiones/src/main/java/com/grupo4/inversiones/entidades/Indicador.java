@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import com.grupo4.inversiones.persistencia.Persistible;
 import com.grupo4.inversiones.tools.Analizador;
+import com.grupo4.inversiones.tools.AplicarIndicadores;
 
 @Entity
 @Table(name = "INDICADOR")
@@ -61,8 +62,12 @@ public class Indicador extends Persistible {
 	
 	public List<Double> aplicarEnIntervalo(Empresa empresa, int inicio, int fin) {
 		List<Double> indicadoresAplicados = new ArrayList<Double>();
+//		for(int i = inicio; i <= fin; i++) {
+//			indicadoresAplicados.add(this.aplicarA(empresa, i));
+//		}
+		
 		for(int i = inicio; i <= fin; i++) {
-			indicadoresAplicados.add(this.aplicarA(empresa, i));
+			indicadoresAplicados.add(AplicarIndicadores.getIndicadorPrecalculado(id,empresa.getId(),i));
 		}
 		
 		return indicadoresAplicados;

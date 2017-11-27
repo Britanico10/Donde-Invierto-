@@ -1,11 +1,18 @@
 package com.grupo4.inversiones.tools;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import com.grupo4.inversiones.App;
+import com.grupo4.inversiones.entidades.Balance;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
+import com.grupo4.inversiones.precalculoindicadores.EmpresaPrec;
+import com.grupo4.inversiones.precalculoindicadores.IndicadorPrec;
+import com.grupo4.inversiones.precalculoindicadores.PeriodoPrec;
 import com.grupo4.inversiones.repositorio.Repositorio;
 
 public class AplicarIndicadores {
@@ -30,17 +37,6 @@ public class AplicarIndicadores {
 	
 	}
 	
-	public static void aplicarIndicadoresVoid(Empresa empresa, int periodo, List<Indicador> indicadores){
-		for (int i = 0; i <= indicadores.size() - 1; i++){
-			System.out.println(indicadores.get(i).getIdIndicador()
-					+": "
-					+ indicadores.get(i).getformula()
-					+ " = "
-					+ indicadores.get(i).aplicarA(empresa, periodo));
-		}
-		System.out.println(" ");
-	}
-	
 	public static double aplicarIndicador(String nombre, Empresa empresa, int periodo){
 		return repositorio.indicadores().buscarPorNombre(nombre).aplicarA(empresa,periodo);
 	}
@@ -60,5 +56,52 @@ public class AplicarIndicadores {
 	    	}
 		return val > 0;
 	}
+	
+	public static IndicadorPrec precalcularIndicador(Indicador indicador, List<Empresa> empresas) {
+		IndicadorPrec indicadorPrec = new IndicadorPrec();
+		indicadorPrec.setId(indicador.getId());
+		indicadorPrec.setNombre(indicador.getIdIndicador());
+		
+		for(Empresa e: empresas) {
+			EmpresaPrec empresaPrec = new EmpresaPrec();
+			empresaPrec.setId(e.getId());
+			
+			for(Balance b: e.getBalances()) {
+				PeriodoPrec periodoPrec = new PeriodoPrec();
+				periodoPrec.setId(b.getPeriodo());
+				periodoPrec.setValor(indicador.aplicarA(e, b.getPeriodo()));
+				empresaPrec.agregarPeriodo(periodoPrec);
+			}
+			indicadorPrec.agregarEmpresa(empresaPrec);
+		}
+		return indicadorPrec;
+	}
+	
+	public static List<IndicadorPrec> precalculo() throws IOException {
+		
+		List<Indicador> indicadores = repositorio.indicadores().buscarTodas();
+		List<Empresa> empresas = repositorio.empresas().buscarTodas();
+		List<IndicadorPrec> indicadoresPrecalculados = new ArrayList<IndicadorPrec>();
+		
+		for(Indicador i: indicadores) {
+			IndicadorPrec indicadorPrec = precalcularIndicador(i, empresas);
+			indicadoresPrecalculados.add(indicadorPrec);
+		}
+		CargadorDeArchivos.guardarIndicadoresPrecalculados(App.DIR_INDPREC, indicadoresPrecalculados);
+		App.indicadores = indicadoresPrecalculados;
+		return indicadoresPrecalculados;
+	}
+	
+	public static void cargarPrecalculados() throws FileNotFoundException {
+		App.indicadores = CargadorDeArchivos.cargarArchivoIndicadoresPrecalculados(App.DIR_INDPREC);
+	}
+	
+	public static double getIndicadorPrecalculado(long id, long idEmpresa, int año) {
+		List<PeriodoPrec> periodos = App.indicadores.get((int)id-1).getEmpresas().get((int)idEmpresa-1).getPeriodos();
+		PeriodoPrec periodo = Listas.buscarPeriodo(periodos, año);
+		if (periodo == null) return 0;
+		return periodo.getValor();
+	}
+
 
 }

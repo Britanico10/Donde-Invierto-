@@ -123,15 +123,24 @@ public class Balance extends Persistible{
 	public void setIdEmpresa(int _idEmpresa){
 		idEmpresa = _idEmpresa;
 	}
-	public void mostrarse(){
-		System.out.println("Deuda: " + this.deuda);
-		System.out.println("Ebitda: " + this.ebitda);
-		System.out.println("fCashFlow: " + this.fCashFlow);
-		System.out.println("Fds: " + this.fds);
-		System.out.println("IngNetoOpCont: " + this.ingNetoOpCont);
-		System.out.println("IngNetOpDiscont: " + this.ingNetoOpDiscont);
-		System.out.println("capitalPropio: " + this.capitalPropio);
-		System.out.println(" ");
+	public String mostrarse(){
+		final String nuevalinea = System.getProperty("line.separator");
+		String res = "Deuda: " + this.deuda
+		+ nuevalinea
+		+ "Ebitda: " + this.ebitda
+		+ nuevalinea
+		+ "fCashFlow: " + this.fCashFlow
+		+ nuevalinea
+		+ "Fds: " + this.fds
+		+ nuevalinea
+		+ "IngNetoOpCont: " + this.ingNetoOpCont
+		+ nuevalinea
+		+ "IngNetOpDiscont: " + this.ingNetoOpDiscont
+		+ nuevalinea
+		+ "capitalPropio: " + this.capitalPropio
+		+ nuevalinea
+		+ " ";
+		return res;
 	}
 	
 

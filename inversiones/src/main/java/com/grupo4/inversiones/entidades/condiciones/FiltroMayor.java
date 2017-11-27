@@ -9,6 +9,7 @@ import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.repositorio.Repositorio;
+import com.grupo4.inversiones.tools.AplicarIndicadores;
 
 @Entity
 public class FiltroMayor extends CondicionFiltro {
@@ -35,7 +36,7 @@ public class FiltroMayor extends CondicionFiltro {
 		List<Empresa> filtradas = new ArrayList<Empresa>();
 		
 		for(int i = 0; i < empresas.size(); i++) {
-			if (indicador.aplicarA(empresas.get(i),periodo) > comparador) {
+			if (AplicarIndicadores.getIndicadorPrecalculado(indicador.getId(),empresas.get(i).getId(),periodo) > comparador) {
 				filtradas.add(empresas.get(i));
 			}
 		}

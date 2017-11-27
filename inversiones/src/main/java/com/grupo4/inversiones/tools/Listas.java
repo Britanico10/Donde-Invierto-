@@ -9,6 +9,7 @@ import com.grupo4.inversiones.entidades.Empresa;
 import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
 import com.grupo4.inversiones.entidades.condiciones.CondicionOrden;
+import com.grupo4.inversiones.precalculoindicadores.PeriodoPrec;
 
 public class Listas {
 	
@@ -64,6 +65,13 @@ public class Listas {
 			List<com.grupo4.inversiones.entidades.Empresa> empresas) {
 	    for(Empresa emp: empresas) {
 	    	if(emp.getNombre().equals(nombreEmpresa)) return emp;
+	    }
+	    return null;
+	}
+	
+	public static PeriodoPrec buscarPeriodo(List<PeriodoPrec> periodos, long año){
+		for(PeriodoPrec p: periodos) {
+	    	if(p.getId() == año) return p;
 	    }
 	    return null;
 	}

@@ -1,7 +1,13 @@
 package com.grupo4.inversiones;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import com.grupo4.inversiones.precalculoindicadores.IndicadorPrec;
+import com.grupo4.inversiones.tools.CargadorDeArchivos;
 
 public class App{
 
@@ -12,12 +18,15 @@ public class App{
 //public static List<CondicionFiltro> condicionesFiltro;
 //public static List<CondicionOrden> condicionesOrden;
 //public static List<Metodologia> metodologias;
+public static List<IndicadorPrec> indicadores = new ArrayList<IndicadorPrec>();
 public static String PERSISTENCE_UNIT_NAME = "db";
 public static EntityManagerFactory EM_FACTORY = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 public static String DIR_EMPRESAS = "src/main/empresas.txt";
+public static String DIR_INDPREC = "src/main/indicadoresprecalculados.txt";
 
 
-    public static void main(String[] args) throws Exception {
+
+    public static void main(String[] args) {
 //    	inicializadorGlobal.inicializar();
 //    	
 //    	while(true){

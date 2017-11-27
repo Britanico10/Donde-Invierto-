@@ -8,7 +8,7 @@ public class PrintEmpresas {
 
 	public static void mostrarEmpresas(List<Empresa> empresas){
 		for (int i = 0; i <= empresas.size() - 1; i++){
-			empresas.get(i).mostrarse();
+			System.out.println(empresas.get(i).toString());
 		}
 	}
 	

@@ -48,6 +48,13 @@ public class Indicadores extends Repositorio {
 		   return indicadores;
 	   }
 	   
+	   public List<Indicador> buscarTodas(){
+		   EntityManager em2 = App.EM_FACTORY.createEntityManager();
+		   Query query = em2.createQuery("SELECT i FROM Indicador i");
+		   List<Indicador> indicadores = query.getResultList();
+		   return indicadores;
+	   }
+	   
 	   public void persistir(Indicador indicador){
 		   em.getTransaction().begin();
 		   em.persist(indicador);

@@ -67,23 +67,26 @@ public class Empresa extends Persistible implements Comparable<Empresa>{
 		this.balances = balances;
 	}
 	
-	public void mostrarBalances(int periodo){
+	public String mostrarBalances(int periodo){
 		Balance balance = Listas.buscarCuentaEn(balances,periodo);
-		System.out.println("BALANCES PARA EL PERIODO " + periodo + ":");
-		balance.mostrarse();
+		String res = "BALANCES PARA EL PERIODO " + periodo + ":"
+		+ balance.mostrarse();
+		return res;
 	}
 	
-	public void mostrarBalances(){
-		
-		System.out.println("BALANCES:");
+	public String mostrarBalances(){
+		final String nuevalinea = System.getProperty("line.separator");
+		String res;
+		res = "BALANCES:";
 		
 		for (int i = 0; i <= balances.size() - 1; i++){
-			
-			System.out.println("Periodo: " + balances.get(i).getPeriodo());
-			balances.get(i).mostrarse();
-			
-			System.out.println(" ");
+			res = res + nuevalinea + "Periodo: " + balances.get(i).getPeriodo()
+			+ nuevalinea
+			+ balances.get(i).mostrarse()
+			+ nuevalinea;
 		}
+		
+		return res;
 	}
 	
 	@Column(name = "rentabilidad")
@@ -95,10 +98,17 @@ public class Empresa extends Persistible implements Comparable<Empresa>{
 		this.rentabilidad = rentabilidad;
 	}
 	
-	public void mostrarse(){
-		System.out.println("Nombre de la empresa: " + this.getNombre());
-		System.out.println("Inicio  de actividad: " + this.getInicioActividad());;
-		this.mostrarBalances();
+	public String toString(){
+		final String nuevalinea = System.getProperty("line.separator");
+		String res;
+		res = "Nombre de la empresa: " + this.getNombre()
+		+ nuevalinea
+		+ "Inicio  de actividad: " + this.getInicioActividad()
+		+ nuevalinea
+		+
+		this.mostrarBalances()
+		+ nuevalinea;
+		return res;
 	}
 	
 	public int compareTo(Empresa empresa) {

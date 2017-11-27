@@ -85,5 +85,16 @@ Servicios servicios = Servicios.getInstance();
 		
 		return servicios.getIndicadorServicio().aplicarIndicadoresA(nombreEmpresa, periodo, userId);
 	}
+	
+	@RequestMapping("/precalculo")
+	public String precalculoIndicadores(@RequestParam(value = "token", defaultValue = "", required = false) String token){
+		
+		long userId = AuthUtils.validarToken(token);
+		if (userId == -1L) {
+			return null;
+		}
+		
+		return servicios.getIndicadorServicio().precalculoIndicadores(userId);
+	}
 
 }

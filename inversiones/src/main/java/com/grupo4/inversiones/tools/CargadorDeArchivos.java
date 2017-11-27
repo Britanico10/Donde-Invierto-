@@ -31,6 +31,9 @@ import com.grupo4.inversiones.entidades.condiciones.Maximizar;
 import com.grupo4.inversiones.entidades.condiciones.Minimizar;
 import com.grupo4.inversiones.entidades.condiciones.OrdenMayor;
 import com.grupo4.inversiones.entidades.condiciones.OrdenMenor;
+import com.grupo4.inversiones.precalculoindicadores.EmpresaPrec;
+import com.grupo4.inversiones.precalculoindicadores.IndicadorPrec;
+import com.grupo4.inversiones.precalculoindicadores.PeriodoPrec;
 
 public class CargadorDeArchivos {
 	
@@ -239,15 +242,71 @@ public class CargadorDeArchivos {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             JsonParser jp = new JsonParser();
             JsonElement je = jp.parse(array.toJSONString());
-            String prettyJsonString = gson.toJson(je);
-            //System.out.println(prettyJsonString);                  
+            String prettyJsonString = gson.toJson(je);                 
 
             file.write(prettyJsonString);
             file.flush();
             file.close();
-}
+	    }
 		
 	}
 	
+	public static void guardarIndicadoresPrecalculados(String path ,List<IndicadorPrec> indicadores) throws IOException {
+			
+			JSONArray arrayIndicadores = new JSONArray();
+			
+			for (int i = 0; i <= indicadores.size() - 1; i++){
+				
+				JSONArray arrayEmpresas = new JSONArray();
+				
+				for(EmpresaPrec e: indicadores.get(i).getEmpresas()) {
+					
+					JSONArray arrayPeriodos = new JSONArray();
+					
+					for(PeriodoPrec p: e.getPeriodos()) {
+						JSONObject per = new JSONObject();
+						per.put("id", p.getId());
+						per.put("valor", p.getValor());
+						arrayPeriodos.add(per);
+					}
+					
+					
+					JSONObject emp = new JSONObject();
+					emp.put("id", e.getId());
+					emp.put("periodos", arrayPeriodos);
+					arrayEmpresas.add(emp);
+				}
+				
+				
+				JSONObject obj = new JSONObject();
+				obj.put("nombre", indicadores.get(i).getNombre());
+				obj.put("id", indicadores.get(i).getId());
+				obj.put("empresas", arrayEmpresas);
+				arrayIndicadores.add(obj);
+			}
+	
+		    try (FileWriter file = new FileWriter(path)) {
+	
+	
+	            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+	            JsonParser jp = new JsonParser();
+	            JsonElement je = jp.parse(arrayIndicadores.toJSONString());
+	            String prettyJsonString = gson.toJson(je);
+	            file.write(prettyJsonString);
+	            file.flush();
+	            file.close();
+		    }
+			
+	}
 
+	public static List<IndicadorPrec> cargarArchivoIndicadoresPrecalculados(String path) throws FileNotFoundException {
+		List<IndicadorPrec> indicadoresPrec = new ArrayList<IndicadorPrec>();
+		Type tipoListaIndicadorPrec = new TypeToken<ArrayList<IndicadorPrec>>() {
+		}.getType();
+		Gson gson = new Gson();
+		JsonReader reader = new JsonReader(new FileReader(path));
+		indicadoresPrec = gson.fromJson(reader, tipoListaIndicadorPrec);
+		return indicadoresPrec;
+	}
+	
 }
