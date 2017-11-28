@@ -33,7 +33,7 @@ function cargarMetodologias(){
 function aplicarMetodologia(pos){
   nombre = met[pos];
   localStorage.setItem("NOMBREAPLICAR", nombre);
-  window.open('AplicarMetodologia.html','popup','width=1000,height=1200')
+  window.open('AplicarMetodologia.html','popup','width=400,height=650')
 }
 
 function aplicar(){

@@ -76,7 +76,7 @@ function aplicarIndicador(){
     localStorage.setItem("EAplicar", nombreAplicar);
     localStorage.setItem("PAplicar", periodoAplicar);
 
-    window.open('Aplicarindicador.html','popup','width=1000,height=1200')
+    window.open('Aplicarindicador.html','popup','width=600,height=450')
     location.reload();
     }
 }
