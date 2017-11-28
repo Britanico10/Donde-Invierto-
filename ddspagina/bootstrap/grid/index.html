@@ -36,7 +36,21 @@
 							<td> Nombre </td>
 							<td> Inicio actividad </td>
                             <td> Detalle</td>	 
-						</tr> 
+						</tr>
+                        <tfoot> 
+                            <tr>
+                                <td>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="Empresa" width="100%" id="empresaAplicar"></input>
+                                </td>
+       
+                                <td>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="Periodo" width="100%" id="periodoAplicar"></input>
+                                </td> 
+                                <td>    
+                                    <button type="button" class="btn btn-success " onclick=" aplicarIndicador()"> Aplicar Indicadores</button> 
+                                </td>  
+                            </tr>
+                        </tfoot>  
 				</table>
     		</div>
     	</div>

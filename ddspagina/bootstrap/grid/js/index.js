@@ -63,3 +63,67 @@ function cargarBalances(){
             //alert( "complete" );
           });
 }
+
+function aplicarIndicador(){
+  var nombreAplicar=$("#empresaAplicar").val();
+  var periodoAplicar=$("#periodoAplicar").val();
+  var confirmacion;
+  confirmacion= validarNombre(nombreAplicar);
+  if (confirmacion==0){
+    alert("La empresa ingresado no existe");
+    location.reload();
+  } else{
+    localStorage.setItem("EAplicar", nombreAplicar);
+    localStorage.setItem("PAplicar", periodoAplicar);
+
+    window.open('Aplicarindicador.html','popup','width=1000,height=1200')
+    location.reload();
+    }
+}
+
+function validarNombre(n){
+    var token = localStorage.getItem("Token");
+    var nombre=n;
+    var confirmado=0;
+    var longitud;
+    $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/api/empresas?token="+token,
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            async: false
+             })
+          .done(function(data) {
+            var longitud= data.length;
+
+            for (var i=0; i<longitud; i++) {
+                if( data[i].nombre==nombre){
+                  confirmado=1;
+                }
+            }
+          })
+          .fail(function() {
+            alert( "error" );
+          })
+          .always(function() {
+            //alert( "complete" );
+          });
+
+        return(confirmado);
+}        
+
+function aplicarIndicador2(){
+  var token = localStorage.getItem("Token");
+  var nombreA = localStorage.getItem("EAplicar");
+  var periodoA = localStorage.getItem("PAplicar");
+    $.ajax({
+            method: "GET",
+            url: "http://localhost:8080/api/indicadores/aplicar?empresa="+nombreA+"&periodo="+periodoA+"&token="+token,
+            contentType: "application/json;charset=UTF-8",
+            async: false
+        }).done(function(data) {
+            $("#resultado").val(data);
+        }).fail(function() {
+            alert( "Hubo un error" );
+        });
+}
