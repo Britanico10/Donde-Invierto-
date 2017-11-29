@@ -14,7 +14,7 @@
 			<div class="row">
 				<div class="nav col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<ul class="menu">
-						<li><a href="index.html" title="Inicio" >Inicio</a></li>
+						<li><a href="Home.html" title="Inicio" >Inicio</a></li>
 						<li><a href="Indicadores.html" title="Indicadores">Indicadores</a></li>
 						<li><a href="Metodologias.html" title="Metodologias">Metodologias</a></li>
 						<li><a href="CondicionesOrden.html" title="CondicionesOrden">Condiciones de Orden</a></li>
@@ -44,19 +44,20 @@
 					    		
 					    </tfoot> 
 				    </table>
-				    <hr> 
-				       	<input type="text" placeholder="Nombre"/ id="nombre"> 
-					    <input type="text" placeholder="Tipo"/ id="tipo"> 
-						<input type="text" placeholder="Inicio Intervalo" id="iActividad"/> 
-						<input type="text" placeholder="Fin Intervalo"/ id="fActividad"> 
-						<button class="btn btn-success" onclick="agregarCondicionFiltro()"> Agregar </button> 
-					<hr>
-						<input type="text" placeholder="Comparador" id="comparador"/> 
-						<input type="text" placeholder="Periodo"/ id="periodo"> 
-						<input type="text" placeholder="Nombre Indicador" id="nIndicador"/> 
-						 
-					<hr>
-				    </table>
+				    <table class="table table-hover">
+					       <thead>	
+					    	 <tr> 
+				       	        <th><input type="text" placeholder="Nombre"/ id="nombre"></th> 
+					            <th><input type="text" placeholder="Tipo"/ id="tipo"></th> 
+						        <th><input type="text" placeholder="Inicio Intervalo" id="iActividad"/></th> 
+						        <th><input type="text" placeholder="Fin Intervalo"/ id="fActividad"> </th>
+						        <th><input type="text" placeholder="Comparador" id="comparador"/> </th>
+						        <th><input type="text" placeholder="Periodo"/ id="periodo"> </th>			
+						        <th><input type="text" placeholder="N.Indicador" id="nIndicador"/></th> 
+						        <th><button class="btn btn-success" onclick="agregarCondicionFiltro()"> Agregar </button></th>  
+					        </tr>
+					      </thead>  	
+					    </table> 
 				    </div>
 				</div>
             </section>   

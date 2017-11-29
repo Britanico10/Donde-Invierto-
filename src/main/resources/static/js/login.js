@@ -15,7 +15,7 @@ function login(){
           .done(function(data) {
             var token= data.token;
             localStorage.setItem("Token", token);
-            window.location.href= "index.html"
+            window.location.href= "Home.html"
           })
           .fail(function() {
             alert( "error" );
