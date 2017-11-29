@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-@EnableWebMvc
+//@EnableWebMvc
 public class Configuracion extends WebMvcConfigurerAdapter {
 
             @Override

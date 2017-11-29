@@ -1,5 +1,4 @@
 [
-
         {
             "nombre":"América Móvil",
             "id": 1,

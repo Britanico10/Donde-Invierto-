@@ -32,21 +32,22 @@ public class Empresas extends Repositorio {
 	   }
 	   
 	   public void borrarTodas() {
-		   Query query2 = em.createQuery("SELECT b FROM Balance b");
+		   EntityManager em2 = App.EM_FACTORY.createEntityManager();
+		   Query query2 = em2.createQuery("SELECT b FROM Balance b");
 		   List<Balance> balances = query2.getResultList();
-		   em.getTransaction().begin();
+		   em2.getTransaction().begin();
 		   for(Balance b: balances) {
-			   em.remove(b);
+			   em2.remove(b);
 		   }
-		   em.getTransaction().commit();
-		   em.getTransaction().begin();
-		   Query query = em.createQuery("SELECT e FROM Empresa e");
+		   em2.getTransaction().commit();
+		   em2.getTransaction().begin();
+		   Query query = em2.createQuery("SELECT e FROM Empresa e");
 		   List<Empresa> empresas = query.getResultList();
 		   for(Empresa emp: empresas) {
-			   em.remove(emp);
+			   em2.remove(emp);
 		   }
-		   em.getTransaction().commit();
-
+		   em2.getTransaction().commit();
+		   em2.close();
 	   }
 	   
 	   public List<Empresa> buscarTodas(){
@@ -57,9 +58,10 @@ public class Empresas extends Repositorio {
 	   }
 	   
 	   public void persistir(Empresa empresa){
-		   em.getTransaction().begin();
-		   em.merge(empresa);
-		   em.getTransaction().commit();
+		   EntityManager em2 = App.EM_FACTORY.createEntityManager();
+		   em2.getTransaction().begin();
+		   em2.merge(empresa);
+		   em2.getTransaction().commit();
 	   }
 
 		public Empresa buscarPorNombre(String nombre) {
