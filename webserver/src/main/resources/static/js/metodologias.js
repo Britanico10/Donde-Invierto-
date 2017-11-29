@@ -59,7 +59,7 @@ function aplicar(){
 // condiciones de Orden
 function cargarDetalleOrden(){
   var token = localStorage.getItem("Token");
-  var idCF= localStorage.getItem("IDCF");
+  var idCO= localStorage.getItem("IDCO");
   $.ajax({
             method: "GET",
              url: "http://localhost:8080/api/condicionesorden?token="+token,
@@ -72,7 +72,7 @@ function cargarDetalleOrden(){
             var longitud= data.length;
 
             for (var i=0; i<longitud; i++) {
-                if (data[i].id == idCF ){
+                if (data[i].id == idCO ){
                       var filaNueva = "<tr> <td>"+ data[i].inicioIntervalo + "</td><td>"+ data[i].finalIntervalo + "</td><td> "+ data[i].nombreIndicador + "</td><td>"+ data[i].periodo+"</td><td>"+data[i].importancia+ "</td></tr>" 
                 //alert(data[i].nombre);
                       tabla.append(filaNueva);
@@ -261,11 +261,11 @@ function eliminarCondicionFiltro(id) {
       async: false
       })
       .done(function(data) {
-        $("#CondOrden td").remove(); 
-        var tabla=$("#CondOrden");
+        $("#CondFiltro td").remove(); 
+        var tabla=$("#CondFiltro");
         var longitud = data.length; 
         for (i=0;i<longitud;i++){
-          co[i] = data[i].nombreCondicion;
+          cf[i] = data[i].nombreCondicion;
           var filaNueva = "<tr>"
           filaNueva += "<td>"+data[i].nombreCondicion+"</td>"
           filaNueva += "<td>"+data[i].tipo+"</td>"

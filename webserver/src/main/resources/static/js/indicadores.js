@@ -72,7 +72,6 @@ function agregarIndicador() {
 	var token = localStorage.getItem("Token");
 	var nombre = $("#nombre").val();
 	var formula = $("#formula").val();
-	
 	if (nombre == ""  || formula == "") {
 		alert("Debe completar el nombre y la formula");
 	} else {
@@ -87,8 +86,8 @@ function agregarIndicador() {
 			$("#nombre").val("");
 			$("#formula").val("");
 			$("#Indicadores td").remove(); 
-			//alert("Se agrego el indicador exitosamente");
 			cargarTabla(data);
+			location.reload();			
 		})
 		.fail(function() {
 			alert( "Hubo un error" );
@@ -97,6 +96,7 @@ function agregarIndicador() {
 }
 
 function editar(id){
+	location.reload()
     var token = localStorage.getItem("Token"); 
     var fila = $("#"+id);
     var nombre = fila.find("td:eq(0)").html(); 
@@ -113,7 +113,7 @@ function editar(id){
 			$("#Indicadores td").remove(); 
 			//alert("Se edito el indicador exitosamente");
 			$("#70").remove();
-			cargarTabla(data);
+		    location.reload();
 		})
 		.fail(function() {
 			alert( "Hubo un error" );

@@ -60,3 +60,7 @@ section.wrapper{
 
     margin-bottom: 20px;
 }
+
+input{
+    width: 110px;
+}

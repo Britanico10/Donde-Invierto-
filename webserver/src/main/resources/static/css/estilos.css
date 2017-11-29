@@ -68,3 +68,13 @@ TEXTAREA{
     background: 
 }
 
+#actualizar{
+    position: absolute;
+    top: 3px;
+    background: #ccc;
+}
+
+#actualizar:hover {
+    background: #000000;
+    color: #FFFFFF;
+}

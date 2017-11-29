@@ -12,7 +12,7 @@ function cargarEmpresa(){
             var longitud= data.length;
 
             for (var i=0; i<longitud; i++) {
-                var filaNueva = "<tr> <td>"+ data[i].nombre + "</td><td>"+ data[i].inicioActividad + "</td><td> <button type=\"button\" class=\"btn btn-info\" onclick=\"mostrarBalance("+data[i].id+")\" > Mostrar Balance </button></td></tr>"
+                var filaNueva = "<tr> <td>"+ data[i].nombre + "</td><td>"+ data[i].inicioActividad + "</td><td> <button type=\"button\" class=\"btn btn-info\" onclick=\"mostrarBalance("+data[i].id+")\" > Mostrar Balances </button></td></tr>"
                 tabla.append(filaNueva);
                 //alert(data[i].nombre);
             }
@@ -126,4 +126,22 @@ function aplicarIndicador2(){
         }).fail(function() {
             alert( "Hubo un error" );
         });
+}
+
+function actualizarBase(){
+   var token = localStorage.getItem("Token");
+  $.ajax({
+            method: "PUT",
+            url: "http://localhost:8080/api/empresas?token="+token,
+            //contentType: "application/json;charset=UTF-8",
+            //dataType: "json",
+            async: false
+          }).done(function() {
+                location.reload();
+          }).fail(function() {
+            alert( "error" );
+          })
+          .always(function() {
+            //alert( "complete" );
+          });
 }
