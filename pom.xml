@@ -13,8 +13,8 @@
 	
 	<repositories>
 	    <repository>
-	        <id>lib</id>
-	        <url>https://github.com/Britanico10/Donde-Invierto-/tree/master/inversiones</url>
+	        <id>repo</id>
+	        <url>https://github.com/benjamenriquez/repo/raw/master</url>
 	    </repository>
 	</repositories>
 
