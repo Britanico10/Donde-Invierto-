@@ -14,12 +14,13 @@ public class CondicionesFiltro extends Repositorio {
 		super(em);
 	}
 	
-	   public CondicionesFiltro buscarPorId(Long id){   
-		   return em.find(CondicionesFiltro.class, id);
+	   public CondicionFiltro buscarPorId(Long id){   
+		   return em.find(CondicionFiltro.class, id);
 	   }
 	   
 	   public void borrarPorId(Long id){   
 		   em.getTransaction().begin();
+		   
 		   em.remove(buscarPorId(id));
 		   em.getTransaction().commit();
 	   }
