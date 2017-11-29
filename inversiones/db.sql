@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `empresa` (
 -- Volcando datos para la tabla db.empresa: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
 INSERT INTO `empresa` (`id`, `inicioActividad`, `nombre`, `rentabilidad`) VALUES
-	(1, 2000, 'Am�rica M�vil', 0),
+	(1, 2000, 'América Móvil', 0),
 	(2, 1955, 'Berkshire Hathaway', 0),
 	(3, 1892, 'General Electric', 0),
 	(4, 1939, 'Hewlett-Packard', 0),

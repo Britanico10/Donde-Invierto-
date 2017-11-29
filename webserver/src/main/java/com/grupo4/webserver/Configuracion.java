@@ -1,7 +1,6 @@
 package com.grupo4.webserver;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
@@ -18,6 +17,5 @@ public class Configuracion extends WebMvcConfigurerAdapter {
         		.allowCredentials(true).maxAge(3600);
                 
             }
-
 
 }

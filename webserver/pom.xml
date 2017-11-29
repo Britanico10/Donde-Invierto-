@@ -10,6 +10,13 @@
 
 	<name>webserver</name>
 	<description>Demo project for Spring Boot</description>
+	
+	<repositories>
+	    <repository>
+	        <id>lib</id>
+	        <url>file://${project.basedir}/src/main/resources/libs</url>
+	    </repository>
+	</repositories>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -47,6 +54,14 @@
 			<artifactId>inversiones</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>3.1.0</version>
+		    <scope>provided</scope>
+		</dependency>
+
 		
 	</dependencies>
 
