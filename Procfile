@@ -1,1 +1,1 @@
-web: java -jar target/webserver.jar
+web: java -jar target/webserver-0.0.1-SNAPSHOT.jar
