@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.grupo4.inversiones.precalculoindicadores.IndicadorPrec;
-import com.grupo4.inversiones.tools.CargadorDeArchivos;
 
 public class App{
 

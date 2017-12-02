@@ -13,8 +13,8 @@
 	
 	<repositories>
 	    <repository>
-	        <id>lib</id>
-	        <url>file://${project.basedir}/src/main/resources/libs</url>
+	        <id>repo</id>
+	        <url>https://github.com/benjamenriquez/repo/raw/master</url>
 	    </repository>
 	</repositories>
 
