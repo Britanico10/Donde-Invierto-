@@ -18,10 +18,10 @@ public class App{
 //public static List<CondicionOrden> condicionesOrden;
 //public static List<Metodologia> metodologias;
 public static List<IndicadorPrec> indicadores = new ArrayList<IndicadorPrec>();
-public static String PERSISTENCE_UNIT_NAME = "db";
+public static String PERSISTENCE_UNIT_NAME = "dd90rubnr0m1gj";
 public static EntityManagerFactory EM_FACTORY = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-public static String DIR_EMPRESAS = "src/main/empresas.txt";
-public static String DIR_INDPREC = "src/main/indicadoresprecalculados.txt";
+public static String DIR_EMPRESAS = "src/main/resources/empresas.txt";
+public static String DIR_INDPREC = "src/main/resources/indicadoresprecalculados.txt";
 
 
 
