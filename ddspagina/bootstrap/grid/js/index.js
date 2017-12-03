@@ -2,7 +2,7 @@ function cargarEmpresa(){
 	var token = localStorage.getItem("Token");
   $.ajax({
             method: "GET",
-            url: "http://localhost:8080/api/empresas?token="+token,
+            url: "http://inversionesdds.herokuapp.com/api/empresas?token="+token,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false
@@ -35,7 +35,7 @@ function cargarBalances(){
   var idEmpresa= localStorage.getItem("ID");
   $.ajax({
             method: "GET",
-            url: "http://localhost:8080/api/empresas?token="+token,
+            url: "http://inversionesdds.herokuapp.com/api/empresas?token="+token,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false
@@ -88,7 +88,7 @@ function validarNombre(n){
     var longitud;
     $.ajax({
             method: "GET",
-            url: "http://localhost:8080/api/empresas?token="+token,
+            url: "http://inversionesdds.herokuapp.com/api/empresas?token="+token,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false
@@ -118,7 +118,7 @@ function aplicarIndicador2(){
   var periodoA = localStorage.getItem("PAplicar");
     $.ajax({
             method: "GET",
-            url: "http://localhost:8080/api/indicadores/aplicar?empresa="+nombreA+"&periodo="+periodoA+"&token="+token,
+            url: "http://inversionesdds.herokuapp.com/api/indicadores/aplicar?empresa="+nombreA+"&periodo="+periodoA+"&token="+token,
             contentType: "application/json;charset=UTF-8",
             async: false
         }).done(function(data) {
@@ -132,7 +132,7 @@ function actualizarBase(){
    var token = localStorage.getItem("Token");
   $.ajax({
             method: "PUT",
-            url: "http://localhost:8080/api/empresas?token="+token,
+            url: "http://inversionesdds.herokuapp.com/api/empresas?token="+token,
             //contentType: "application/json;charset=UTF-8",
             //dataType: "json",
             async: false
