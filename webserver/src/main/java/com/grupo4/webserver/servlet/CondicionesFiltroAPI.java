@@ -21,11 +21,11 @@ public class CondicionesFiltroAPI {
 	Servicios servicios = Servicios.getInstance();
 
 	@RequestMapping(method = GET)
-	public List<CondicionFiltro> retornarCondicionesFiltro(@RequestParam(value = "token", defaultValue = "", required = false) String token){
+	public List<CondicionFiltro> retornarCondicionesFiltro(@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getCondicionFiltroServicio().getCondicionesFiltro(userId);
@@ -33,11 +33,11 @@ public class CondicionesFiltroAPI {
 	
 	@RequestMapping(method = DELETE)
 	public List<CondicionFiltro> borrarCondicionFiltro(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getCondicionFiltroServicio().borrarCondicion(nombre, userId);
@@ -53,11 +53,11 @@ public class CondicionesFiltroAPI {
 			@RequestParam(value = "nombreIndicador", defaultValue = "", required = false) String nombreIndicador,
 			@RequestParam(value = "periodo", defaultValue = "", required = false) int periodo,
 			@RequestParam(value = "comparador", defaultValue = "", required = false) int comparador,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getCondicionFiltroServicio().crearCondicion(tipo, nombre, inicioIntervalo, finIntervalo, nombreIndicador, periodo, comparador, userId);

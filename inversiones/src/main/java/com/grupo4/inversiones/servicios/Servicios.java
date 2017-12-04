@@ -14,6 +14,7 @@ public class Servicios {
 	private CondicionOrdenServicio condicionOrdenServicio;
 	private CondicionFiltroServicio condicionFiltroServicio;
 	private IniciarSesionServicio iniciarSesionServicio;
+	private BalanceServicio balanceServicio;
 	
 	private Servicios() {
 	}
@@ -112,5 +113,17 @@ public class Servicios {
 		return iniciarSesionServicio;
 	}
 	
+	public void crearBalanceServicio() {
+		balanceServicio = new BalanceServicio();
+	}
+	
+	public BalanceServicio getBalanceServicio() {
+		
+		if (balanceServicio == null) {
+			crearBalanceServicio();
+		}
+		
+		return balanceServicio;
+	}
 	
 }

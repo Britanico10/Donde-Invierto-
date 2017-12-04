@@ -22,11 +22,11 @@ public class MetodologiasAPI {
 	Servicios servicios = Servicios.getInstance();
 	
 	@RequestMapping(method = GET)
-	public List<Metodologia> retornarMetodologias(@RequestParam(value = "token", defaultValue = "", required = false) String token){
+	public List<Metodologia> retornarMetodologias(@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getMetodologiaServicio().getMetodologias(userId);
@@ -34,12 +34,13 @@ public class MetodologiasAPI {
 	
 	@RequestMapping("/aplicar")
 	public String aplicarMetodologiaA(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombreMetodologia,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token) {
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception {
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
+		
 		try {
 			return servicios.getMetodologiaServicio().aplicarMetodologia(nombreMetodologia, userId);
 		} catch (Exception e) {
@@ -50,12 +51,13 @@ public class MetodologiasAPI {
 	
 	@RequestMapping(method = DELETE)
 	public List<Metodologia> eliminarMetodologia(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
+		
 		return servicios.getMetodologiaServicio().eliminarMetodologia(nombre, userId);
 	}
 	
@@ -63,11 +65,11 @@ public class MetodologiasAPI {
 	public List<Metodologia> agregarMetodologia(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombreMetodologia,
 			@RequestParam(value = "condicionesFiltro", defaultValue = "", required = false) List<String> condicionesFiltro,
 			@RequestParam(value = "condicionesOrden", defaultValue = "", required = false) List<String> condicionesOrden,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getMetodologiaServicio().agregarMetodologia(userId, nombreMetodologia, condicionesFiltro, condicionesOrden);
@@ -76,11 +78,11 @@ public class MetodologiasAPI {
 	@RequestMapping(method = PUT)
 	public List<Metodologia> editarNombre(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
 			@RequestParam(value = "nuevoNombre", defaultValue = "", required = false) String nuevoNombre,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getMetodologiaServicio().editarNombreMetodologia(nombre, nuevoNombre, userId);

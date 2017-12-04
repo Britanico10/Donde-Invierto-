@@ -39,6 +39,18 @@ public class Balance extends Persistible{
 		capitalPropio = _capitalPropio;
 	}
 	
+	public Balance(int _periodo, int _ebitda, int _fds, int _fCashFlow, int _ingNetoOpCont, int _ingNetoOpDiscont, int _deuda, int _capitalPropio,long _idEmpresa) {
+		periodo = _periodo;
+		ebitda = _ebitda;
+		fds  = _fds;
+		fCashFlow = _fCashFlow;
+		ingNetoOpCont = _ingNetoOpCont;
+		ingNetoOpDiscont = _ingNetoOpDiscont;
+		deuda = _deuda;
+		capitalPropio = _capitalPropio;
+		idEmpresa = _idEmpresa;
+	}
+	
 	public Balance(int _periodo) {
 		periodo = _periodo;
 	}
