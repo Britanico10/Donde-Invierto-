@@ -10,14 +10,17 @@ import com.grupo4.inversiones.tools.VerificadorUsuario;
 
 public class MetodologiaServicio {
 
-	Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
-
 	public List<Metodologia> getMetodologias(long idUsuario) {
-		return repositorio.metodologias().buscarTodas(idUsuario);
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
+		List<Metodologia> res = repositorio.metodologias().buscarTodas(idUsuario);
+		repositorio.cerrar();
+		return res;
 	}
 	
 	public String aplicarMetodologia(String nombreMetodologia, long idUsuario) throws Exception {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		Metodologia metodologia = repositorio.metodologias().buscarPorNombre(nombreMetodologia);
+		repositorio.cerrar();
 		long idDuenioMetodologia = metodologia.getDuenio();
 		if (VerificadorUsuario.verificarUsuarioParaMetodologias(idDuenioMetodologia, idUsuario)) {
 			return metodologia.aplicarMetodologiaATodas(repositorio.empresas().buscarTodas());
@@ -26,7 +29,9 @@ public class MetodologiaServicio {
 	}
 	
 	public List<Metodologia> eliminarMetodologia(String nombreMetodologia, long idUsuario) {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		long idMeto = repositorio.metodologias().buscarPorNombre(nombreMetodologia).getId();
+		repositorio.cerrar();
 		if (VerificadorUsuario.verificarUsuarioParaMetodologias(idMeto, idUsuario)) {
 			GestionMetodologias.eliminarMetodologiaPorId(idMeto);
 			return getMetodologias(idUsuario);
@@ -40,7 +45,9 @@ public class MetodologiaServicio {
 	}
 	
 	public List<Metodologia> editarNombreMetodologia(String nombreMetodologia, String nuevoNombre, long idUsuario) {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		long idMetodologia = repositorio.metodologias().buscarPorNombre(nombreMetodologia).getId();
+		repositorio.cerrar();
 		if (VerificadorUsuario.verificarUsuarioParaMetodologias(idMetodologia, idUsuario)) {
 			GestionMetodologias.editarNombre(idMetodologia, nuevoNombre);
 			return getMetodologias(idUsuario);

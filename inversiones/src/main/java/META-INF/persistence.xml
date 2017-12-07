@@ -43,6 +43,7 @@
             <property name="hibernate.connection.url" value="jdbc:postgresql://ec2-54-235-254-251.compute-1.amazonaws.com:5432/dd90rubnr0m1gj?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory" /> 
             <property name="hibernate.connection.username" value="vztqpvaewybnwd" />
             <property name="hibernate.connection.password" value="cbd1c96e0487c269d1cebf0522b5d6a13c845c5d4462a42c4a4d4baafe6422da" />           
+            <property name="hibernate.connection.pool_size" value="200" />
             
             <property name="hibernate.show_sql" value="true" /> 
             <!-- 

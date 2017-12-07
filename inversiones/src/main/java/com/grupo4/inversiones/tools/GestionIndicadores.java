@@ -6,10 +6,9 @@ import com.grupo4.inversiones.entidades.Indicador;
 import com.grupo4.inversiones.repositorio.Repositorio;
 
 public class GestionIndicadores {
-
-	static Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 	
 	public static void editarIndicador(long idIndi, String nuevaFormula){
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		Indicador indicador = repositorio.indicadores().buscarPorId(idIndi);
 		if (Analizador.evaluar(nuevaFormula, new Empresa("nombre",1990),2007) != null){
 			indicador.setformula(nuevaFormula);
@@ -18,16 +17,21 @@ public class GestionIndicadores {
 		else {
 			System.out.println("Formula no válida.");
 		}
+		repositorio.cerrar();
 	}
 	
 	public static void eliminarIndicador(String nombre) {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		Indicador indicador = repositorio.indicadores().buscarPorNombre(nombre);
 		long id = indicador.getId();
 		repositorio.indicadores().borrarPorId(id);
+		repositorio.cerrar();
 	}
 	
 	public static void eliminarIndicadorPorId(long id) {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		repositorio.indicadores().borrarPorId(id);
+		repositorio.cerrar();
 	}
 	
 	public static void crearIndicador(String nombre, String formula, long idUsuario) {

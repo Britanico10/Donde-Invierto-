@@ -23,7 +23,6 @@ public class Balances extends Repositorio {
 	   }
 
 	public List<Balance> getBalances(long idEmpresa) {
-		//EntityManager em2 = App.EM_FACTORY.createEntityManager();
 		Query queryBalance = em.createNamedQuery("buscarBalances").setParameter("empresaID", idEmpresa);
 		return queryBalance.getResultList();
 	}

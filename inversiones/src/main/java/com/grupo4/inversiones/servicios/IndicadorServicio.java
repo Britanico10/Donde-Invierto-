@@ -13,10 +13,11 @@ import com.grupo4.inversiones.tools.VerificadorUsuario;
 
 public class IndicadorServicio {
 	
-	Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
-	
 	public List<Indicador> getIndicadores(long idUsuario){
-		return repositorio.indicadores().buscarTodas(idUsuario);
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
+		List<Indicador> res = repositorio.indicadores().buscarTodas(idUsuario);
+		repositorio.cerrar();
+		return res;
 	}
 	
 	public List<Indicador> eliminarIndicador(long idIndi, long idUsuario) {
@@ -43,7 +44,9 @@ public class IndicadorServicio {
 	}
 	
 	public List<Indicador> editarIndicador(String nombre, String formula, long idUsuario) {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		long idIndi = repositorio.indicadores().buscarPorNombre(nombre).getId();
+		repositorio.cerrar();
 		if (VerificadorUsuario.verificarUsuarioParaIndicador(idIndi, idUsuario)) {
 			GestionIndicadores.editarIndicador(idIndi, formula);
 			try {
@@ -57,7 +60,9 @@ public class IndicadorServicio {
 	}
 	
 	public String aplicarIndicadoresA(String nombreEmpresa, int periodo, long idUsuario) {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		Empresa empresa = repositorio.empresas().buscarPorNombre(nombreEmpresa);
+		repositorio.cerrar();
 		return AplicarIndicadores.aplicarIndicadores(empresa, periodo, getIndicadores(idUsuario));
 	}
 

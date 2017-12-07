@@ -13,27 +13,34 @@ import com.grupo4.inversiones.tools.CargadorDeBaseDeDatos;
 import com.grupo4.inversiones.tools.VerificadorUsuario;
 
 public class CondicionFiltroServicio {
-	
-	Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 
 	public List<CondicionFiltro> getCondicionesFiltro(long idUsuario) {
-			return repositorio.condicionesFiltro().buscarTodas(idUsuario);
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
+		List<CondicionFiltro> res = repositorio.condicionesFiltro().buscarTodas(idUsuario);
+		repositorio.cerrar();
+		return res;
 	}
 	
 	public List<CondicionFiltro> borrarCondicionPorId(long idCond, long idUsuario) {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		if (VerificadorUsuario.verificarUsuarioParaCondicionFiltro(idCond, idUsuario)) {
 			repositorio.condicionesFiltro().borrarPorId(idCond);
+			repositorio.cerrar();
 			return getCondicionesFiltro(idUsuario);
 		}
+		repositorio.cerrar();
 		return null;
 	}
 	
 	public List<CondicionFiltro> borrarCondicion(String nombre, long idUsuario) {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		long idCond = repositorio.condicionesFiltro().buscarPorNombre(nombre).getId();
 		if (VerificadorUsuario.verificarUsuarioParaCondicionFiltro(idCond, idUsuario)) {
 			repositorio.condicionesFiltro().borrarPorId(idCond);
+			repositorio.cerrar();
 			return getCondicionesFiltro(idUsuario);
 		}
+		repositorio.cerrar();
 		return null;
 	}
 	
