@@ -23,15 +23,18 @@ public class Balances extends Repositorio {
 	   }
 
 	public List<Balance> getBalances(long idEmpresa) {
-		EntityManager em2 = App.EM_FACTORY.createEntityManager();
-		Query queryBalance = em2.createNamedQuery("buscarBalances").setParameter("empresaID", idEmpresa);
+		//EntityManager em2 = App.EM_FACTORY.createEntityManager();
+		Query queryBalance = em.createNamedQuery("buscarBalances").setParameter("empresaID", idEmpresa);
 		return queryBalance.getResultList();
 	}
 
 	public List<Balance> eliminarBalance(long id) {
 		em.getTransaction().begin();
 		Balance balance = buscarPorId(id);
-		if(balance == null) return null;
+		if(balance == null) {
+			em.getTransaction().commit();
+			return null;
+		}
 		long idEmpresa = balance.getIdEmpresa();
 		em.remove(balance);
 		em.getTransaction().commit();
