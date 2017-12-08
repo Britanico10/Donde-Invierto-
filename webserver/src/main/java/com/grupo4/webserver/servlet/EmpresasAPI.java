@@ -35,7 +35,7 @@ public class EmpresasAPI {
 	@RequestMapping(method = PUT)
 	public List<Empresa> modificarEmpresa(@RequestParam(value = "id", defaultValue = "", required = false) long id,
 										  @RequestParam(value = "nuevonombre", defaultValue = "nada", required = false) String nuevoNombre,
-										  @RequestParam(value = "nuevoaño", defaultValue = "0", required = false) int año,
+										  @RequestParam(value = "nuevoano", defaultValue = "0", required = false) int año,
 										  @RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
@@ -61,7 +61,7 @@ public class EmpresasAPI {
 	
 	@RequestMapping(method = POST)
 	public List<Empresa> agregarEmpresa(@RequestParam(value = "nombre", defaultValue = "nada", required = false) String nombre,
-			  							@RequestParam(value = "año", defaultValue = "0", required = false) int año,
+			  							@RequestParam(value = "ano", defaultValue = "0", required = false) int año,
 			  							@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
