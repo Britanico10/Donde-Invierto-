@@ -55,13 +55,19 @@ public class Empresas extends Repositorio {
 		public void eliminarEmpresa(long id) {
 			em.getTransaction().begin();
 			Empresa empresa = buscarPorId(id);
+			if(empresa == null) {
+				em.getTransaction().commit();
+				return;
+			}
 			Query queryBalance = em.createNamedQuery("buscarBalances").setParameter("empresaID", id);
 			List<Balance> balances = queryBalance.getResultList();
 			for(Balance b: balances) {
 				em.remove(b);
 			}
+			em.getTransaction().commit();
+			em.getTransaction().begin();
 			em.remove(empresa);
-			em.getTransaction().commit();			
+			em.getTransaction().commit();
 		}
 
 }
