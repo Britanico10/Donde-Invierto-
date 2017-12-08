@@ -2,7 +2,7 @@ function cargarEmpresa(){
 	var token = localStorage.getItem("Token");
   $.ajax({
             method: "GET",
-            url: "http://inversionesdds.herokuapp.com/api/empresas?token="+token,
+            url: "https://inversionesdds.herokuapp.com/api/empresas?token="+token,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false
@@ -37,7 +37,7 @@ function cargarBalances(){
   var idEmpresa= localStorage.getItem("ID");
   $.ajax({
             method: "GET",
-            url: "http://inversionesdds.herokuapp.com/api/empresas?token="+token,
+            url: "https://inversionesdds.herokuapp.com/api/empresas?token="+token,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false
@@ -92,7 +92,7 @@ function validarNombre(n){
     var longitud;
     $.ajax({
             method: "GET",
-            url: "http://inversionesdds.herokuapp.com/api/empresas?token="+token,
+            url: "https://inversionesdds.herokuapp.com/api/empresas?token="+token,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false
@@ -122,7 +122,7 @@ function aplicarIndicador2(){
   var periodoA = localStorage.getItem("PAplicar");
     $.ajax({
             method: "GET",
-            url: "http://inversionesdds.herokuapp.com/api/indicadores/aplicar?empresa="+nombreA+"&periodo="+periodoA+"&token="+token,
+            url: "https://inversionesdds.herokuapp.com/api/indicadores/aplicar?empresa="+nombreA+"&periodo="+periodoA+"&token="+token,
             contentType: "application/json;charset=UTF-8",
             async: false
         }).done(function(data) {
@@ -137,7 +137,7 @@ function eliminarBalance(id){
   var token = localStorage.getItem("Token");  
   $.ajax({
     method: "DELETE",
-    url: "http://inversionesdds.herokuapp.com/api/balances?id="+id+"&token="+token,
+    url: "https://inversionesdds.herokuapp.com/api/balances?id="+id+"&token="+token,
     contentType: "application/json;charset=UTF-8",
     dataType: "json",
     async: false
@@ -168,7 +168,7 @@ function crearBalance(){
   }
  $.ajax({
       method:"POST",
-      url: "http://inversionesdds.herokuapp.com/api/balances?capitalPropio="+capitalNB+"&deuda="+deudaNB+"&ebitda="+EBITDANB+"&fCashFlow="+flowNB+"&fds="+fdsNB+"&ingNetoOpCont="+contNB+"&ingNetoOpDiscont="+discontNB+"&periodo="+periodoNB+"&idEmpresa="+idEmpresa+"&token="+token,
+      url: "https://inversionesdds.herokuapp.com/api/balances?capitalPropio="+capitalNB+"&deuda="+deudaNB+"&ebitda="+EBITDANB+"&fCashFlow="+flowNB+"&fds="+fdsNB+"&ingNetoOpCont="+contNB+"&ingNetoOpDiscont="+discontNB+"&periodo="+periodoNB+"&idEmpresa="+idEmpresa+"&token="+token,
       contentType: "application/json;charset=UTF-8",
       dataType: "json",
       async: false
@@ -228,7 +228,7 @@ function editar(id){
     var token = localStorage.getItem("Token"); 
     $.ajax({
       method: "PUT",
-      url: "http://inversionesdds.herokuapp.com/api/balances?id="+id+"&capitalPropio="+capitalNB+"&deuda="+deudaNB+"&ebitda="+EBITDANB+"&fCashFlow="+flowNB+"&fds="+fdsNB+"&ingNetoOpCont="+contNB+"&ingNetoOpDiscont="+discontNB+"&periodo="+periodoNB+"&idEmpresa="+idEmpresa+"&token="+token,
+      url: "https://inversionesdds.herokuapp.com/api/balances?id="+id+"&capitalPropio="+capitalNB+"&deuda="+deudaNB+"&ebitda="+EBITDANB+"&fCashFlow="+flowNB+"&fds="+fdsNB+"&ingNetoOpCont="+contNB+"&ingNetoOpDiscont="+discontNB+"&periodo="+periodoNB+"&idEmpresa="+idEmpresa+"&token="+token,
       contentType: "application/json;charset=UTF-8",
       dataType: "json",
       async: false
@@ -249,7 +249,7 @@ function crearEmpresa(){
     var anio = $("#nuevoAnio").val();
     $.ajax({
             method: "POST",
-            url: "http://inversionesdds.herokuapp.com/api/empresas?nombre="+nombre+"&ano="+anio+"&token="+token,
+            url: "https://inversionesdds.herokuapp.com/api/empresas?nombre="+nombre+"&ano="+anio+"&token="+token,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false
@@ -270,7 +270,7 @@ function eliminarEmpresa(id){
   var token = localStorage.getItem("Token");  
   $.ajax({
     method: "DELETE",
-    url: "http://inversionesdds.herokuapp.com/api/empresas?id="+id+"&token="+token,
+    url: "https://inversionesdds.herokuapp.com/api/empresas?id="+id+"&token="+token,
     contentType: "application/json;charset=UTF-8",
     dataType: "json",
     async: false
@@ -305,7 +305,7 @@ function editarEmpresa(id){
     
     $.ajax({
       method: "PUT",
-      url: "http://inversionesdds.herokuapp.com/api/empresas?id="+id+"&nuevonombre="+NNombre+"&nuevoano="+Nano+"&token="+token,
+      url: "https://inversionesdds.herokuapp.com/api/empresas?id="+id+"&nuevonombre="+NNombre+"&nuevoano="+Nano+"&token="+token,
       contentType: "application/json;charset=UTF-8",
       dataType: "json",
       async: false
