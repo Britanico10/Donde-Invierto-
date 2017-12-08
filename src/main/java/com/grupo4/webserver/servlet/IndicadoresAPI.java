@@ -22,11 +22,11 @@ public class IndicadoresAPI {
 Servicios servicios = Servicios.getInstance();
 	
 	@RequestMapping(method = GET)
-	public List<Indicador> retornarIndicadores(@RequestParam(value = "token", defaultValue = "", required = false) String token){
+	public List<Indicador> retornarIndicadores(@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getIndicadorServicio().getIndicadores(userId);
@@ -34,11 +34,11 @@ Servicios servicios = Servicios.getInstance();
 	
 	@RequestMapping(method = DELETE)
 	public List<Indicador> borrarIndicador(@RequestParam(value = "id", defaultValue = "", required = false) long id,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getIndicadorServicio().eliminarIndicador(id, userId);
@@ -48,11 +48,11 @@ Servicios servicios = Servicios.getInstance();
 	public List<Indicador> crearIndicador(
 			@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
 			@RequestParam(value = "formula", defaultValue = "", required = false) String formula,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getIndicadorServicio().agregarIndicador(nombre, formula, userId);
@@ -62,11 +62,11 @@ Servicios servicios = Servicios.getInstance();
 	public List<Indicador> editarIndicador(
 			@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
 			@RequestParam(value = "formula", defaultValue = "", required = false) String formula,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getIndicadorServicio().editarIndicador(nombre, formula, userId);
@@ -76,22 +76,22 @@ Servicios servicios = Servicios.getInstance();
 	public String aplicarIndicadoresA(
 			@RequestParam(value = "empresa", defaultValue = "", required = false) String nombreEmpresa,
 			@RequestParam(value = "periodo", defaultValue = "", required = false) int periodo,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getIndicadorServicio().aplicarIndicadoresA(nombreEmpresa, periodo, userId);
 	}
 	
 	@RequestMapping("/precalculo")
-	public String precalculoIndicadores(@RequestParam(value = "token", defaultValue = "", required = false) String token){
+	public String precalculoIndicadores(@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getIndicadorServicio().precalculoIndicadores(userId);

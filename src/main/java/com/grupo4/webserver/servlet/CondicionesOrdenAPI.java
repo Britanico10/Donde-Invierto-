@@ -21,11 +21,11 @@ public class CondicionesOrdenAPI {
 	Servicios servicios = Servicios.getInstance();
 	
 	@RequestMapping(method = GET)
-	public List<CondicionOrden> retornarCondicionesOrden(@RequestParam(value = "token", defaultValue = "", required = false) String token){
+	public List<CondicionOrden> retornarCondicionesOrden(@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getCondicionOrdenServicio().getCondicionesOrden(userId);
@@ -33,11 +33,11 @@ public class CondicionesOrdenAPI {
 	
 	@RequestMapping(method = DELETE)
 	public List<CondicionOrden> borrarCondicionOrden(@RequestParam(value = "nombre", defaultValue = "", required = false) String nombre,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getCondicionOrdenServicio().borrarCondicion(nombre, userId);
@@ -53,11 +53,11 @@ public class CondicionesOrdenAPI {
 			@RequestParam(value = "nombreIndicador", defaultValue = "", required = false) String nombreIndicador,
 			@RequestParam(value = "periodo", defaultValue = "", required = false) int periodo,
 			@RequestParam(value = "importancia", defaultValue = "", required = false) int importancia,
-			@RequestParam(value = "token", defaultValue = "", required = false) String token){
+			@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
 		
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
-			return null;
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		
 		return servicios.getCondicionOrdenServicio().crearCondicion(tipo, nombre, inicioIntervalo, finIntervalo, nombreIndicador, periodo, importancia, userId);

@@ -14,7 +14,7 @@ import com.grupo4.inversiones.tools.CargadorDeArchivos;
 public class WebserverApplication {
 
 	public static void main(String[] args) throws IOException{
-		AplicarIndicadores.precalculo();
+		//AplicarIndicadores.precalculo();
 		SpringApplication.run(WebserverApplication.class, args);
 	}
 }
