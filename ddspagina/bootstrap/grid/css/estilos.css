@@ -35,7 +35,7 @@ ul.menu{
     color: #FFFFFF;
 }
 
-section.wrapper {
+section.tabla {
     background:  #FFA726;
     color: #FFFFFF;
     padding: 10px 20px;
@@ -48,6 +48,11 @@ table{
 }
 
 table td{
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+table th{
     border: 1px solid #000;
     padding: 10px;
 }

@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="css/estilosIndicadores.css">
     </head>
     <body onload="cargarBalances()">
-        <header class="container">
+        <header >
             <div id="headBalance">
                 <h1> Balance </h1>
             </div>
         </header>
-        <section class="wrapper container">
+        <section class="wrapper ">
             <section class="main row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="MI"> 
                     <h2> Lista de Balances </h2>
@@ -28,10 +28,45 @@
                                 <th> FDS </th> 
                                 <th> Ingreso Neto Op Cont </th>
                                 <th> Ingreso Neto Op Discont </th> 
+                                <th> </th>
                             </tr> 
                         </thead> 
-                        <tbody> 
+                        <tbody>                            
                         </tbody>
+                        <tfoot>
+                             <tr >
+                                <th>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="periodo" width="100%" id="periodoNB"></input>
+                                </th>
+       
+                                <th>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="Capital propio" width="100%" id="capitalNB"></input>
+                                </td>
+                                <th>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="Deuda" width="100%" id="deudaNB"></input>
+                                </th>
+                                <th>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="EBITDA" width="100%" id="EBITDANB"></input>
+                                </th>
+                                <th>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="Fcash Flow" width="100%" id="flowNB"></input>
+                                </th> 
+                                 <th>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="FDS" width="100%" id="fdsNB"></input>
+                                </th> 
+                                 <th>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="IN OP Cont" width="100%" id="contNB"></input>
+                                </th> 
+                                 <th>
+                                    <input type="text" name="nombre[]" class="nombre" placeholder="IN OP Disc" width="100%" id="discontNB"></input>
+                                </th> 
+                                
+                                <th colspan="10" height="40" id="Borrar">    
+                                    <button type="button" class="btn btn-info " id="BotonMedio" onclick=" crearBalance()"> Crear Balance</button>
+                                </th> 
+                            </tr>
+                            <tr></tr>
+                        </tfoot>
                     </table> 
                     </div>
                 </div>

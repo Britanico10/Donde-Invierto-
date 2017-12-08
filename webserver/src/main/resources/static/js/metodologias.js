@@ -7,7 +7,7 @@ function cargarMetodologias(){
 	var token = localStorage.getItem("Token");
 		$.ajax({
 			method: "GET",
-			url: "http://localhost:8080/api/metodologias?token="+token,
+			url: "http://inversionesdds.herokuapp.com/api/metodologias?token="+token,
 			contentType: "application/json;charset=UTF-8",
 			dataType: "json",
 			async: false
@@ -42,7 +42,7 @@ function aplicar(){
  // nombreB = nombreB.replace(/ /g,"");
   $.ajax({
     method: "GET",
-    url: "http://localhost:8080/api/metodologias/aplicar?nombre="+nombreB+"&token="+token,
+    url: "http://inversionesdds.herokuapp.com/api/metodologias/aplicar?nombre="+nombreB+"&token="+token,
     contentType: "application/json;charset=UTF-8",
     async: false
     })
@@ -62,7 +62,7 @@ function cargarDetalleOrden(){
   var idCO= localStorage.getItem("IDCO");
   $.ajax({
             method: "GET",
-             url: "http://localhost:8080/api/condicionesorden?token="+token,
+             url: "http://inversionesdds.herokuapp.com/api/condicionesorden?token="+token,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false
@@ -90,7 +90,7 @@ function cargarCondicionesOrden() {
     var token = localStorage.getItem("Token");
     $.ajax({
       method: "GET",
-      url: "http://localhost:8080/api/condicionesorden?token="+token,
+      url: "http://inversionesdds.herokuapp.com/api/condicionesorden?token="+token,
       contentType: "application/json;charset=UTF-8",
       dataType: "json",
       async: false
@@ -125,7 +125,7 @@ function eliminarCondicionOrden(id) {
     var nombre =  co[id];
     $.ajax({
       method: "DELETE",
-      url: "http://localhost:8080/api/condicionesorden?nombre="+nombre+"&token="+token,
+      url: "http://inversionesdds.herokuapp.com/api/condicionesorden?nombre="+nombre+"&token="+token,
       contentType: "application/json;charset=UTF-8",
       dataType: "json",
       async: false
@@ -161,7 +161,7 @@ function agregarCondicionOrden() {
     var nombreIndicador = $("#nIndicador").val();
     $.ajax({
       method:"POST",
-      url: "http://localhost:8080/api/condicionesorden?tipo="+tipo+"&nombre="+nombre+"&inicioIntervalo="+iI+"&finIntervalo="+fI+"&nombreIndicador="+nombreIndicador+"&periodo="+periodo+"&importancia="+importancia+"&token="+token,
+      url: "http://inversionesdds.herokuapp.com/api/condicionesorden?tipo="+tipo+"&nombre="+nombre+"&inicioIntervalo="+iI+"&finIntervalo="+fI+"&nombreIndicador="+nombreIndicador+"&periodo="+periodo+"&importancia="+importancia+"&token="+token,
       contentType: "application/json;charset=UTF-8",
       dataType: "json",
       async: false
@@ -192,7 +192,7 @@ function cargarDetalleFiltro(){
   var idCF= localStorage.getItem("IDCF");
   $.ajax({
             method: "GET",
-             url: "http://localhost:8080/api/condicionesfiltro?token="+token,
+             url: "http://inversionesdds.herokuapp.com/api/condicionesfiltro?token="+token,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false
@@ -220,7 +220,7 @@ function cargarCondicionesFiltro() {
     var token = localStorage.getItem("Token");
     $.ajax({
       method: "GET",
-      url: "http://localhost:8080/api/condicionesfiltro?token="+token,
+      url: "http://inversionesdds.herokuapp.com/api/condicionesfiltro?token="+token,
       contentType: "application/json;charset=UTF-8",
       dataType: "json",
       async: false
@@ -255,7 +255,7 @@ function eliminarCondicionFiltro(id) {
     var nombre =  cf[id];
     $.ajax({
       method: "DELETE",
-      url: "http://localhost:8080/api/condicionesfiltro?nombre="+nombre+"&token="+token,
+      url: "http://inversionesdds.herokuapp.com/api/condicionesfiltro?nombre="+nombre+"&token="+token,
       contentType: "application/json;charset=UTF-8",
       dataType: "json",
       async: false
@@ -291,7 +291,7 @@ function agregarCondicionFiltro() {
     var nombreIndicador = $("#nIndicador").val();
     $.ajax({
       method:"POST",
-      url: "http://localhost:8080/api/condicionesfiltro?tipo="+tipo+"&nombre="+nombre+"&inicioIntervalo="+iI+"&finIntervalo="+fI+"&nombreIndicador="+nombreIndicador+"&periodo="+periodo+"&comparador="+comparador+"&token="+token,
+      url: "http://inversionesdds.herokuapp.com/api/condicionesfiltro?tipo="+tipo+"&nombre="+nombre+"&inicioIntervalo="+iI+"&finIntervalo="+fI+"&nombreIndicador="+nombreIndicador+"&periodo="+periodo+"&comparador="+comparador+"&token="+token,
       contentType: "application/json;charset=UTF-8",
       dataType: "json",
       async: false
