@@ -7,7 +7,7 @@ function login(){
 	else {
         $.ajax({
             method: "GET",
-            url: "http://inversionesdds.herokuapp.com/api/iniciarsesion?nombre="+user+"&password="+pass,
+            url: "https://inversionesdds.herokuapp.com/api/iniciarsesion?nombre="+user+"&password="+pass,
             contentType: "application/json;charset=UTF-8",
             dataType: "json",
             async: false

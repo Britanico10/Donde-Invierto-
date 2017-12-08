@@ -32,7 +32,7 @@ function eliminar(id){
   var token = localStorage.getItem("Token");  
 	$.ajax({
 		method: "DELETE",
-		url: "http://inversionesdds.herokuapp.com/api/indicadores?id="+id+"&token="+token,
+		url: "https://inversionesdds.herokuapp.com/api/indicadores?id="+id+"&token="+token,
 		contentType: "application/json;charset=UTF-8",
 		dataType: "json",
 		async: false
@@ -53,7 +53,7 @@ function cargarIndicadores(){
 	var token = localStorage.getItem("Token");
 		$.ajax({
 			method: "GET",
-			url: "http://inversionesdds.herokuapp.com/api/indicadores?token="+token,
+			url: "https://inversionesdds.herokuapp.com/api/indicadores?token="+token,
 			contentType: "application/json;charset=UTF-8",
 			dataType: "json",
 			async: false
@@ -77,7 +77,7 @@ function agregarIndicador() {
 	} else {
 		$.ajax({
 			method: "POST",
-			url: "http://inversionesdds.herokuapp.com/api/indicadores?nombre="+nombre+"&formula="+formula+"&token="+token,
+			url: "https://inversionesdds.herokuapp.com/api/indicadores?nombre="+nombre+"&formula="+formula+"&token="+token,
 			contentType: "application/json;charset=UTF-8",
 			dataType: "json",
 			async: false
@@ -104,7 +104,7 @@ function editar(id){
     
     $.ajax({
 			method: "PUT",
-			url: "http://inversionesdds.herokuapp.com/api/indicadores?nombre="+nombre+"&formula="+formula+"&token="+token,
+			url: "https://inversionesdds.herokuapp.com/api/indicadores?nombre="+nombre+"&formula="+formula+"&token="+token,
 			contentType: "application/json;charset=UTF-8",
 			dataType: "json",
 			async: false
