@@ -36,7 +36,6 @@ public class Metodologias extends Repositorio{
 	   
 	   public List<Metodologia> buscarTodas(long idUsuario){
 		   Query query = em.createQuery("SELECT m FROM Metodologia m WHERE m.duenio = :idUsuario").setParameter("idUsuario", idUsuario);
-		   
 		   List<Metodologia> metodologias = query.getResultList();
 		   return metodologias;
 	   }

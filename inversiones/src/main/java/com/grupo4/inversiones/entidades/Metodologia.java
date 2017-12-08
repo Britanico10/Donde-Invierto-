@@ -7,9 +7,13 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import com.grupo4.inversiones.App;
 import com.grupo4.inversiones.entidades.condiciones.CondicionFiltro;
@@ -31,11 +35,12 @@ public class Metodologia extends Persistible{
 	private String nombre; 
 	private long duenio;
 	
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="condicionesOrden", joinColumns=@JoinColumn(name = "idMetodologia", referencedColumnName = "id"))
 	@Column(name="condicionOrden")
 	private List<String> condicionesOrden = new ArrayList<String>();
 	
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@ElementCollection
 	@CollectionTable(name="condicionesFiltro", joinColumns=@JoinColumn(name = "idMetodologia", referencedColumnName = "id"))
 	@Column(name="condicionFiltro")
