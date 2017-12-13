@@ -53,4 +53,5 @@ public class Balances extends Repositorio {
 		if(ingNetoOpDiscont != -1) balance.setIngNetoOpDiscont(ingNetoOpDiscont);
 		em.getTransaction().commit();
 	}
+	
 }

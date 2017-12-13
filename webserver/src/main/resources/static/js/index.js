@@ -80,7 +80,7 @@ function aplicarIndicador(){
     localStorage.setItem("EAplicar", nombreAplicar);
     localStorage.setItem("PAplicar", periodoAplicar);
 
-    window.open('Aplicarindicador.html','popup','width=600,height=450')
+    window.open('AplicarIndicador.html','popup','width=600,height=450')
     location.reload();
     }
 }

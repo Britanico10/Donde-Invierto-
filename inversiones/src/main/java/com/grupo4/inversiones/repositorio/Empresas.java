@@ -69,5 +69,12 @@ public class Empresas extends Repositorio {
 			em.remove(empresa);
 			em.getTransaction().commit();
 		}
+		
+		public void borrarEmpresas() {
+			em.getTransaction().begin();
+			em.createQuery("DELETE FROM Balance").executeUpdate();
+			em.createQuery("DELETE FROM Empresa").executeUpdate();
+			em.getTransaction().commit();
+		}
 
 }

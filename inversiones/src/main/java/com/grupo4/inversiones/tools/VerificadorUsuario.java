@@ -27,10 +27,7 @@ public class VerificadorUsuario {
 	}
 	
 	public static Boolean verificarUsuarioParaMetodologias(Long idMetodologia, Long idUsuario) {
-		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
-		long duenio = repositorio.metodologias().buscarDuenio(idMetodologia);
-		repositorio.cerrar();
-		return idUsuario.equals(duenio);
+		return idUsuario.equals(idMetodologia);
 	}
 
 }

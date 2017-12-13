@@ -37,4 +37,10 @@ public class EmpresaServicio {
 		return getEmpresas();
 	}
 	
+	public void borrarEmpresas() {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
+		repositorio.empresas().borrarEmpresas();
+		repositorio.cerrar();
+	}
+	
 }
