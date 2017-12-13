@@ -39,7 +39,7 @@ Se usa Spring Boot para levantar el servidor y exponer los servicios web. Estos 
 
 Iniciar sesión:
 
-  -GET a localhost:8080\api\iniciarsesion (devuelve token de sesión)
+  -GET a /api/iniciarsesion (devuelve token de sesión)
   
       parámetros:
           -nombre
@@ -49,62 +49,96 @@ Iniciar sesión:
   
 Empresas:
 
-  -GET a localhost:8080\api\empresas (devuelve la lista de empresas)
+  -GET a /api/empresas (devuelve la lista de empresas)
   
         parámetros:
           -token (de sesión)
+          
+  -PUT a /api/empresas (edita empresa)
   
+          parámetros:
+          -token (de sesión)
+          -nuevoano
+          -nuevonombre
+          -id
+
+  -POST a /api/empresas (crea empresa)
   
+          parámetros:
+          -token (de sesión)
+          -ano
+          -nombre
   
+  -DELETE a /api/empresas (borra empresa)
+  
+          parámetros:
+          -token (de sesión)
+          -id
+          
+  -GET a /api/empresas/borrarTodo (borra todas las empresas y balances)
+  
+        parámetros:
+          -token (de sesión)
+
 Indicadores:
 
-  -GET a localhost:8080\api\indicadores (devuelve la lista de indicadores del usuario)
+  -GET a /api/indicadores (devuelve la lista de indicadores del usuario)
   
         parámetros:
           -token (de sesión)
   
-  -DELETE a localhost:8080\api\indicadores (borra indicador y devuelve lista actualizada)
+  -DELETE a /api/indicadores (borra indicador y devuelve lista actualizada)
   
           parámetros:
           -id (del indicador)
           -token (de sesión)
           
-  -POST a localhost:8080\api\indicadores (crea indicador y devuelve lista actualizada)
+  -POST a /api/indicadores (crea indicador y devuelve lista actualizada)
   
           parámetros:
           -nombre (del indicador)
           -formula (del indicador)
           -token (de sesión)
           
-  -PUT a localhost:8080\api\indicadores (edita indicador y devuelve lista actualizada)
+  -PUT a /api/indicadores (edita indicador y devuelve lista actualizada)
   
           parámetros:
           -nombre (del indicador)
           -formula (del indicador)
           -token (de sesión)
           
+  -GET a /api/indicadores/aplicar (aplica indicadores)
+  
+        parámetros:
+          -token (de sesión)
+          -empresa
+          -periodo
           
-          
-Metodologías
-
-  -GET a localhost:8080\api\metodologias (devuelve la lista de metodologias del usuario)
+  -GET a /api/indicadores/precalculo (precalcula indicadores)
   
         parámetros:
           -token (de sesión)
           
-  -GET a localhost:8080\api\metodologias\aplicar (aplica metodología y devuelve resultado)
+Metodologías
+
+  -GET a /api/metodologias (devuelve la lista de metodologias del usuario)
+  
+        parámetros:
+          -token (de sesión)
+          
+  -GET a /api/metodologias/aplicar (aplica metodología y devuelve resultado)
   
         parámetros:
           -nombre (de metodologia)
           -token (de sesión)
           
-  -DELETE a localhost:8080\api\metodologias (borra metodología y devuelve lista actualizada)
+  -DELETE a /api/metodologias (borra metodología y devuelve lista actualizada)
   
         parámetros:
           -nombre (de metodología)
           -token (de sesión)
           
-  -POST a localhost:8080\api\metodologias (crea metodología y devuelve lista actualizada)
+  -POST a /api/metodologias (crea metodología y devuelve lista actualizada)
   
         parámetros:
           -nombre (de metodología)
@@ -112,7 +146,7 @@ Metodologías
           -condicionesOrden
           -token (de sesión)
           
-  -PUT a localhost:8080\api\metodologias (cambia nombre a metodología y devuelve lista actualizada)
+  -PUT a /api/metodologias (cambia nombre a metodología y devuelve lista actualizada)
   
         parámetros:
           -nombre (de metodología)
@@ -123,34 +157,97 @@ Metodologías
 
 Condiciones de filtrado
 
-  -GET a localhost:8080\api\condicionesFiltro (devuelve la lista de condicionesFiltro del usuario)
+  -GET a /api/condicionesFiltro (devuelve la lista de condicionesFiltro del usuario)
   
         parámetros:
           -token (de sesión)
           
-  -DELETE a localhost:8080\api\condicionesFiltro (elimina condicion y devuelve la lista de condicionesFiltro del usuario)
+  -DELETE a /api/condicionesFiltro (elimina condicion y devuelve la lista de condicionesFiltro del usuario)
   
         parámetros:
           -nombre (de condición)
           -token (de sesión)
           
-          
+  -POST a /api/condicionesFiltro (crea condicion y devuelve la lista de condicionesFiltro del usuario)
+  
+        parámetros:
+          -nombre (de condición)
+          -token (de sesión)
+          -tipo
+          -inicioIntervalo
+          -finIntervalo
+          -nombreIndicador
+          -periodo
+          -comparador
           
 Condiciones de ordenamiento
 
-  -GET a localhost:8080\api\condicionesOrden (devuelve la lista de condicionesOrden del usuario)
+  -GET a /api/condicionesOrden (devuelve la lista de condicionesOrden del usuario)
   
         parámetros:
           -token (de sesión)
 
 
-  -DELETE a localhost:8080\api\condicionesOrden (elimina condicion y devuelve la lista de condicionesOrden del usuario)
+  -DELETE a /api/condicionesOrden (elimina condicion y devuelve la lista de condicionesOrden del usuario)
   
         parámetros:
           -nombre (de condición)
           -token (de sesión)
           
+  -POST a /api/condicionesOrden (crea condicion y devuelve la lista de condicionesFiltro del usuario)
+  
+        parámetros:
+          -nombre (de condición)
+          -token (de sesión)
+          -tipo
+          -inicioIntervalo
+          -finIntervalo
+          -nombreIndicador
+          -periodo
+          -importancia
           
+Balances
+
+  -GET a /api/balances (devuelve balances de la empresa)
+  
+        parámetros:
+          -token (de sesión)
+          -idEmpresa
+          
+  -DELETE a /api/balances (borra balance)
+  
+        parámetros:
+          -token (de sesión)
+          -id
+
+  -POST a /api/balances (crea balance)
+  
+        parámetros:
+          -token (de sesión)
+          -idEmpresa
+          -periodo
+          -ingNetoOpCont
+          -ingNetoOpDiscont
+          -fds
+          -fCashFlow
+          -ebitda
+          -deuda
+          -capitalPropio
+
+  -PUT a /api/balances (edita balance)
+  
+        parámetros:
+          -token (de sesión)
+          -id (del balance)
+          -idEmpresa
+          -periodo
+          -ingNetoOpCont
+          -ingNetoOpDiscont
+          -fds
+          -fCashFlow
+          -ebitda
+          -deuda
+          -capitalPropio
           
 Para el inicio de sesión de los usuarios se utilizó la libreria JWT, que genera un token para cada sesión, el cuál esta encriptado y permite seguridad a la hora de hacer peticiones al servidor web. En cada petición al servidor, se enviará el token, que será desencriptado en el mismo y permitirá a este saber que usuario es el que solicita el servicio.
 
