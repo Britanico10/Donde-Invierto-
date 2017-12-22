@@ -37,6 +37,13 @@ public class EmpresaServicio {
 		return getEmpresas();
 	}
 	
+	public void agregarEmpresaSinRetorno(String nombre, int año) {
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
+		Empresa empresa = new Empresa(nombre, año);  
+		repositorio.empresas().persistir(empresa);
+		repositorio.cerrar();
+	}
+	
 	public void borrarEmpresas() {
 		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
 		repositorio.empresas().borrarEmpresas();

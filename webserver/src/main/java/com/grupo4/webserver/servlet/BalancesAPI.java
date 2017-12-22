@@ -98,4 +98,25 @@ public class BalancesAPI {
 			return servicios.getBalanceServicio().modificarBalance(id,capitalPropio,deuda,ebitda,fCashFlow,fds,ingNetoOpCont,ingNetoOpDiscont,periodo,idEmpresa);
 		}
 		
+		@RequestMapping("/agregar")
+		public String agregarBalanceSinRetorno(@RequestParam(value = "capitalPropio", defaultValue = "", required = false) int capitalPropio,
+											@RequestParam(value = "deuda", defaultValue = "", required = false) int deuda,
+											@RequestParam(value = "ebitda", defaultValue = "", required = false) int ebitda,
+											@RequestParam(value = "fCashFlow", defaultValue = "", required = false) int fCashFlow,
+											@RequestParam(value = "fds", defaultValue = "", required = false) int fds,
+											@RequestParam(value = "ingNetoOpCont", defaultValue = "", required = false) int ingNetoOpCont,
+											@RequestParam(value = "ingNetoOpDiscont", defaultValue = "", required = false) int ingNetoOpDiscont,
+											@RequestParam(value = "periodo", defaultValue = "", required = false) int periodo,
+											@RequestParam(value = "idEmpresa", defaultValue = "", required = false) long idEmpresa,
+				 							@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
+
+			long userId = AuthUtils.validarToken(token);
+			if (userId == -1L) {
+				throw new Exception("Token inválido, vuelva a iniciar sesión.");
+			}
+			
+			servicios.getBalanceServicio().agregarBalanceSinRetorno(capitalPropio,deuda,ebitda,fCashFlow,fds,ingNetoOpCont,ingNetoOpDiscont,periodo,idEmpresa);
+			return "OK";
+		}
+		
 }

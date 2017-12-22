@@ -30,6 +30,14 @@ public class BalanceServicio {
 		repositorio.cerrar();
 		return getBalances(idEmpresa);
 	}
+	
+	public void agregarBalanceSinRetorno(int capitalPropio, int deuda, int ebitda, int fCashFlow, int fds,
+			int ingNetoOpCont, int ingNetoOpDiscont, int periodo, long idEmpresa) {
+		Balance balance = new Balance(periodo, ebitda, fds, fCashFlow, ingNetoOpCont, ingNetoOpDiscont, deuda, capitalPropio, idEmpresa);
+		Repositorio repositorio = new Repositorio(App.EM_FACTORY.createEntityManager());
+		repositorio.balances().persistir(balance);
+		repositorio.cerrar();
+	}
 
 	public List<Balance> modificarBalance(long id, int capitalPropio, int deuda, int ebitda, int fCashFlow, int fds,
 			int ingNetoOpCont, int ingNetoOpDiscont, int periodo, long idEmpresa) {

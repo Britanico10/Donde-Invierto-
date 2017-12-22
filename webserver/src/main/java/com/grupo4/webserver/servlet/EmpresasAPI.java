@@ -74,12 +74,27 @@ public class EmpresasAPI {
 	}
 	
 	@RequestMapping("/borrarTodo")
-	public void borrarEmpresa(@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception {
+	public String borrarEmpresa(@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception {
 		long userId = AuthUtils.validarToken(token);
 		if (userId == -1L) {
 			throw new Exception("Token inválido, vuelva a iniciar sesión.");
 		}
 		servicios.getEmpresaServicio().borrarEmpresas();
+		return "OK";
+	}
+	
+	@RequestMapping("/agregar")
+	public String agregarEmpresaSinRetorno(@RequestParam(value = "nombre", defaultValue = "nada", required = false) String nombre,
+			  							@RequestParam(value = "ano", defaultValue = "0", required = false) int año,
+			  							@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception{
+		
+		long userId = AuthUtils.validarToken(token);
+		if (userId == -1L) {
+			throw new Exception("Token inválido, vuelva a iniciar sesión.");
+		}
+		
+		servicios.getEmpresaServicio().agregarEmpresaSinRetorno(nombre,año);
+		return "OK";
 	}
 	
 }
