@@ -73,6 +73,7 @@ public class EmpresasAPI {
 		
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping("/borrarTodo")
 	public String borrarEmpresa(@RequestParam(value = "token", defaultValue = "", required = false) String token) throws Exception {
 		long userId = AuthUtils.validarToken(token);
@@ -97,4 +98,6 @@ public class EmpresasAPI {
 		return "OK";
 	}
 	
+=======
+>>>>>>> bfe855a6c45c28c7051fb3e0cc1c28d326b2d7ba
 }

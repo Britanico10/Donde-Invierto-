@@ -98,6 +98,7 @@ public class BalancesAPI {
 			return servicios.getBalanceServicio().modificarBalance(id,capitalPropio,deuda,ebitda,fCashFlow,fds,ingNetoOpCont,ingNetoOpDiscont,periodo,idEmpresa);
 		}
 		
+<<<<<<< HEAD
 		@RequestMapping("/agregar")
 		public String agregarBalanceSinRetorno(@RequestParam(value = "capitalPropio", defaultValue = "", required = false) int capitalPropio,
 											@RequestParam(value = "deuda", defaultValue = "", required = false) int deuda,
@@ -119,4 +120,6 @@ public class BalancesAPI {
 			return "OK";
 		}
 		
+=======
+>>>>>>> bfe855a6c45c28c7051fb3e0cc1c28d326b2d7ba
 }
