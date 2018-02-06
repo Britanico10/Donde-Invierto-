@@ -13,20 +13,36 @@ function cargarTabla(data) {
 	}
 }
 
-function mostrarEditar(id){ 
-    var fila = $("#"+id);
+function mostrarEditar(id){
+	localStorage.setItem("INDICADOR", id);
+	window.open('EditIndicadores.html','popup','width=600,height=700') /*aca se abre EditIndicadores.html para modificar el indicador*/
+}  
+
+
+
+/*funcion nueva */
+
+function modificaIndicador(){
+	var id= localstorage.getItem("INDICADOR");
+	var fila = $("#"+id);
     var nombre = fila.find("td:eq(0)").html(); 
     var tabla=$("#Indicadores");
-	var id= id;
+	//var id= id; 
 	var numero=70;
     var filaNueva = "<tr id=\""+numero+"\">"
     filaNueva += "<td>"+nombre+"</td>"
     filaNueva += "<td><input type\"text\" id=\"nuevaF\" placeholder=\"Nueva Formula\"</td>"
     filaNueva+= "<td></td>"
-	filaNueva += "<td><button type=\"button\" class=\"btn btn-success\" onclick=\"editar("+id+")\" > Aceptar </button></td>"
-	tabla.find("tfoot").append(filaNueva);
+	filaNueva += "<td><button type=\"button\" class=\"btn btn-success\" onclick=\"editar("+id+"); close();\" > Aceptar </button></td>"
+	tabla.find("tfoot").append(filaNueva);	
 }
 
+/*funcion nueva*/
+
+function closeMe(){
+    window.opener = self;
+    window.close();
+}
 
 function eliminar(id){
   var token = localStorage.getItem("Token");  
